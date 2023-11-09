@@ -27,7 +27,7 @@
     display: flex ;
     flex-direction: column;
     gap: 8px;
-    width: 70%;
+    width: 90%;
     align-items: center;
     margin-top: 32px;
     margin-bottom: 16px;

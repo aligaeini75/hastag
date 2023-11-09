@@ -7,9 +7,9 @@
             <img class="img-icon" src="images/line.svg" />
             <img class="img-icon" src="images/shopping.svg" />
             <div class="inventory-parent">
-                موجودی 
+                <div style="color: #404040;margin-left: 8px;">موجودی :</div> 
                 <div class="inventory">
-                        980هزارتومان   
+                       {{ toFarsiNumber(980)}} هزارتومان   
                         <div class="Inventory-increase">
                             افزایش موجودی
                         </div> 
@@ -47,7 +47,15 @@
   export default defineComponent({
     setup() {
        const name = ref("ali")
-      return { name }
+       const toFarsiNumber = (n) =>  {
+            const farsiDigits = ['۰', '۱', '۲', '۳', '۴', '۵', '۶', '۷', '۸', '۹'];   
+            return n
+              .toString()
+              .split('')
+              .map(x => farsiDigits[x])
+              .join('');
+  }     
+      return { toFarsiNumber , name }
     },
   })
   </script>
@@ -60,6 +68,14 @@
 }
 .theme--dark.v-icon {
     color: #404040;
+}
+.v-text-field.v-text-field--solo:not(.v-text-field--solo-flat) > .v-input__control > .v-input__slot {
+    background-color: #F5F5F5 ;
+    border-radius: 13px;
+    width: 290px;
+    height: 40px;
+    margin-top: 8px;
+    box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.2), 0px 2px 2px 0px rgba(0, 0, 0, 0.14), 0px 1px 5px 0px rgba(0, 0, 0, 0.12);
 }
 .v-text-field.v-text-field--solo .v-input__control {
     min-height: 48px;
@@ -76,7 +92,7 @@
     justify-content: center ;
     background-color: white;
     border-bottom: .5px solid #878787;
-    min-height: 50px;
+    height: 100px;
     padding: 16px;
     .left-section {
         display: flex ;
@@ -85,6 +101,7 @@
         // background-color: red;
         align-items: center;
         gap: 16px;
+        margin-left: 36px;
         .inventory-parent {
             color: #404040;
             display: flex;
@@ -134,7 +151,7 @@
             display: flex ;
             flex-direction: row ;
             align-items: center;
-            flex-grow: 1;
+            flex-grow: 2;
         }
         .icon-box {
             display: flex ;
@@ -156,8 +173,8 @@
     }
   }
   .img-icon {
-    width: 25px;
-    height: 25px;
+    width: 20px;
+    height: 20px;
   }
   </style>
   

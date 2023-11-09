@@ -36,19 +36,19 @@
   </script>
   <style lang="scss">
   .main-parent {
-    background-color: #F5F5F5;
+    background-color: #e4e4e4;
     display: flex ;
     flex-direction: row ;
     width: 100vw;
     height: fit-content;
     .filter-section {
         display: flex ;
-        flex-grow: 5 ;
+        flex-grow: 7 ;
         padding-top: 8px;
     }
     .content-section {
         display: flex ;
-        flex-grow: 10 ;
+        flex-grow: 20 ;
         padding-top: 24px;
     }
     .category-section {
@@ -56,7 +56,8 @@
         display: flex ;
         flex-direction: row;
         justify-content: center;
-        flex-grow: .3 ;
+        flex-grow: 1 ;
+        max-width: 300px;
     }
     .side {
         display: flex ;

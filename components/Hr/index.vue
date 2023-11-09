@@ -17,7 +17,7 @@
   </script>
   <style lang="scss">
   .hr-parent {
-    width: 70%;
+    width: 90%;
     display: flex ;
     flex-direction: row ;
     justify-content: center;

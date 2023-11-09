@@ -17,6 +17,7 @@
                     <span class="text">همه</span>
                     <v-checkbox
                       label=""
+                      color="red"
                     ></v-checkbox>
                     
                 </div>
@@ -55,7 +56,7 @@
     flex-direction: column ;
     padding: 8px;
     .title-section {
-        width: 70% ;
+        width: 90% ;
         height: fit-content ;
         
         display: flex ;
@@ -68,10 +69,11 @@
             .style1 {
                 font-weight: bold ;
                 color: #404040;
+                font-size: .8em;
             }
             .style2 {
                 color: #545454;
-                font-size: .8em;
+                font-size: .7em;
             }
         }
         .icons {
@@ -82,30 +84,34 @@
             span {
                 color: #D85240;
                 font-weight: bold;
-                font-size: 1.1em;
+                font-size: .9em;
             }
             svg {
                 fill: #D85240;
                 
             }
             .image {
-                width: 40px;
-                height: 40px;
+                width: 30px;
+                height: 30px;
             }
 
         }
     }
     .filter-items {
-        width: 70%  ;
+        width: 90%  ;
         height: fit-content ;
         border-radius: .5px solid #888888;
-        background-color: #F0F0F0;
+        background-color: #f5f5f5;
         border-radius: 8px;
         margin-top: 8px;
         display: flex ;
         flex-direction: column ;
         align-items: flex-end;
+        
         .item {
+            input[id="input-18"] + label {
+            border: 1px solid red !important;
+        }
             display: flex ;
             flex-direction: row ;
             align-items: center;

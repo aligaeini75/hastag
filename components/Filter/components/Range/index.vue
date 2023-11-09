@@ -54,7 +54,7 @@ setup( props ) {
     display: flex ;
     flex-direction: column ;
     gap: 8px ;
-    width: 70% ;
+    width: 90% ;
     margin-top: 20px;
     .range-sd {
         display: flex ;
@@ -73,7 +73,7 @@ setup( props ) {
         color: #404040 ;
         margin-top: 8px;
         font-weight: bold ;
-        font-size: 1.2em;
+        font-size: 16px;
 
     }
     .range-buttons {
@@ -91,7 +91,7 @@ setup( props ) {
                 text-align: center;
             }
             .input-right {
-                width: 70px ;
+                width: 90px ;
                 height: 40px ;
                 background-color: #F0F0F0;
                 display: flex ;
@@ -104,7 +104,7 @@ setup( props ) {
                 
             }
             .input-left {
-                width: 70px ;
+                width: 90px ;
                 height: 40px ;
                 background-color: #F0F0F0;
                 display: flex ;

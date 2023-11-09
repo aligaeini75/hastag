@@ -4,7 +4,7 @@
         <img src="images/side/side-menu-2.svg" />
         <img src="images/side/side-menu-3.svg" />
         <img src="images/side/side-menu-4.svg" />
-        <img src="images/side/side-menu-5.svg" />
+        <img src="images/side/side-menu-5.svg" style="margin-top: 46px;" />
     </div>
   </template>
   
@@ -25,11 +25,11 @@
         padding-top: 16px;
         flex-direction: column ;
         align-items: center;
-        gap: 16px ;
+        gap: 20px ;
         width: 100%;
         img {
-            width: 40px;
-            height: 40px;
+            width: 25px;
+            height: 25px;
         }
 
     }

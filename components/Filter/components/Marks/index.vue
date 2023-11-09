@@ -31,7 +31,7 @@ setup() {
     flex-direction: column ;
     gap: 8px ;
     .marks-title {
-        width: 70% ;
+        width: 90% ;
         height: fit-content;
         padding: 8px ;
         display: flex;
@@ -40,21 +40,21 @@ setup() {
         color: #404040 ;
         margin-top: 8px;
         font-weight: bold ;
-        font-size: 1.2em;
+        font-size: 16px;
 
     }
     .marks { 
-        width: 70% ;
+        width: 90% ;
         display: flex ;
         flex-direction: row ;
         justify-content: space-around ;
         .image {
-            width:  65px ;
-            height: 65px;
-        }
-        .image2 {
             width:  50px ;
             height: 50px;
+        }
+        .image2 {
+            width:  40px ;
+            height: 40px;
             margin-top: 4px;
         }
     }

@@ -15,7 +15,7 @@
 
 <script>
 import { defineComponent , ref } from '@nuxtjs/composition-api'
-import VuePersianDatetimePicker from 'vue-persian-datetime-picker'
+import VuePersianDatetimePicker from '../../../../node_modules/vue-persian-datetime-picker/src/VuePersianDatetimePicker.vue'
 
 export default defineComponent({
 components : {
@@ -43,19 +43,19 @@ setup( ) {
     display: flex ;
     flex-direction: column ;
     gap: 8px ;
-    width: 70%;
+    width: 90%;
     margin-top: 16px;
     .calender-titles {
         display: flex ;
         flex-direction: row ;
         justify-content: space-between ;
         .calender-title-style1 {
-            font-size: 1.2em ;
+            font-size: 16px ;
             color: #404040 ;
             font-weight: bold ;
         }
         .calender-title-style-2{
-            font-size: 1.1em ;
+            font-size: 14px ;
             color: #5E7DBE ;
         }
     }

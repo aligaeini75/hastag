@@ -63,7 +63,7 @@
     justify-content: flex-end;
     margin-top: 8px;
     .secret-media {
-        width: 73% ;
+        width: 100% ;
         display: flex ;
         align-self: center;
         margin-left: -10px;
