@@ -39,7 +39,7 @@
 
     .registerSwitch-w-parent .item{width:50%;}
 
-    .registerSwitch-w-parent .item label{width:100%;height:100%;display:block;display: flex;align-items: center;justify-content: center;transition:all 0.25s;}
+    .registerSwitch-w-parent .item label{width:100%;height:100%;display:block;display: flex;align-items: center;justify-content: center;transition:all 0.25s;cursor: pointer;}
 
     .registerSwitch-w-parent .item input:checked+label{color:#5E7DBE!important;border-radius: 5px;background: #FFF;box-shadow: 0px 4px 8px 0px rgba(0, 0, 0, 0.15);}
 
