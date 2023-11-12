@@ -1,12 +1,12 @@
 <template>
     <div class="d-flex register-input-container">
-        <inputCom idInput="name" titleInput="نام" typeInput="text" />
-        <inputCom idInput="family" titleInput="نام خانوادگی" typeInput="text" />
-        <inputCom idInput="companyName" titleInput="نام شرکت" typeInput="text" />
-        <inputCom idInput="phoneNumber" titleInput="شماره همراه" typeInput="number" />
+        <inputCom idInput="name" titleInput="نام" typeInput="text" require-input="true" />
+        <inputCom idInput="family" titleInput="نام خانوادگی" typeInput="text" require-input="true" />
+        <inputCom idInput="companyName" titleInput="نام شرکت" typeInput="text" require-input="true" />
+        <inputCom idInput="phoneNumber" titleInput="شماره همراه" typeInput="number" require-input="true" />
         <inputCom idInput="telegram" titleInput="ID یا شماره تلگرام" typeInput="text" />
-        <inputCom idInput="email" titleInput="ایمیل" typeInput="email" />
-        <inputCom idInput="password" titleInput="انتخاب رمزعبور" typeInput="text" subTitleInput="(حداقل 9 کاراکتر)" />
+        <inputCom idInput="email" titleInput="ایمیل" typeInput="email" require-input="true" />
+        <inputCom idInput="password" titleInput="انتخاب رمزعبور" typeInput="password" subTitleInput="(حداقل 9 کاراکتر)" require-input="true" />
         <captcha titleInput="لطفا تیک من ربات نیستم را بزنید" />
         <inputCheckBoxCom idInput="accept-role" hTitleInput=" قوانین و ظوابط" titleInput="رو خوندم و موافقم" nameInput="accept-role" class="w-100 mt-10p" />
         <inputButton buttonTitle="ارسال کد تایید" class="w-100 mt-10p" /> 
@@ -48,6 +48,9 @@
     }
     .input-item.companyName, .input-item.phoneNumber{
       width: calc(50% - 8px);
+    }
+    .input-item {
+        width: 100%;
     }
 }
   </style>

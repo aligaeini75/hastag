@@ -17,7 +17,7 @@
     })
 </script>
 <style lang="scss">
-    .header-w-parent{width:100%;justify-content: space-between;}
+    .header-w-parent{width:100%;justify-content: space-between;padding: 0 16px;}
     .header-w-parent .logo{display: flex; align-items: center;gap: 8px;flex-direction: row;}
     .d-flex{display:flex}
     .border-none{border:none;}
