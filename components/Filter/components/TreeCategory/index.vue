@@ -2,14 +2,19 @@
   <v-container rtl>
     <v-row>
       <v-col>
-        <v-treeview
+        <v-treeview :items="items">
+          <template v-slot:prepend="{ item }">
+            <input type="checkbox" name="checkbox-checked" checked style="margin-top: 12px;margin-left: 8px;" />
+          </template>
+        </v-treeview>
+        <!-- <v-treeview
           v-model="selection"
           :items="items"
           :selection-type="selectionType"
           selectable
           return-object
           open-all
-        ></v-treeview>
+        ></v-treeview> -->
       </v-col>
       <v-divider vertical></v-divider>
     </v-row>
@@ -50,14 +55,22 @@ setup( ) {
 <style lang="scss">
 .container {
     direction: rtl;
+    input[type="checkbox"] {
+                appearance: none;
+                background-color: #fff;
+                color: #888888;
+                margin: 0;
+                font: inherit;
+                width: 1.15em;
+                height: 1.15em;
+                border: .5px solid #888888;
+                border-radius: 0.15em;
+                transform: translateY(-0.075em);
+                border-radius: 5px;
+            }
 }
-.v-treeview {
-    color: #5A5A5A;
-}
-.v-treeview-node__label {
-    margin-top: 4px;
-    color: #5A5A5A;
-}
+          
+              
 
 </style>
 

@@ -2,10 +2,10 @@
     <div class="header-parent"> 
         <div class="left-section">
             <img class="img-icon" src="images/person.svg" />
-            <img class="img-icon" src="images/line.svg" />
+            <img class="img-icon" src="images/line.svg" style="height: 29px;" />
             <img class="img-icon" src="images/message.svg" />
-            <img class="img-icon" src="images/line.svg" />
-            <img class="img-icon" src="images/shopping.svg" />
+            <img class="img-icon" src="images/line.svg" style="height: 29px;"  />
+            <img class="img-icon" src="images/shopping.svg"  @click="setShoppingSection( !shoppingSection )"/>
             <div class="inventory-parent">
                 <div style="color: #404040;margin-left: 8px;">موجودی :</div> 
                 <div class="inventory">
@@ -19,7 +19,7 @@
             
         </div>
         <div class="right-section">
-            <div class="search-box">
+            <div class="search-box" style="width: 10px;">
                 <v-text-field
                 style="direction: rtl;"
             solo
@@ -43,7 +43,7 @@
   
   <script>
   import { computed, defineComponent, ref, useRoute , name } from '@nuxtjs/composition-api'
-  
+  import { shoppingSection , setShoppingSection } from '../../composition/content/Header/index'
   export default defineComponent({
     setup() {
        const name = ref("ali")
@@ -55,7 +55,7 @@
               .map(x => farsiDigits[x])
               .join('');
   }     
-      return { toFarsiNumber , name }
+      return { setShoppingSection , shoppingSection , toFarsiNumber , name }
     },
   })
   </script>
@@ -70,7 +70,7 @@
     color: #404040;
 }
 .v-text-field.v-text-field--solo:not(.v-text-field--solo-flat) > .v-input__control > .v-input__slot {
-    background-color: #F5F5F5 ;
+    background-color: #F8F8F8 ;
     border-radius: 13px;
     width: 290px;
     height: 40px;
@@ -100,11 +100,16 @@
         flex-direction: row ;
         // background-color: red;
         align-items: center;
-        gap: 16px;
+        gap: 24px;
         margin-left: 36px;
+        img {
+            width: 20px ;
+            height: 20px;
+        }
         .inventory-parent {
             color: #404040;
             display: flex;
+            margin-left: 24px !important;
             flex-direction: row ;
             direction: rtl;
             align-items: center;

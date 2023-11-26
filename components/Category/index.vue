@@ -1,6 +1,6 @@
 <template>
     <div class="category-parent">
-        <div class="search-box">
+        <div class="search-box" >
             <v-text-field
                 solo
                 style="direction: rtl;"
@@ -10,7 +10,7 @@
                 id="32"
             ></v-text-field>
         </div>
-        <div class="hr-parent">
+        <div class="hr-parent-category-top">
             <div class="hr"></div>
         </div>
         <v-container>
@@ -26,9 +26,7 @@
                             <div class="expansion-panel">
                                 <div class="item">
 
-                                    <v-checkbox
-                                      label=""
-                                    ></v-checkbox>
+                                    <input type="checkbox" name="checkbox-checked" checked />
                                     <span class="text">اخبار فناوری</span>
                                 
                                 </div>
@@ -38,9 +36,7 @@
                             <div class="expansion-panel">
                                 <div class="item">
 
-                                    <v-checkbox
-                                      label=""
-                                    ></v-checkbox>
+                                    <input type="checkbox" name="checkbox-checked1" checked />
                                     <span class="text">اموزش کامپیوتر</span>
                                 
                                 </div>
@@ -50,9 +46,7 @@
                             <div class="expansion-panel">
                                 <div class="item">
 
-                                    <v-checkbox
-                                      label=""
-                                    ></v-checkbox>
+                                    <input type="checkbox" name="checkbox-checked2" checked />
                                     <span class="text">برنامه نویسی</span>
                                 
                                 </div>
@@ -62,14 +56,12 @@
                             <div class="expansion-panel">
                                 <div class="item">
 
-                                    <v-checkbox
-                                      label=""
-                                    ></v-checkbox>
+                                    <input type="checkbox" name="checkbox-checked3" checked />
                                     <span class="text">دانشگاهی</span>
                                 
                                 </div>
                             </div>
-                            <div class="hr-parent">
+                            <div class="hr-parent-bottom">
                                 <div class="hr"></div>
                             </div>
                             <Tree /> 
@@ -130,10 +122,42 @@
         width: 90%;
         display: flex ;
         flex-direction: row ;
-        align-items: flex-end;
+        align-items: center;
     }
     .hr-parent {
         width: 100%;
+        margin-top: -30px;
+        display: flex ;
+        flex-direction: row ;
+        justify-content: center;
+        .hr {
+          display: flex ;
+          width: 90% ;
+          height: 1px;
+          border-radius: 50% ;
+          background-color: #ADADAD;
+          align-self: center;
+          margin-top: 32px;
+    }
+  }
+  .hr-parent-bottom {
+        width: 203px ; 
+        margin-top: -50px;
+        display: flex ;
+        flex-direction: row ;
+        justify-content: center;
+        .hr {
+          display: flex ;
+          width: 90% ;
+          height: 1px;
+          border-radius: 50% ;
+          background-color: #ADADAD;
+          align-self: center;
+          margin-top: 32px;
+    }
+  }
+  .hr-parent-category-top {
+        width: 185px;
         margin-top: -30px;
         display: flex ;
         flex-direction: row ;
@@ -182,6 +206,7 @@
                 margin-bottom: 16px;
                 // padding: 8px;
                 border-radius: 8px;
+                
                 .item {
                     display: flex ;
                     flex-direction: row ;
@@ -189,8 +214,28 @@
                     justify-content: flex-start;
                     height: 50px;
                     gap: 8px;
+                    margin-right: 16px;
+                    input[type="checkbox"] {
+                appearance: none;
+                background-color: #fff;
+                color: #888888;
+                margin: 0;
+                font: inherit;
+                width: 1.15em;
+                height: 1.15em;
+                border: .5px solid #888888;
+                border-radius: 0.15em;
+                transform: translateY(-0.075em);
+                border-radius: 5px;
+            }
                     .text {
-                        color: #6A6760;
+                        font-size: 16px;
+                        font-weight: 500;
+                        line-height: 25px;
+                        letter-spacing: 0em;
+                        text-align: right;
+                        color: #606060;
+
                     }
                 }
             }
@@ -215,8 +260,28 @@
                     justify-content: flex-start;
                     height: 50px;
                     gap: 8px;
+                    margin-right: 16px;
+                    input[type="checkbox"] {
+                appearance: none;
+                background-color: #fff;
+                color: #888888;
+                margin: 0;
+                font: inherit;
+                width: 1.15em;
+                height: 1.15em;
+                border: .5px solid #888888;
+                border-radius: 0.15em;
+                transform: translateY(-0.075em);
+                border-radius: 5px;
+            }
+              
                     .text {
-                        color: #6A6760;
+                        font-size: 16px;
+                        font-weight: 500;
+                        line-height: 25px;
+                        letter-spacing: 0em;
+                        text-align: right;
+                        color: #606060;
                     }
                 }
             }

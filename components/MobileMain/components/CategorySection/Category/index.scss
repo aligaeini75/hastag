@@ -1,5 +1,7 @@
+
 .v-text-field.v-text-field--solo:not(.v-text-field--solo-flat) > .v-input__control > .v-input__slot {
-    width: 260px;
+    width: 90%;
+    margin-right: 16px;
     box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.2), 0px 2px 2px 0px rgba(0, 0, 0, 0.14), 0px 1px 5px 0px rgba(0, 0, 0, 0.12);
 }
   .theme--light.v-divider {
@@ -18,10 +20,9 @@
     height: 100%;
     align-self: center;
     .search-box {
-        width: 90%;
+        width: 100vw;
         display: flex ;
         flex-direction: row ;
-        align-items: flex-end;
     }
     .hr-parent {
         width: 100%;
@@ -51,17 +52,19 @@
 .v-expansion-panel-header {
     font-weight: bold;
 }
-  .category-parent-expand {
+  .category-parent-expand1 {
     display: flex ;
     flex-direction: row ;
     gap: 8px ;
-    width: 100%;
+    width: 100vw;
     justify-content: center;
     margin-top: 8px;
-    .secret-media {
+    padding: 0 !important;
+    .secret-media1 {
         width: 100% ;
         display: flex ;
         align-self: center;
+        margin-left: 80px;
         .expansion-panel-parent {
             display: flex ;
             flex-direction: row ;

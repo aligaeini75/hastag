@@ -1,10 +1,10 @@
 <template>
-    <div class="calender-parent">
+    <div class="calender-parent" style="background-color: transparent;">
         <div class="calender-titles">
             <div class="calender-title-style-2">
                 رفتن به تاریخ امروز
             </div>
-            <div class="calender-title-style1">
+            <div class="calender-title-style21">
                 تقویم
             </div>
             
@@ -39,6 +39,9 @@ setup( ) {
     color: grey;
     font-family: YekanBakh;
 }
+.vpd-content {
+    border-radius: 13px !important;
+}
 .calender-parent {
     display: flex ;
     flex-direction: column ;
@@ -48,6 +51,35 @@ setup( ) {
     .calender-titles {
         display: flex ;
         flex-direction: row ;
+        width: 100%;
+        justify-content: space-between ;
+        .calender-title-style21 {
+            color: #404040 ;
+            font-size: 16px;
+            font-weight: 500;
+            line-height: 25px;
+            letter-spacing: 0em;
+            text-align: right;
+
+        }
+        .calender-title-style-2{
+            font-size: 14px ;
+            color: #5E7DBE ;
+        }
+    }
+    .calender {
+        margin-top: 20px;
+    }
+    @media screen and (min-width: 700px) {
+        .calender {
+            margin-top: 20px;
+            margin-right: 24px;
+    }
+    .calender-titles {
+        display: flex ;
+        flex-direction: row ;
+        width: 100%;
+        margin-right: 16px;
         justify-content: space-between ;
         .calender-title-style1 {
             font-size: 16px ;
@@ -59,9 +91,7 @@ setup( ) {
             color: #5E7DBE ;
         }
     }
-    .calender {
-        margin-top: 20px;
-    }
+}
     
 }
 

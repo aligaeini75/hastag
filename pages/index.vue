@@ -28,5 +28,8 @@ export default defineComponent({
 })
 </script>
 <style>
+.vpd-actions {
+  display: none;
+}
 </style>
 

@@ -1,12 +1,72 @@
 <template>
     <div class="column">
+        <div class="shopping" v-if="shoppingSection">
+            <div class="title">
+                <img src="images/shopping-close-icon.svg" @click="setShoppingSection( false )" />
+                <span>سبد خرید</span>
+                <!--  -->
+            </div>
+            <div class="shop-item-parent">
+                    <div class="shop-item" v-for=" i in 3">
+                        <div class="left-si">
+                            <div class="parent-red-close">
+                                <img src="images/red-close.svg" />
+                            </div>
+                            <div style="display: flex ; flex-direction: row ;justify-content: space-between;align-items: center;background-color: #f5f5f5;border-radius: 7px;width: 120px;height: 35px;margin-bottom: 4px;">
+					
+                                <div style="width: 27px;height: 27px;border-radius: 7px;background-color: white;display: flex;flex-direction: row;justify-content: center;align-items: center;">
+                                    <img src="../../static/images/add-mobile.svg" style="width: 24px; height: 24px;" @click="count++"/>
+                                </div>
+					            <input style="-webkit-appearance: none; width: 10px;font-weight: bold;" :value="toFarsiNumber(count)" />
+                                <div style="width: 27px;height: 27px;border-radius: 7px;background-color: white;display: flex;flex-direction: row;justify-content: center;align-items: center;">
+                                    <img src="../../static/images/minus.svg" style="width: 24px; height: 24px;" @click="count--" />
+                                </div>
+                                
+					
+				            </div>
+                        </div>
+                        <div class="right-si">
+                            <div class="detail-section-si">
+                                <div class="top-si">simpsons   کانال تلگرامی </div>
+                                <div class="bottom-si">
+                                    
+                                    <div class="category-parent-si">
+                                        <div class="category-item-si">
+                                            <span>تست</span>
+                                        </div>
+                                        <div class="category-item-si">
+                                            <span>صثب</span>
+                                        </div>
+                                    </div>
+                                    <img src="images/telegram-shopping.svg" />
+                                </div>
+                            </div>
+                            <div class="image-section-si">
+                                <img src="images/content/avatar.svg" />
+                            </div>
+                        </div>
+                        <!--  -->
+                        
+                        
+                    </div>
+            </div>
+            <div class="shopping-result">
+                <div class="right">
+                    <div class="button">نهایی کردن تبلیغ</div>
+                </div>
+                <div class="left">
+                    <div class="top">هزینه نهایی:</div>
+                    <div class="bottom">560 هزارتومان</div>
+                </div>
+            </div>
+        </div>
         <v-overlay @click="removeCalenderDatePicker()" :value="calenderPopupStatus">
         </v-overlay>
         <div class="calender-parent1" v-if="calenderPopupStatus">
             <VuePersianDatetimePicker />
         </div>
-        <div class="content-parent">
-            <div class="titles">
+        <div class="content-parent-desktop">
+            <div class="top-titles">
             <div class="left">
                 <span class="count">{{ toFarsiNumber(4781) }}</span>
                 <span class="rtl">تعداد کل رسانه ها:</span>
@@ -19,25 +79,36 @@
 
             </div>
             <div class="buttons">
-            <div class="left">
-                <img src="images/select-all.svg" />
+            <div class="right">
+                <div class="item-2">
+                    <span>انتخاب همه رسانه ها</span>
+                    <img src="images/check.svg" />
+                    
+                </div>
             </div>
             <div class="right">
-                <div class="item">کاربر</div>
-                <div class="item">بازدید</div>
                 <div class="item-1">
                     <span>قیمت</span>
                     <img src="images/sort.svg" />
                     
                 </div>
+                <div class="item">کاربر</div>
+                <div class="item">بازدید</div>
+                
             </div>
             </div>
             <div class="channels-parent">
                 <div class="channels">
             <div class="left">
-                <img src="images/content/more.svg" />
-                <img src="images/content/heart.svg" />
-                <img src="images/content/shopping-cart.svg" />
+                    
+                    <popper trigger="click" :options="{placement: 'bottom'}"  >
+                        <div class="popper" >
+                          Popper Content
+                        </div>
+                        <img slot="reference" src="images/content/more.svg" />
+                    </popper>
+                    <img src="images/content/heart.svg" />
+                    <img src="images/content/shopping-cart.svg" />
             </div>
             <div class="right">
                 
@@ -45,11 +116,23 @@
                     <div class="section3_1">
                         <div class="section3_1_2">
                             <span>نوع تبلیغ:</span>
-                            <span class="bold">تبلیغ ساعتی</span>
+				<v-select
+				style="width: 110px;margin-top: -12px;"
+                disabled
+				class="vvlabel"
+				  label="بازه زمانی"
+				  :items="['24 ساعته'  , '12 ساعته']"
+				></v-select>
                         </div>
                         <div class="section3_1_2">
                             <span>تعداد تبلیغ:</span>
-                            <span class="bold">تبلیغ ساعتی</span>
+                            <div style="display: flex ; flex-direction: row ;justify-content: space-between;align-items: center;background-color: #f5f5f5;border-radius: 7px;width: 73px;height: 35px;margin-bottom: 4px;">
+					
+                    <img src="../../static/images/add-mobile.svg" style="width: 24px; height: 24px;" @click="count++"/>
+					<input style="-webkit-appearance: none; width: 10px;font-weight: bold;" :value="toFarsiNumber(count)" />
+                    <img src="../../static/images/minus.svg" style="width: 24px; height: 24px;" @click="count--" />
+					
+				</div>
                         </div>
 
                     </div>
@@ -75,7 +158,7 @@
                     <div class="section2_2">
                         <div class="section2_1_2">
                             <span>حدود بازدید:</span>
-                            <span class="bold">40K</span>
+                            <span class="bold">{{toFarsiNumber(40)}}k</span>
                         </div>
                         <div class="section2_1_2">
                             <span>طرح:</span>
@@ -95,7 +178,11 @@
                             <div class="buttons">
                                 <div class="button">کامپیوتر</div>
                                 <div class="button">کامپیوتر</div>
-                                <div class="button1">239 تبلیغ داده شده</div>
+                                <div class="button1" style="display: flex;flex-direction: row;justify-content: center;align-items: center;gap: 8px;">
+                                    <img src="images/tick-circle.svg"/>
+                                    <span style="margin-top: 4px;">239 تبلیغ داده شده</span>
+                                    
+                                </div>
                             </div>
                         </div>
                         <div class="image">
@@ -107,11 +194,7 @@
                     </div>
                     <div class="section1_3">
                         <div class="section1_3_right">
-                            <!-- <div>
-                                <img src="images/content/arrow.svg" />
-                                <span >simsion_programmers</span>
-                                <div></div>
-                            </div> -->
+                            
                             <div  @showDetail="showDetail" class="detail-button" v-if="show == false" @click="show = true">
                                 <img src="images/arrow-down.svg" />
                                 <span>مشاهده لیست کانال ها</span>    
@@ -119,6 +202,11 @@
                             <div @showDetail="showDetail" class="detail-button2" v-else @click="show = false">
                                 <img src="images/add.svg" />
                                 <span>بستن لیست</span>    
+                            </div>
+                            <div>
+                                <img src="images/content/arrow.svg" />
+                                <span >simsion_programmers</span>
+                                <div></div>
                             </div>
 
                         </div>
@@ -130,12 +218,22 @@
                 </div>
                 
             </div>
+            <div class="right-icon">
+                <div style="margin-top: 32px;width: 40px;height: 23px;display: flex;flex-direction: row;justify-content: flex-end;padding-right: 8px;align-items: center;background-color: #34aadf;border-radius: 10px">
+                    <img src="images/telegram-white.svg" />
+                </div>
+                <div style="padding-top: 4px;margin-top: 16px;width: 40px;height: 23px;display: flex;flex-direction: row;justify-content: flex-end;padding-right: 8px;align-items: center;background-color: black;color: white;border-radius: 10px;font-size: 12px;">
+                    <span>32</span>
+                </div>
+
+            </div>
+            
             
                 </div>
                 <!--  -->
                 <div class="hr" v-if="show == true"></div>
                 <div class="detail-channels-parent" v-if="show == true">
-                    <div class="detail-channels" v-for=" i in 5">
+                        <div class="detail-channels" v-for=" i in 5">
             <div class="right">
                 
                 <div class="section2-parent">
@@ -208,51 +306,52 @@
                     </div>
                 </div>
             </div>
-          <div class="box-title">
-            <img style="fill: #363A3F;" :src="!boxTitle ? 'images/arrow-right.svg' : 'images/arrow-up.svg'" @click="changeBoxTitle()" />
-            <span>راهنمای تبلیغات هدفمند تر در تلگرام و اینستاگرام</span>
-          </div> 
-          <div class="box-title-detail" v-if="boxTitle">
-            <div class="content">تست</div>
-            
+            <div class="box-parent" style="margin-top: 51.74px;" @click="changeBoxParent()" >
+                <div class="box-title">
+                    <img style="fill: #363A3F;" :src="!boxParent ? 'images/arrow-right.svg' : 'images/arrow-up.svg'" />
+                    <span>راهنمای تبلیغات هدفمند تر در تلگرام و اینستاگرام</span>
+                </div>
+                <div v-if="boxParent" style="text-align: right;padding: 16px;">dqdqwddddddd</div>
           </div>
-          <div class="line">
+          <div class="line-desktop">
             <div class="line-section"></div>
             <span class="span">سوالات متداول</span>
             <div class="line-section"></div>
           </div> 
           <!--  -->
-          <div class="box-parent" style="margin-top: 16px;">
-            <div class="box-title">
-                <img style="fill: #363A3F;" :src="!boxParent1 ? 'images/arrow-right.svg' : 'images/arrow-up.svg'" @click="changeBoxParent1()" />
-                <span>میتوانم سفارشم را بصورت اقساطی ( اعتباری ) پرداخت کنم؟</span>
+          <div style="display: flex ; flex-direction: column ; gap: 7.51px;">
+            <div class="box-parent" style="margin-top: 57px;" @click="changeBoxParent11()" >
+                <div class="box-title">
+                    <img style="fill: #363A3F;" :src="!boxParent11 ? 'images/arrow-right.svg' : 'images/arrow-up.svg'" />
+                    <span>میتوانم سفارشم را بصورت اقساطی ( اعتباری ) پرداخت کنم؟</span>
+                </div>
+                <div v-if="boxParent11" style="text-align: right;padding: 16px;">dqdqwddddddd</div>
             </div>
-            <div v-if="boxParent1" style="text-align: right;padding: 16px;">dqdqwddddddd</div>
-          </div>
            <!--  -->
-           <div class="box-parent">
+           <div class="box-parent" @click="changeBoxParent1()">
             <div class="box-title">
-                <img style="fill: #363A3F;" :src="!boxParent1 ? 'images/arrow-up.svg' : 'images/arrow-right.svg'" @click="changeBoxParent1()" />
+                <img style="fill: #363A3F;" :src="!boxParent1 ? 'images/arrow-up.svg' : 'images/arrow-right.svg'"  />
                 <span>چطور می‌توانم سفارشم را پیگیری کنم؟</span>
             </div>
             <div v-if="boxParent1" style="text-align: right;padding: 16px;">dqdqwddddddd</div>
           </div>
           <!--  -->
-          <div class="box-parent">
+          <div class="box-parent" @click="changeBoxParent2()">
             <div class="box-title">
-                <img style="fill: #363A3F;" :src="!boxParent2 ? 'images/arrow-right.svg' : 'images/arrow-up.svg'" @click="changeBoxParent2()" />
+                <img style="fill: #363A3F;" :src="!boxParent2 ? 'images/arrow-right.svg' : 'images/arrow-up.svg'"  />
                 <span>هزینه ی ارسال در دیجی کالا چگونه محاسبه میشود؟</span>
             </div>
             <div v-if="boxParent2" style="text-align: right;padding: 16px;">dqdqwddddddd</div>
           </div>
           <!--  -->
-          <div class="box-parent">
+          <div class="box-parent" @click="changeBoxParent3()">
             <div class="box-title">
-                <img style="fill: #363A3F;" :src="!boxParent3 ? 'images/arrow-right.svg' : 'images/arrow-up.svg'" @click="changeBoxParent3()" />
+                <img style="fill: #363A3F;" :src="!boxParent3 ? 'images/arrow-right.svg' : 'images/arrow-up.svg'"  />
                 <span>چطور درخواست خود را جهت بازگرداندن کالا (مرجوعی کالا) به شما اطلاع دهم؟</span>
             </div>
             <div v-if="boxParent3" style="text-align: right;padding: 16px;">dqdqwddddddd</div>
           </div>
+        </div>
           <div class="score-box">
             <div class="left">
                 <div class="left-btn-submit">
@@ -271,14 +370,14 @@
                 </div>
                 <div class="bottom-section">
                     <div class="bottom-section-part2">
-                        <div class="title2"> 4289</div>
+                        <div class="title2"> {{ toFarsiNumber(4289) }}</div>
                         <div class="title1"> امتیاز گرفتیم تا الان </div>
                         
                         
                         
                     </div>
                     <div class="bottom-section-part1">
-                        <span class="title3"> 4.5 میانگین </span>
+                        <span class="title3"> {{toFarsiNumber(4.5)}} میانگین </span>
                         <v-rating
                             background-color="grey lighten-2"
                             color="warning"
@@ -305,17 +404,23 @@
   import { defineComponent, ref ,watch } from '@nuxtjs/composition-api'
   import VuePersianDatetimePicker from '../../node_modules/vue-persian-datetime-picker/src/VuePersianDatetimePicker.vue'
   import { calenderPopupStatus , setCalenderPopupStatus } from '../../composition/content/calender/index.js'
+  import { shoppingSection , setShoppingSection } from '../../composition/content/Header/index'
 import { VCol } from 'vuetify/lib';
+import Popper from 'vue-popperjs';
+  import 'vue-popperjs/dist/vue-popper.css';
   export default defineComponent({
-    components : { VCol , VuePersianDatetimePicker }, 
+    components : { VCol , VuePersianDatetimePicker , 'popper': Popper }, 
     setup() {
         const showDetailParameters = ref([])
         const show = ref( false )
         const boxTitle = ref( false )
         const boxParent1 = ref( false )
+        const boxParent = ref( false )
+        const boxParent11 = ref( false )
         const boxParent2 = ref( false )
         const boxParent3 = ref ( false)
         const DatePickerStatus = ref( false )
+        const count = ref(2)
         const changeBoxTitle = () => {
             boxTitle.value = !boxTitle.value 
         }
@@ -330,11 +435,17 @@ import { VCol } from 'vuetify/lib';
         const changeBoxParent1 = () => {
             boxParent1.value = !boxParent1.value
         }
+        const changeBoxParent = () => {
+            boxParent.value = !boxParent.value
+        }
         const changeBoxParent2 = () => {
             boxParent2.value = !boxParent2.value 
         }
         const changeBoxParent3 = () => {
             boxParent3.value = !boxParent3.value
+        }
+        const changeBoxParent11 = () => {
+            boxParent11.value = !boxParent11.value
         }
         const showDetail = ( value ) => {
             showDetailParameters.value.push( value )
@@ -345,11 +456,200 @@ import { VCol } from 'vuetify/lib';
         const removeCalenderDatePicker = () => {
             setCalenderPopupStatus( false )
         }
-      return { removeCalenderDatePicker , calenderPopupStatus , setCalenderPopupStatus , DatePickerStatus , toFarsiNumber , boxParent1 , boxParent2 , boxParent3 ,   changeBoxParent1 , changeBoxParent2 , changeBoxParent3 ,showDetail , hideDetail , showDetailParameters , show , changeBoxTitle , boxTitle }
+      return {  setShoppingSection , shoppingSection , count , boxParent ,changeBoxParent,changeBoxParent11, boxParent11 , removeCalenderDatePicker , calenderPopupStatus , setCalenderPopupStatus , DatePickerStatus , toFarsiNumber , boxParent1 , boxParent2 , boxParent3 ,   changeBoxParent1 , changeBoxParent2 , changeBoxParent3 ,showDetail , hideDetail , showDetailParameters , show , changeBoxTitle , boxTitle }
     },
   })
   </script>
   <style lang="scss">
+  .shopping {
+    border-bottom-left-radius: 16px;
+    border-bottom-right-radius: 16px;
+    transition: all 0.4s;
+    box-shadow: 0px 4px 4px 0px #00000040;
+    padding: 16px ;
+    position: absolute;
+    top: 100px;
+    left: 83px;
+    z-index: 100;
+    width: 500px;
+    height: 370px;
+    background-color: white;
+    display: flex ;
+    flex-direction: column ;
+    align-items: center ;
+    justify-content: flex-start ;
+    .title  {
+        width: 100% ;
+        display: flex ;
+        flex-direction: row ;
+        justify-content: space-between ;
+        span {
+            font-size: 18px;
+            font-weight: 700;
+            line-height: 28px;
+            letter-spacing: 0em;
+            text-align: right;
+
+        }
+    }
+   .shop-item-parent {
+    display: flex ;
+    flex-direction: column ;
+    gap: 8px ;
+    margin-top: 16px;
+    .shop-item {
+        display: flex ;
+        flex-direction: row ;
+        justify-content: space-between ; 
+        align-items: center;
+        width: 470px ;
+        height: 64px ;
+        border-radius: 10px ;
+        padding: 8px;
+        background-color: #F0F0F0;
+        .right-si {
+            width: fit-content;
+            display : flex ; 
+            flex-direction : row  ; 
+            gap : 8px ; 
+            justify-content : flex-end ; 
+            align-items : center ;
+            .image-section-si {
+                display: flex ;
+                flex-direction: row ;
+                justify-content: center ;
+                align-items: center;
+                img  {
+                    width : 37px  ; 
+                    height : 37px ; 
+                }
+            }
+            .detail-section-si {
+                display : flex ; 
+                flex-direction : column  ; 
+                gap: 4px;
+                .top-si {
+                    font-size: 16px;
+                    font-weight: 700;
+                    line-height: 25px;
+                    letter-spacing: 0em;
+                    text-align: right;
+
+                }
+                .bottom-si {
+                    display : flex ; 
+                    flex-direction : row ; 
+                    justify-content : center ; 
+                    gap : 8px ; 
+                    img {
+                        width : 19px ; 
+                        height : 19px ; 
+                    }
+                    .category-parent-si {
+                        display: flex ;
+                        flex-direction: row ;
+                        justify-content: flex-end ;
+                        
+                        gap: 8px ;
+                        .category-item-si {
+                            width: 72px ;
+                            height: 21px ;
+                            border-radius: 25px ;
+                            background-color: white;
+                            display: flex ;
+                            flex-direction: row ;
+                            justify-content: center ;
+                            align-items: center;
+                            span {
+                                font-size: 12px;
+                                font-weight: 300;
+                                line-height: 19px;
+                                letter-spacing: 0em;
+                                text-align: center;
+
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        .left-si {
+            display: flex ;
+            flex-direction: row ;
+            justify-content: center ;
+            align-items: center ;
+            gap: 16px;
+            .parent-red-close {
+                width: 28px ;
+                height: 28px ;
+                display: flex ;
+                flex-direction: row ;
+                justify-content: center ;
+                align-items: center ;
+                padding: 8px;
+                background-color: white;
+                border-radius: 7px;
+            }
+
+        }
+    }
+   }
+   .shopping-result {
+        width: 100% ;
+        display: flex ;
+        flex-direction: row ;
+        align-items : center ; 
+        justify-content: space-between ;
+        margin-top: 24px ;
+        margin-bottom : 20px;
+        .right {
+            .button {
+                width: 170px ;
+                height: 45px ;
+                border-radius: 10px ;
+                background-color: #58A65C ;
+                margin: 0 auto ;
+                font-size: 17px;
+                font-weight: 500;
+                line-height: 26px;
+                letter-spacing: 0em;
+                display: flex ;
+                flex-direction: row ;
+                justify-content: center;
+                align-items: center;
+                text-align: right;
+                color: white;
+
+            }
+
+        }
+        .left {
+            display: flex;
+            flex-direction: column ;
+            align-items: flex-end ;
+            justify-content: center;
+            gap : 1px  ; 
+            .top {
+                font-size: 14px;
+                font-weight: 300;
+                line-height: 22px;
+                letter-spacing: 0em;
+                text-align: right;
+                direction : rtl
+
+            }
+            .bottom {
+                font-size: 22px;
+                font-weight: 700;
+                line-height: 34px;
+                letter-spacing: 0em;
+                text-align: right;
+
+            }
+            
+        }
+   }
+  }
   .calender-parent1 {
     width: 100vw  ;
     height: 100vh ;
@@ -371,12 +671,11 @@ import { VCol } from 'vuetify/lib';
     flex-direction: column ;
     gap: 32px;
   }
-  .content-parent {
+  .content-parent-desktop {
     display: flex ;
     flex-direction: column ;
     width: 100% ;
     height: fit-content ;
-    gap: 8px ;
     .score-box {
         width: 100%;
         display: flex ;
@@ -388,6 +687,7 @@ import { VCol } from 'vuetify/lib';
         align-items: center; 
         justify-content: space-between;
         padding: 16px;
+        margin-top: 72.14px;
         .left {
             display: flex ;
             flex-direction: row ;
@@ -484,6 +784,7 @@ import { VCol } from 'vuetify/lib';
         }
     }
     .box-parent {
+        margin-top: 1px;
         height: fit-content ;
         background-color: white ;
         display: flex ;
@@ -521,12 +822,12 @@ import { VCol } from 'vuetify/lib';
             text-align: right;
         }
     }
-    .line {
+    .line-desktop {
         display: flex ; 
         flex-direction: row;
         justify-content: space-around ;
         align-items: center ;
-        margin-top: 16px;
+        margin-top: 72px;
         .line-section {
             width: 40% ;
             height: 1px;
@@ -539,7 +840,7 @@ import { VCol } from 'vuetify/lib';
             font-weight: 900;
         }
     }
-    .titles {
+    .top-titles {
         display: flex ;
         flex-direction: row ;
         justify-content: space-between;
@@ -566,27 +867,36 @@ import { VCol } from 'vuetify/lib';
     .buttons {
         display: flex ;
         flex-direction: row ;
+        align-items: center;
         justify-content: space-between;
-        margin-top: 32px;
+        margin-top: 16px;
+        margin-bottom: 12px;
         .right {
             display: flex ;
             flex-direction: row ;
             gap: 8px;
             .item {
                 width: 80px  ;
-                height: 45px ;
-                border-radius: 16px ;
+                height: 49px ;
+                border-radius: 13px ;
                 display: flex ;
                 flex-direction: row ;
                 justify-content: center ;
                 align-items: center;
                 background-color: white;
                 gap: 4px;
+                font-size: 16px;
+                font-weight: 500;
+                line-height: 25px;
+                letter-spacing: 0em;
+                text-align: right;
+                color: #000000;
+
             }
             .item-1 {
-                width: 80px  ;
-                height: 45px ;
-                border-radius: 16px ;
+                width: 95px  ;
+                height: 49px ;
+                border-radius: 13px ;
                 display: flex ;
                 flex-direction: row ;
                 justify-content: center ;
@@ -594,8 +904,45 @@ import { VCol } from 'vuetify/lib';
                 gap: 4px;
                 color: #EDC764;
                 border: 1px solid #EDC764;
+                background-color: white;
+                font-size: 16px;
+                font-weight: 500;
+                line-height: 25px;
+                letter-spacing: 0em;
+                text-align: right;
+
                 img {
                     fill: #EDC764 ;
+                }
+            }
+            .item-2 {
+                width: 179px  ;
+                height: 49px ;
+                border-radius: 13px ;
+                display: flex ;
+                flex-direction: row ;
+                justify-content: center ;
+                align-items: center;
+                gap: 4px;
+                color: #EDC764;
+                background-color: white;
+                font-size: 16px;
+                font-weight: 500;
+                line-height: 25px;
+                letter-spacing: 0em;
+                text-align: right;
+
+                img {
+                    fill: #EDC764 ;
+                }
+                span {
+                    font-size: 16px;
+                    font-weight: 500;
+                    line-height: 25px;
+                    letter-spacing: 0em;
+                    text-align: right;
+                    color: #5E7DBE;
+
                 }
             }
         }
@@ -606,14 +953,25 @@ import { VCol } from 'vuetify/lib';
     .channels-parent {
         display: flex ;
         flex-direction: column ;
-        background-color: white;
+        background-color: transparent;
         align-items: center;
         .channels {
-        width: 100% ;
+        width: calc( 100% + 24px) ;
         height: 200px ;
         display: flex ;
+        margin-left: 24px;
         flex-direction: row ;
-        
+        .right-icon {
+            display: flex ;
+            padding-right: 8px;
+            z-index: 1;
+            flex-direction: column ;
+            width: 32px;
+            align-items : center;
+            justify-content: flex-start;
+            margin-left: -8px;
+            border-radius: 8px;
+        }
         .right {
             display: flex ;
             flex-direction: row ;
@@ -626,6 +984,8 @@ import { VCol } from 'vuetify/lib';
                 flex-direction: column ;
                 flex-grow: 1;
                 gap: 4px ;
+                padding-top: 15px;
+                padding-bottom: 18.79px;
                 .section1_1 {
                     display: flex ;
                     flex-direction: row ;
@@ -709,7 +1069,6 @@ import { VCol } from 'vuetify/lib';
                     display: flex ;
                     flex-direction: row ;
                     justify-content: space-between;
-                    margin-top: 16px;
                     .section1_3_right {
                         display: flex ;
                         flex-direction: row ;
@@ -766,6 +1125,11 @@ import { VCol } from 'vuetify/lib';
                         display: flex ;
                         flex-direction: row ;
                         gap: 4px ;
+                        padding-right: 12px;
+                        img {
+                            width:  45px;
+                            height: 45px;
+                        }
                         
 
                     }
@@ -780,11 +1144,13 @@ import { VCol } from 'vuetify/lib';
                 flex-direction: row ;
                 justify-content: center ;
                 align-items: center;
+                padding-top: 16px;
+                padding-bottom: 24.32px;
                 .section2 {
                     width: 90% ;
                     height: 90%;
                     background-color: #f5f5f5 ;
-                    border-radius: 8px;
+                    border-radius: 13px;
                     display: flex ;
                     flex-direction: row;
                     padding: 8px;
@@ -831,19 +1197,29 @@ import { VCol } from 'vuetify/lib';
                         background-color: white;
                         border-radius: 8px;
                         display: flex ;
-                        width: 50px;
-                        height: 110px;
+                        width: 70.96px;
+                        height: 96.68px;
                         align-self: center;
                         flex-direction: column ;
-                        justify-content: space-around;
-                        flex-grow: 1 ;
-                        gap: 4px;
-                        padding: 8px;
-                        justify-content: center ;
                         align-items: center;
+                        justify-content: space-around;
+                        gap: -10px;
+                        // flex-grow: 1 ;
+                        // gap: 4px;
+                        padding: 4px;
+                        // justify-content: center ;
+                        // align-items: center;
                         img {
                             width: 46px ;
                             height: 46px;
+                        }
+                        span {
+                            font-size: 14px;
+                            font-weight: 300;
+                            line-height: 22px;
+                            letter-spacing: 0em;
+                            text-align: right;
+
                         }
                     }
                 }
@@ -852,8 +1228,9 @@ import { VCol } from 'vuetify/lib';
                 direction: rtl;
                 display: flex ;
                 flex-direction: column ;
-                justify-content: space-around;
                 align-items: center;
+                padding-top: 10px;
+                padding-bottom: 24.32px;
                 flex-grow: 3 ;
                 .section3_1 {
                     display: flex ;
@@ -875,6 +1252,7 @@ import { VCol } from 'vuetify/lib';
                         }
                 }
                 .section3_2 {
+                            margin-top: -30px;
                             width: 100%;
                             display: flex ;
                             flex-direction: column ;
@@ -893,7 +1271,7 @@ import { VCol } from 'vuetify/lib';
         }
         .left {
             display: flex ;
-            padding-right: 4px;
+            padding-right: 8px;
             z-index: 1;
             flex-direction: column ;
             flex-grow: .7 ;
@@ -907,25 +1285,30 @@ import { VCol } from 'vuetify/lib';
     .detail-channels-parent {
         display: flex ;
         flex-direction: row ;
-        width: 1200px;
+        width: 100%;
         flex-wrap: wrap;
         gap: 16px;
         justify-content: center;
         padding-bottom: 16px;
+        background-color: white;
+        padding-top: 16px ;
+        padding-left: 8px ;
+        padding-right: 8px ;
+        padding-bottom: 8px;
+        margin-top: -10px;
         .detail-channels {
-        width: 590px ;
-        height: 200px ;
-        
+        width: 515px ;
+        height: 190px ;
         display: flex ;
-        margin-top: 8px;
-        flex-direction: row ;
         .right {
             display: flex ;
             flex-direction: row ;
             flex-grow: 5;
+            align-items: center;
             background-color: #f5f5f5;
             border-radius: 8px;
             z-index: 1000;
+            padding: 8px;
             .section1 {
                 display: flex ;
                 flex-direction: column ;
@@ -934,6 +1317,8 @@ import { VCol } from 'vuetify/lib';
                 .section1_1 {
                     display: flex ;
                     flex-direction: row ;
+                    align-items: center;
+                    margin-top: 8px;
                     .content {
                         display: flex ;
                         flex-direction: column; 
@@ -941,7 +1326,7 @@ import { VCol } from 'vuetify/lib';
                         gap: 0px;
                         flex-grow: 4;
                         .titles {
-                            font-weight: bold ;
+                            font-weight: 700 ;
                             font-size: 16px;
                             display: flex ;
                             margin-top: 8px;
@@ -1008,19 +1393,29 @@ import { VCol } from 'vuetify/lib';
                     padding-right: 20px;
                     padding-top: 8px;
                     direction: rtl;
+                    span {
+                        font-size: 16px;
+                        font-weight: 300;
+                        line-height: 25px;
+                        letter-spacing: 0em;
+                        text-align: right;
+
+                    }
 
                 }
                 .section1_3 {
                     display: flex ;
                     flex-direction: row ;
                     justify-content: space-between;
-                    margin-top: 16px;
+                    margin-bottom: 8px;
                     .section1_3_right {
                         display: flex ;
                         flex-direction: row ;
                         gap: 8px ;
                         color: #5E7DBE;
                         align-items: center;
+                        font-size: 16px;
+                        font-weight: 500;
                         .detail-button {
                             width: fit-content ;
                             height: 25px ;
@@ -1071,6 +1466,11 @@ import { VCol } from 'vuetify/lib';
                         display: flex ;
                         flex-direction: row ;
                         gap: 4px ;
+                        padding-right: 8px;
+                        img {
+                            width:  45px ;
+                            height: 45px;
+                        }
                         
 
                     }
@@ -1080,7 +1480,8 @@ import { VCol } from 'vuetify/lib';
             .section2-parent {
                 display: flex ;
                 flex-direction: row ;
-                flex-grow: 20 ;
+                width: 123px ;
+                height: 141px;
                 display: flex ;
                 flex-direction: row ;
                 justify-content: center ;
@@ -1122,11 +1523,13 @@ import { VCol } from 'vuetify/lib';
                             flex-direction: column ;
                             gap: 8px;
                             color: #404040;
-                            font-size: 14px;
+                            font-size: 13px;
+                            font-weight: 300;
+                            text-align: center;
                             .bold {
-                                font-weight: bold ;
                                 color: #404040;
-                                font-size: 16px;
+                                font-size: 15px;
+                                font-weight: 700;
                             }
                         }
                     }
@@ -1210,7 +1613,7 @@ import { VCol } from 'vuetify/lib';
         }
         }
         .summary {
-            width: 590px ;
+            width: 515px ;
              height: 200px ;
              display: flex ;
              flex-direction: row ;

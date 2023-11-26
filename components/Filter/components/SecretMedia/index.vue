@@ -6,15 +6,20 @@
                  v-model="panel"
                 >
                 <v-expansion-panel>
-                  <v-expansion-panel-header>رسانه های مخفی شده</v-expansion-panel-header>
+                  <v-expansion-panel-header style="
+                    font-size: 16px;
+                    font-weight: 500;
+                    line-height: 25px;
+                    letter-spacing: 0em;
+                    text-align: right;
+                    color: #404040;
+">رسانه های مخفی شده</v-expansion-panel-header>
                   <v-expansion-panel-content>
                     <div class="expansion-panel-parent">
                     <div class="expansion-panel">
                         <div class="item">
                             
-                            <v-checkbox
-                              label=""
-                            ></v-checkbox>
+                          <input type="checkbox" name="checkbox-checked1" checked />
                             <span class="text">رسانه های در لیست سیاه</span>
                         
                         </div>
@@ -85,6 +90,19 @@
                     justify-content: flex-start;
                     height: 50px;
                     gap: 8px;
+                    input[type="checkbox"] {
+                appearance: none;
+                background-color: #fff;
+                color: #888888;
+                margin: 0;
+                font: inherit;
+                width: 1.15em;
+                height: 1.15em;
+                border: .5px solid #888888;
+                border-radius: 0.15em;
+                transform: translateY(-0.075em);
+                border-radius: 5px;
+            }
                     .text {
                         color: #6A6760;
                     }

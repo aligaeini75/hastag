@@ -2,8 +2,10 @@
         <div class="platform-parent">
             <div class="title-section">
                 <div class="icons">
+                    
                     <img class="image" src="images/filter-remove.svg" />
-                    <span>لغو فیلتر</span>
+                    <span style="margin-top: 4px;">لغو فیلتر</span>
+                    <img class="image" style="margin-left: 8px;" src="images/filter-tick2.svg" />
                     
                 </div>
                 <div class="title">
@@ -15,24 +17,17 @@
             <div class="filter-items">
                 <div class="item">
                     <span class="text">همه</span>
-                    <v-checkbox
-                      label=""
-                      color="red"
-                    ></v-checkbox>
+                    <input type="checkbox" name="checkbox-checked" checked />
                     
                 </div>
                 <div class="item">
                     <span class="text">در تلگرام</span>
-                    <v-checkbox
-                      label=""
-                    ></v-checkbox>
+                    <input type="checkbox" name="checkbox-checked1" checked />
                     
                 </div>
                 <div class="item">
                     <span class="text">در اینستگرام</span>
-                    <v-checkbox
-                      label=""
-                    ></v-checkbox>
+                    <input type="checkbox" name="checkbox-checked2" checked />
                     
                 </div>
             </div>
@@ -79,8 +74,9 @@
         .icons {
             display: flex ;
             flex-direction: row;
-            align-items: center;
+            align-items: flex-start;
             gap: 8px;
+            margin-top: 4px;
             span {
                 color: #D85240;
                 font-weight: bold;
@@ -101,7 +97,7 @@
         width: 90%  ;
         height: fit-content ;
         border-radius: .5px solid #888888;
-        background-color: #f5f5f5;
+        background-color: #F8F8F8;
         border-radius: 8px;
         margin-top: 8px;
         display: flex ;
@@ -109,17 +105,36 @@
         align-items: flex-end;
         
         .item {
-            input[id="input-18"] + label {
-            border: 1px solid red !important;
-        }
+            input[type="checkbox"] {
+                appearance: none;
+                background-color: #fff;
+                color: #888888;
+                margin: 0;
+                font: inherit;
+                width: 1.15em;
+                height: 1.15em;
+                border: .5px solid #888888;
+                border-radius: 0.15em;
+                transform: translateY(-0.075em);
+                border-radius: 5px;
+            }
             display: flex ;
             flex-direction: row ;
             align-items: center;
             justify-content: center;
             height: 50px;
             gap: 8px;
+            margin-right: 16px;
+            
             .text {
-                color: #6A6760;
+                font-size: 16px;
+                font-weight: 500;
+                line-height: 25px;
+                letter-spacing: 0em;
+                text-align: right;
+                color: #606060;
+                margin-bottom: 4px;
+
             }
         }
 

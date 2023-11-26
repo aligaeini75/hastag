@@ -9,10 +9,10 @@
         <Rnage title="حدود بازدید"/>
         <Hr />
         <Calender />
-        <div style="height: 400px;width: 10px;"></div>
+        <div style="height: 370px;width: 10px;"></div>
         <Hr />
         <SecretMedia />
-        <Hr />
+        <Hr style="margin-top: -20px;" />
         <FilterName />
     </div>
   </template>
@@ -47,7 +47,7 @@
     flex-direction: column ;
     width: 100%;
     height: 100%;
-    padding-left: 48px;
+    margin-left: 10px;
   }
   </style>
   

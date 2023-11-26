@@ -35,6 +35,7 @@
   })
   </script>
   <style lang="scss">
+  
   .main-parent {
     background-color: #e4e4e4;
     display: flex ;
@@ -44,15 +45,21 @@
     .filter-section {
         display: flex ;
         flex-grow: 7 ;
-        padding-top: 8px;
+        padding-top: 34px;
+        padding-right: 25px;
+        padding-left: 70px;
+        width: 350px;
+        margin-right: 10px;
     }
     .content-section {
         display: flex ;
         flex-grow: 20 ;
-        padding-top: 24px;
+        padding-top: 46px;
+        padding-right: 35px;
+        max-width: 1100px;
     }
     .category-section {
-      padding-top: 8px;
+      padding-top: 23px;
         display: flex ;
         flex-direction: row;
         justify-content: center;
@@ -63,6 +70,7 @@
         display: flex ;
         flex-grow: 2;
         background-color: white;
+        width: 97px;
     }
   }
 </style>

@@ -22,14 +22,14 @@
     .side-menu-parent {
         display: flex; 
         margin-right: 16px;
-        padding-top: 16px;
+        padding-top: 50px;
         flex-direction: column ;
         align-items: center;
         gap: 20px ;
         width: 100%;
         img {
-            width: 25px;
-            height: 25px;
+            width: 30px;
+            height: 30px;
         }
 
     }

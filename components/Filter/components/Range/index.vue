@@ -1,5 +1,5 @@
 <template>
-    <div class="range-parent">
+    <div class="range-parent-desktop">
         <div class="range-title">
              {{ $props.title }}
         </div>
@@ -10,6 +10,8 @@
                 :min="0"
                 :step="1"
                 strict
+                thumb-color="#ffffff"
+                track-color="#ffffff"
             ></v-range-slider>
         </div>
         <div class="range-buttons">
@@ -18,10 +20,10 @@
             </div>
             <div class="inputs">
                 <div class="input-right">
-                    <input placeholder="100" />
+                    <input :placeholder="toFarsiNumber(100)" />
                 </div>
                 <div class="input-left">
-                    <input placeholder="0" />
+                    <input :placeholder="toFarsiNumber(0)" />
                 </div>
             </div>
             
@@ -43,14 +45,22 @@ props: {
     },
   },
 setup( props ) {
+    const toFarsiNumber = (n) =>  {
+            const farsiDigits = ['۰', '۱', '۲', '۳', '۴', '۵', '۶', '۷', '۸', '۹'];   
+            return n
+              .toString()
+              .split('')
+              .map(x => farsiDigits[x])
+              .join('');
+  } 
     const price = ref([0, 100])
 
-  return {price}
+  return {price , toFarsiNumber}
 },
 })
 </script>
 <style lang="scss">
-.range-parent {
+.range-parent-desktop {
     display: flex ;
     flex-direction: column ;
     gap: 8px ;
@@ -70,17 +80,21 @@ setup( props ) {
         display: flex;
         flex-direction: row ;
         justify-content: flex-end ;
-        color: #404040 ;
         margin-top: 8px;
-        font-weight: bold ;
         font-size: 16px;
+        font-weight: 500;
+        line-height: 25px;
+        letter-spacing: 0em;
+        text-align: right;
+        color: #404040;
+
 
     }
     .range-buttons {
         margin-top: -32px;
         display: flex ;
         flex-direction: row ;
-        justify-content: space-between;
+        // justify-content: space-between;
         padding: 8px;
         .inputs {
             display: flex ;
@@ -91,7 +105,7 @@ setup( props ) {
                 text-align: center;
             }
             .input-right {
-                width: 90px ;
+                width: 100px ;
                 height: 40px ;
                 background-color: #F0F0F0;
                 display: flex ;
@@ -104,7 +118,7 @@ setup( props ) {
                 
             }
             .input-left {
-                width: 90px ;
+                width: 100px ;
                 height: 40px ;
                 background-color: #F0F0F0;
                 display: flex ;
@@ -118,13 +132,14 @@ setup( props ) {
         .button {
             width: 80px ;
             height: 40px ;
-            border-radius: 8px;
+            border-radius: 13px;
             background-color: #5E7DBE;
             display: flex ;
             flex-direction: row ;
             justify-content: center ;
             align-items: center;
             color: white;
+            margin-right: 10px;
         }
     }
 }

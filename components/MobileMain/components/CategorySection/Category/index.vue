@@ -14,8 +14,8 @@
             <div class="hr"></div>
         </div>
         <v-container>
-            <div class="category-parent-expand">
-                <div class="secret-media">
+            <div class="category-parent-expand1">
+                <div class="secret-media1">
                     <v-expansion-panels
                      v-model="panel"
                     >

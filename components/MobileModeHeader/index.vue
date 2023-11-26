@@ -1,9 +1,11 @@
 <template>
     <div class="header-parent"> 
         <div class="left-section">
-            <img src="images/mobileImages/mobile-images-menu.svg"  />
-            <img src="images/mobileImages/mobile-images-search.svg"  /> 
-            <img src="images/mobileImages/mobile-images-shop.svg"  />
+            <img src="images/mobileImages/mobile-images-menu.svg" style="width: 30px;height: 30px;" @click="setNavigationDrawer()" />
+            <img src="images/mobileImages/mobile-images-search.svg" style="width: 30px;height: 30px;" /> 
+            <div style="border-radius: 8px;width: 30px;height: 30px;display: flex;flex-direction: row;justify-content: center;align-items: center;background-color: #f5f5f5;">
+                <img src="images/shopping.svg" style="width: 20px;height: 20px;" /> 
+            </div>
             
             
         </div>
@@ -21,7 +23,7 @@
   
   <script>
   import { computed, defineComponent, ref, useRoute , name } from '@nuxtjs/composition-api'
-  
+  import { navigationDrawer , setNavigationDrawer }  from '../../composition/content/NavigationDrawer/index'
   export default defineComponent({
     setup() {
        const name = ref("ali")
@@ -33,7 +35,7 @@
               .map(x => farsiDigits[x])
               .join('');
   }     
-      return { toFarsiNumber , name }
+      return {  setNavigationDrawer , toFarsiNumber , name }
     },
   })
   </script>

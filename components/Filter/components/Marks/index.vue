@@ -1,6 +1,6 @@
 <template>
     <div class="marks-parent">
-        <div class="marks-title">
+        <div class="marks-title-desktop">
             نشانه ها
         </div>
         <div class="marks">
@@ -30,17 +30,21 @@ setup() {
     display: flex ;
     flex-direction: column ;
     gap: 8px ;
-    .marks-title {
+    .marks-title-desktop {
         width: 90% ;
         height: fit-content;
         padding: 8px ;
         display: flex;
         flex-direction: row ;
         justify-content: flex-end ;
-        color: #404040 ;
         margin-top: 8px;
-        font-weight: bold ;
         font-size: 16px;
+        font-weight: 500;
+        line-height: 25px;
+        letter-spacing: 0em;
+        text-align: right;
+        color: #404040;
+
 
     }
     .marks { 

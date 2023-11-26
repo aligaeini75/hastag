@@ -24,11 +24,11 @@ export default {
   components: true,
   buildModules: [
     '@nuxtjs/vuetify',
-    '@nuxtjs/composition-api/module'
+    '@nuxtjs/composition-api/module' 
   ],
   modules: [
     '@nuxtjs/axios',
-    '@nuxtjs/pwa',
+    '@nuxtjs/pwa'
   ],
   axios: {
     baseURL: '/',

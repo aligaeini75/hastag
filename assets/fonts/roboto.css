@@ -4,3 +4,40 @@
     font-weight: 400;
     src: url('YekanBakh.ttf');
   }
+  @font-face {
+    font-family: 'VazirBold';
+    font-style: normal;
+    font-weight: 400;
+    src: url('Vazir-Bold.ttf');
+  }
+  @font-face {
+    font-family: 'VazirLight';
+    font-style: normal;
+    font-weight: 400;
+    src: url('Vazir-Light.ttf');
+  }
+  @font-face {
+    font-family: 'ShabnamBold';
+    font-style: normal;
+    font-weight: 400;
+    src: url('Shabnam-Bold.ttf');
+  }
+  @font-face {
+    font-family: 'ShabnamMedium';
+    font-style: normal;
+    font-weight: 400;
+    src: url('Shabnam-Medium.ttf');
+  }
+
+  @font-face {
+    font-family: 'ShabnamThin';
+    font-style: normal;
+    font-weight: 400;
+    src: url('Shabnam-Thin.ttf');
+  }
+  @font-face {
+    font-family: 'ShabnamLight';
+    font-style: normal;
+    font-weight: 400;
+    src: url('Shabnam-Light.ttf');
+  }
