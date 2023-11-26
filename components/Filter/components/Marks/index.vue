@@ -4,11 +4,11 @@
             نشانه ها
         </div>
         <div class="marks">
-            <img class="image2" src="images/marks/avoid.svg" />
-            <img class="image2" src="images/marks/like.svg" />
-            <img class="image2" src="images/marks/person.svg" />
-            <img class="image" src="images/marks/new.svg" />
-            <img class="image" src="images/marks/takhfif.svg" />
+            <img class="image2" src="/images/marks/avoid.svg" />
+            <img class="image2" src="/images/marks/like.svg" />
+            <img class="image2" src="/images/marks/person.svg" />
+            <img class="image" src="/images/marks/new.svg" />
+            <img class="image" src="/images/marks/takhfif.svg" />
         </div>
 
     </div>

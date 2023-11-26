@@ -1,7 +1,7 @@
 <template>
     <div class="info-section-parent">
         <div class="icon-section">
-            <img src="images/order/info.svg" />
+            <img src="/images/order/info.svg" />
         </div>
         <div class="text-section">
             <div class="text-section-title">پس از مرحله‌‌‌‌‌‌‌‌‌‌ پرداخت می‌توانید بنر خود را بارگذاری کنید و تاریخ مدنظرتان را برای اجرای تبلیغات، ثبت کنید.</div>

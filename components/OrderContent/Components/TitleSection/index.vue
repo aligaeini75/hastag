@@ -6,7 +6,7 @@
             <img :src="item" />
           </div>
             <div class="button">
-                <img src="images/order/add.svg" />
+                <img src="/images/order/add.svg" />
                 <span>اضافه کردن رسانه جدید</span>
             </div>
         </div>
@@ -20,8 +20,8 @@
     components : {} , 
     setup() {
       const iconImages = ref([
-        "images/order/share.svg" , 
-        "images/order/archive-add.svg"
+        "/images/order/share.svg" , 
+        "/images/order/archive-add.svg"
       ])
       return { iconImages }
     },

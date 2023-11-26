@@ -3,7 +3,7 @@
             <div class="channels-parent">
                 <div class="channels">
             <div class="leftsd">
-                    <img src="images/order/close.svg" />
+                    <img src="/images/order/close.svg" />
             </div>
             <div class="right">
                 
@@ -11,21 +11,18 @@
                     <div class="section3_1">
                         <div class="section3_1_2">
                             <span>نوع تبلیغ:</span>
-				<v-select
-				style="width: 110px;margin-top: -12px;"
-                disabled
-				class="vvlabel"
-				  label="بازه زمانی"
-				  :items="['24 ساعته'  , '12 ساعته']"
-				></v-select>
+                            <div class="button-section-parent-select">
+                                <span> پلتفرم</span>
+                                <img src="/images/order/arrow-down.svg" />
+                            </div>
                         </div>
                         <div class="section3_1_2">
                             <span>تعداد تبلیغ:</span>
                             <div style="display: flex ; flex-direction: row ;justify-content: space-between;align-items: center;background-color: #f5f5f5;border-radius: 7px;width: 73px;height: 35px;margin-bottom: 4px;">
 					
-                    <img src="images/add-mobile.svg" style="width: 24px; height: 24px;" @click="count++"/>
+                    <img src="/images/add-mobile.svg" style="width: 24px; height: 24px;" @click="count++"/>
 					<input style="-webkit-appearance: none; width: 10px;font-weight: bold;" :value="toFarsiNumber(count)" />
-                    <img src="images/minus.svg" style="width: 24px; height: 24px;" @click="count--" />
+                    <img src="/images/minus.svg" style="width: 24px; height: 24px;" @click="count--" />
 					
 				</div>
                         </div>
@@ -62,7 +59,7 @@
                     </div>
                     <div class="section2_3">
                         <span>تقویم روز</span>
-                        <img src="images/content/calendar.svg" @click="setCalenderPopupStatus( true )" />
+                        <img src="/images/content/calendar.svg" @click="setCalenderPopupStatus( true )" />
                     </div>
                     </div>
                 </div>
@@ -74,14 +71,14 @@
                                 <div class="button">کامپیوتر</div>
                                 <div class="button">کامپیوتر</div>
                                 <div class="button1" style="display: flex;flex-direction: row;justify-content: center;align-items: center;gap: 8px;">
-                                    <img src="images/tick-circle.svg"/>
+                                    <img src="/images/tick-circle.svg"/>
                                     <span style="margin-top: 4px;">239 تبلیغ داده شده</span>
                                     
                                 </div>
                             </div>
                         </div>
                         <div class="image">
-                            <img src="images/content/avatar.svg" />
+                            <img src="/images/content/avatar.svg" />
                         </div>
                     </div>
                     <div class="section1_2">
@@ -90,15 +87,15 @@
                     <div class="section1_3">
                         <div class="section1_3_right">
                             <div>
-                                <img src="images/content/arrow.svg" />
+                                <img src="/images/content/arrow.svg" />
                                 <span >simsion_programmers</span>
                                 <div></div>
                             </div>
 
                         </div>
                         <div class="section1_3_left">
-                            <img src="images/marks/new.svg" />
-                            <img src="images/marks/takhfif.svg" />
+                            <img src="/images/marks/new.svg" />
+                            <img src="/images/marks/takhfif.svg" />
                         </div>
                     </div>
                 </div>
@@ -106,7 +103,7 @@
             </div>
             <div class="right-icon">
                 <div style="margin-top: 32px;width: 40px;height: 23px;display: flex;flex-direction: row;justify-content: flex-end;padding-right: 8px;align-items: center;background-color: #34aadf;border-radius: 10px">
-                    <img src="images/telegram-white.svg" />
+                    <img src="/images/telegram-white.svg" />
                 </div>
                 <!-- <div style="padding-top: 4px;margin-top: 16px;width: 40px;height: 23px;display: flex;flex-direction: row;justify-content: flex-end;padding-right: 8px;align-items: center;background-color: black;color: white;border-radius: 10px;font-size: 12px;">
                     <span>32</span>
@@ -718,6 +715,32 @@
                     width: 100%;
                     padding: 16px;
                     .section3_1_2 {
+                        .button-section-parent-select {
+                            width: 91px;
+                            height: 35px;
+                            text-align: center;
+                            background-color: #F5F5F5 ;
+                            border-radius: 7px ;
+                            display: flex ;
+                            flex-direction: row ;
+                            justify-content: space-between;
+                            align-items: center;
+                            direction: rtl;
+                            padding: 8px;
+                            span {
+                                font-size: 16px;
+                                font-weight: 500;
+                                line-height: 25px;
+                                letter-spacing: 0em;
+                                text-align: right;
+                                color: #000000;
+                            
+                            }
+                            img {
+                                width: 16px ;
+                                height: 16px;
+                            }
+                        }
                             display: flex ;
                             flex-direction: column ;
                             gap: 8px;

@@ -2,7 +2,7 @@
         <div class="platform-parent">
             <div class="title-section">
                 <div class="icons">
-                    <img class="image" src="images/filter-remove.svg" />
+                    <img class="image" src="/images/filter-remove.svg" />
                     <span>لغو فیلتر</span>
                     
                 </div>

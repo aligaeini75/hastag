@@ -17,9 +17,9 @@
         <div style="display: flex ; flex-direction: column ;gap: 8px ;">
           <!-- section1 -->
           <div style="display: flex ;flex-direction: row ; justify-content: space-between;padding: 16px;border-radius: 5px;margin-top: 8px;">
-            <img src="../static/images/navigation/close.svg" @click="setNavigationDrawer( false)"/>
+            <img src="../static//images/navigation/close.svg" @click="setNavigationDrawer( false)"/>
             <div style="padding: 8px;width: 150px;height: 30px;background-color: #EDFFEE;display: flex ;flex-direction: row;justify-content: space-between;align-items: center;">
-              <img src="../static/images/navigation/shopping-cart.svg" />
+              <img src="../static//images/navigation/shopping-cart.svg" />
               <div style="
                 font-size: 12px;
                 font-weight: 700;
@@ -39,7 +39,7 @@
                 letter-spacing: 0em;
                 text-align: center;
                 ">پیام های شما</div>
-            <img src="../static/images/navigation/message-square.svg" />
+            <img src="../static//images/navigation/message-square.svg" />
             
           </div>
           <!-- section 3 -->
@@ -54,7 +54,7 @@
               text-align: right;
               ">980 هزارتومان</div>
               <div style="display: flex;flex-direction: row;justify-content: center;width: 101px;height: 30px;background-color: #58A65C;border-radius: 7px;gap: 8px;align-items: center;">
-                <img src="../static/images/navigation/plus.svg" />
+                <img src="../static//images/navigation/plus.svg" />
                 <div style="
                     font-size: 11px;
                     font-weight: 500;
@@ -66,7 +66,7 @@
           </div>
           <!--  -->
           <div style=" margin-top: 8px;padding: 8px;align-self: center;width: 226px;height: 41px;display: flex ;flex-direction: row ;justify-content: space-between ; gap: 16px;background-color: #f5f5f5;border-radius: 10px;align-items: center;">
-            <img src="../static/images/arrow-right.svg" />
+            <img src="../static//images/arrow-right.svg" />
             <div style="
                 font-size: 14px;
                 font-weight: 400;
@@ -74,12 +74,12 @@
                 letter-spacing: 0em;
                 text-align: center;
                 ">سفارش تبلیغات</div>
-            <img src="../static/images/navigation/sefaresh.svg" />
+            <img src="../static//images/navigation/sefaresh.svg" />
             
           </div>
           <!--  -->
           <div style=" margin-top: 8px;padding: 8px;align-self: center;width: 226px;height: 41px;display: flex ;flex-direction: row ;justify-content: space-between ; gap: 16px;background-color: #f5f5f5;border-radius: 10px;align-items: center;">
-            <img src="../static/images/arrow-right.svg" />
+            <img src="../static//images/arrow-right.svg" />
             <div style="
                 font-size: 14px;
                 font-weight: 400;
@@ -88,13 +88,13 @@
                 text-align: center;
                 ">پیگیری سفارشات</div>
             <div style="border-radius: 8px;width: 20px;height: 20px;display: flex;flex-direction: row;justify-content: center;align-items: center;background-color: #606060;padding: 8px;">
-              <img src="../static/images/box.svg" />
+              <img src="../static//images/box.svg" />
             </div>
             
           </div>
           <!--  -->
           <div style=" margin-top: 8px;padding: 8px;align-self: center;width: 226px;height: 41px;display: flex ;flex-direction: row ;justify-content: space-between ; gap: 16px;background-color: #f5f5f5;border-radius: 10px;align-items: center;">
-            <img src="../static/images/arrow-right.svg" />
+            <img src="../static//images/arrow-right.svg" />
             <div style="
                 font-size: 14px;
                 font-weight: 400;
@@ -103,13 +103,13 @@
                 text-align: center;
                 ">برای من</div>
             <div style="border-radius: 8px;width: 20px;height: 20px;display: flex;flex-direction: row;justify-content: center;align-items: center;background-color: #606060;padding: 8px;">
-              <img src="../static/images/user.svg" />
+              <img src="../static//images/user.svg" />
             </div>
             
           </div>
           <!--  -->
           <div style=" margin-top: 8px;padding: 8px;align-self: center;width: 226px;height: 41px;display: flex ;flex-direction: row ;justify-content: space-between ; gap: 16px;background-color: #f5f5f5;border-radius: 10px;align-items: center;">
-            <img src="../static/images/arrow-right.svg" />
+            <img src="../static//images/arrow-right.svg" />
             <div style="
                 font-size: 14px;
                 font-weight: 400;
@@ -117,12 +117,12 @@
                 letter-spacing: 0em;
                 text-align: center;
                 ">گزارشات مالی</div>
-            <img src="../static/images/navigation/mali.svg" />
+            <img src="../static//images/navigation/mali.svg" />
             
           </div>
           <!--  -->
           <div style=" margin-top: 8px;padding: 8px;align-self: center;width: 226px;height: 41px;display: flex ;flex-direction: row ;justify-content: space-between ; gap: 16px;background-color: #f5f5f5;border-radius: 10px;align-items: center;">
-            <img src="../static/images/arrow-right.svg" />
+            <img src="../static//images/arrow-right.svg" />
             <div style="
                 font-size: 14px;
                 font-weight: 400;
@@ -130,7 +130,7 @@
                 letter-spacing: 0em;
                 text-align: center;
                 ">پشتیبانی</div>
-            <img src="../static/images/navigation/phone.svg" />
+            <img src="../static//images/navigation/phone.svg" />
             
           </div>
         </div>

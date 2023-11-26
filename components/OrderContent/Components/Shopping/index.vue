@@ -2,7 +2,7 @@
     <div class="column">
         <div class="shopping" v-if="shoppingSection">
             <div class="title">
-                <img src="images/shopping-close-icon.svg" @click="setShoppingSection( false )" />
+                <img src="/images/shopping-close-icon.svg" @click="setShoppingSection( false )" />
                 <span>سبد خرید</span>
                 <!--  -->
             </div>
@@ -10,16 +10,16 @@
                     <div class="shop-item" v-for=" i in 3">
                         <div class="left-si">
                             <div class="parent-red-close">
-                                <img src="images/red-close.svg" />
+                                <img src="/images/red-close.svg" />
                             </div>
                             <div style="display: flex ; flex-direction: row ;justify-content: space-between;align-items: center;background-color: #f5f5f5;border-radius: 7px;width: 120px;height: 35px;margin-bottom: 4px;">
 					
                                 <div style="width: 27px;height: 27px;border-radius: 7px;background-color: white;display: flex;flex-direction: row;justify-content: center;align-items: center;">
-                                    <img src="images/add-mobile.svg" style="width: 24px; height: 24px;" @click="count++"/>
+                                    <img src="/images/add-mobile.svg" style="width: 24px; height: 24px;" @click="count++"/>
                                 </div>
 					            <input style="-webkit-appearance: none; width: 10px;font-weight: bold;" :value="toFarsiNumber(count)" />
                                 <div style="width: 27px;height: 27px;border-radius: 7px;background-color: white;display: flex;flex-direction: row;justify-content: center;align-items: center;">
-                                    <img src="images/minus.svg" style="width: 24px; height: 24px;" @click="count--" />
+                                    <img src="/images/minus.svg" style="width: 24px; height: 24px;" @click="count--" />
                                 </div>
                                 
 					
@@ -38,11 +38,11 @@
                                             <span>صثب</span>
                                         </div>
                                     </div>
-                                    <img src="images/telegram-shopping.svg" />
+                                    <img src="/images/telegram-shopping.svg" />
                                 </div>
                             </div>
                             <div class="image-section-si">
-                                <img src="images/content/avatar.svg" />
+                                <img src="/images/content/avatar.svg" />
                             </div>
                         </div>
                         <!--  -->
@@ -81,7 +81,7 @@
               .join('');
         }
         const count = ref(2) 
-        
+
       return { shoppingSection , setShoppingSection , toFarsiNumber , count }
     },
   })

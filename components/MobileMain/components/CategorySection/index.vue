@@ -6,14 +6,14 @@
 <input type="radio" id="tab4" name="tabGroup2" class="tab" checked>
 <label for="tab4" style="font-weight: bold;display: flex ; flex-direction: row ; gap: 8px;justify-content: center;">
     دسته بندی ها
-    <img src="../../../../static/images/category-icon.svg" />
+    <img src="../../../../static//images/category-icon.svg" />
    
 </label>
 
 <input type="radio" id="tab5" name="tabGroup2" class="tab">
 <label for="tab5" style="font-weight: bold;display: flex ; flex-direction: row ; gap: 8px;justify-content: center;">
 فیلتر نتایج
-<img src="../../../../static/images/filter-icon.svg" />
+<img src="../../../../static//images/filter-icon.svg" />
 </label>
 
 
@@ -30,8 +30,8 @@
 
     <!--  -->
 	<div style="display: flex;flex-direction: row; justify-content: space-between;margin-top: 8px; width: 100%;padding: 8px;">
-		<img src="../../../../static/images/price-mobile.svg" />
-		<img src="../../../../static/images/resane-select.svg" />
+		<img src="../../../../static//images/price-mobile.svg" />
+		<img src="../../../../static//images/resane-select.svg" />
 	</div>
 	<div style="display: flex ;flex-direction: column ;align-items: center;margin: 8px;">
 		<div style="margin: 8px;width: 100%;border-top-right-radius: 10px;border-top-left-radius: 10px;background-color: white;padding: 8px;z-index: 1000;">
@@ -39,7 +39,7 @@
 		<div style="display: flex;flex-direction: row;justify-content: space-between;">
 			<!-- left -->
 			<div style="display: flex ;flex-direction: row ;justify-content: left ;align-items: top;">
-				<img src="../../../../static/images/more-mobile.svg"   style="width: 40px;height: 40px;"/>
+				<img src="../../../../static//images/more-mobile.svg"   style="width: 40px;height: 40px;"/>
 			</div>
 			<!-- right -->
 			<div style="display: flex ;flex-direction: row;">
@@ -60,12 +60,12 @@
                         text-align: right;
 
                     ">
-                    <img src="images/tick-circle.svg"/> 
+                    <img src="/images/tick-circle.svg"/> 
                     <span>برنامه نویسی</span>
                        
                 </div>
 				</div>
-				<img src="../../../../static/images/content/avatar.svg"   style="width: 47px;height: 47px;"/>
+				<img src="../../../../static//images/content/avatar.svg"   style="width: 47px;height: 47px;"/>
 				
 			</div>
 		</div>
@@ -73,8 +73,8 @@
 		<div style="display: flex ;flex-direction: row ; gap: 8px; width: 100%; margin-top: 8px;align-items: center;justify-content: right;">
 			
 			<div style="width: 80%;height: .5px;border-radius: 50%;background-color: #ADADAD;"></div>
-			<img src="../../../../static/images/marks/takhfif.svg"   style="width: 40px;height: 40px;"/>
-			<img src="../../../../static/images/marks/new.svg"       style="width: 40px;height: 40px;"/>
+			<img src="../../../../static//images/marks/takhfif.svg"   style="width: 40px;height: 40px;"/>
+			<img src="../../../../static//images/marks/new.svg"       style="width: 40px;height: 40px;"/>
 
 		</div>
 		<!-- section3 -->
@@ -108,7 +108,7 @@
 						color: #5e7dbe;
 			">
                 <span>simsion_programmers</span>
-                <img src="images/content/arrow.svg" />
+                <img src="/images/content/arrow.svg" />
             </div>
 		</div>
 		<!-- section5 -->
@@ -170,7 +170,7 @@
 			<div style="display: flex ;flex-direction: row ;justify-content: center ;align-items: center;">
 				<div class="calender-parent">
                         <span>تقویم روز</span>
-                        <img src="../../../../static/images/content/calendar.svg" @click="setCalenderPopupStatus( true )" />
+                        <img src="../../../../static//images/content/calendar.svg" @click="setCalenderPopupStatus( true )" />
                     </div>
 			</div>
 
@@ -180,9 +180,9 @@
 		<div style="padding: 8px;margin-right: 0;width: 100% ;height: 70px; background-color: #58A65C;border-bottom-left-radius: 13px;border-bottom-right-radius: 13px;margin-top: -20px; display: flex;flex-direction: row;justify-content: space-between ;align-items: flex-end;">
 			<div style="display: flex ;flex-direction: row ; gap: 8px;position: relative; bottom: -18px;align-items: center;">
                 <div style="display: flex ; flex-direction: row ;justify-content: space-between;align-items: center;background-color: #f5f5f5;border-radius: 7px;width: 73px;height: 35px;margin-bottom: 4px;">
-					<img src="../../../../static/images/minus.svg" style="width: 24px; height: 24px;" @click="count--" />
+					<img src="../../../../static//images/minus.svg" style="width: 24px; height: 24px;" @click="count--" />
 					<input style="-webkit-appearance: none; width: 10px;font-weight: bold;" :value="count" />
-					<img src="../../../../static/images/add-mobile.svg" style="width: 24px; height: 24px;" @click="count++"/>
+					<img src="../../../../static//images/add-mobile.svg" style="width: 24px; height: 24px;" @click="count++"/>
 				</div>
 				<v-select
 				style="width: 110px;"
@@ -201,7 +201,7 @@
 					letter-spacing: 0em;
 					color: white;
 					text-align: right;direction: rtl;"> 560/000 تومان</span>
-				<img src="../../../../static/images/content/shopping-cart.svg" style="width: 24px; height: 24px;" />
+				<img src="../../../../static//images/content/shopping-cart.svg" style="width: 24px; height: 24px;" />
 				
 
 			</div>
@@ -212,7 +212,7 @@
 	<!--  -->
 	<div style="padding-left: 8px;padding-right: 8px;">
 		<div class="box-title" style="margin-top: 8px;"  @click="changeBoxTitle()">
-        	<img style="fill: #363A3F;" :src="!boxTitle ? 'images/arrow-right.svg' : 'images/arrow-up.svg'"  />
+        	<img style="fill: #363A3F;" :src="!boxTitle ? '/images/arrow-right.svg' : '/images/arrow-up.svg'"  />
         	<span style="
 							font-size: 14px;
 							font-weight: 700;
@@ -237,21 +237,21 @@
     	</div> 
 		<div class="box-parent" style="margin-top: 16px;" @click="changeBoxParent1()" >
             <div class="box-title">
-                <img style="fill: #363A3F;" :src="!boxParent1 ? 'images/arrow-right.svg' : 'images/arrow-up.svg'" />
+                <img style="fill: #363A3F;" :src="!boxParent1 ? '/images/arrow-right.svg' : '/images/arrow-up.svg'" />
                 <span>میتوانم سفارشم را بصورت اقساطی ( اعتباری ) پرداخت کنم؟</span>
             </div>
             <div v-if="boxParent1" style="text-align: right;padding: 16px;">dqdqwddddddd</div>
           </div>
 		  <div class="box-parent" @click="changeBoxParent2()" >
             <div class="box-title">
-                <img style="fill: #363A3F;" :src="!boxParent2 ? 'images/arrow-right.svg' : 'images/arrow-up.svg'" />
+                <img style="fill: #363A3F;" :src="!boxParent2 ? '/images/arrow-right.svg' : '/images/arrow-up.svg'" />
                 <span>چطور می‌توانم سفارشم را پیگیری کنم؟</span>
             </div>
             <div v-if="boxParent2" style="text-align: right;padding: 16px;">dqdqwddddddd</div>
           </div>
 		  <div class="box-parent" @click="changeBoxParent3()">
             <div class="box-title">
-                <img style="fill: #363A3F;" :src="!boxParent3? 'images/arrow-right.svg' : 'images/arrow-up.svg'"  />
+                <img style="fill: #363A3F;" :src="!boxParent3? '/images/arrow-right.svg' : '/images/arrow-up.svg'"  />
                 <span>هزینه ی ارسال در دیجی کالا چگونه محاسبه میشود؟</span>
             </div>
             <div v-if="boxParent3" style="text-align: right;padding: 16px;">dqdqwddddddd</div>

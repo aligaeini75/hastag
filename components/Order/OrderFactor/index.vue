@@ -11,14 +11,14 @@
             </div>
         </div>
         <!--  -->
-        <div class="order-line"><img src="images/order/order-line.svg" /></div>
+        <div class="order-line"><img src="/images/order/order-line.svg" /></div>
         <!--  -->
         <div class="order-detail">
             <div class="order-detail-item" v-for="item in orderDetailItem">
                 <div class="order-detail-item-key">{{ item.key }}</div>
                 <div class="order-detail-item-value shabnam-bold">{{ item.value }}</div>
             </div>
-            <img src="images/order/order-detail-line.svg" />
+            <img src="/images/order/order-detail-line.svg" />
             <div class="order-detail-item-with-checkbox">
                 <div class="order-detail-item-with-checkbox-key">کد تخفیف:</div>
                 <div class="order-detail-item-with-checkbox-value"><v-switch label=""></v-switch></div>
@@ -26,7 +26,7 @@
             <div class="order-detail-takhfif-input">
                 <input placeholder="کد تخفیف رو اینجا وارد کنین..." />
             </div>
-            <img src="images/order/order-detail-line.svg" />
+            <img src="/images/order/order-detail-line.svg" />
             <div class="order-detail-item" >
                 <div class="order-detail-item-key">مبلغ نهایی:</div>
                 <div class="order-detail-item-value shabnam-bold">90.000</div>
@@ -61,9 +61,9 @@
             { key : 'مالیات:' , value : '0%'}
         ])
         const orderDetailCountItems = ref([
-            { icon : "images/order/telegram.svg" , title : "5 کانال" } , 
-            { icon : "images/order/instagram.svg" , title : "3 پیج" } , 
-            { icon : "images/order/package.svg" , title : "2 پکیج" }
+            { icon : "/images/order/telegram.svg" , title : "5 کانال" } , 
+            { icon : "/images/order/instagram.svg" , title : "3 پیج" } , 
+            { icon : "/images/order/package.svg" , title : "2 پکیج" }
         ])
         const checkboxes = ref([
             { title : "برداشت از اعتبار" } , 
@@ -79,7 +79,7 @@
   }
   .order-factor-parent {
     width: 352.46px ;
-    height:900px ; 
+    height:910px ; 
     border-radius: 8px ;
     background-color: white ;
     margin-top: 16px;

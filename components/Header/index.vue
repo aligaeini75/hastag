@@ -1,11 +1,11 @@
 <template>
     <div class="header-parent"> 
         <div class="left-section">
-            <img class="img-icon" src="images/person.svg" />
-            <img class="img-icon" src="images/line.svg" style="height: 29px;" />
-            <img class="img-icon" src="images/message.svg" />
-            <img class="img-icon" src="images/line.svg" style="height: 29px;"  />
-            <img class="img-icon" src="images/shopping.svg"  @click="setShoppingSection( !shoppingSection )"/>
+            <img class="img-icon" src="/images/person.svg" />
+            <img class="img-icon" src="/images/line.svg" style="height: 29px;" />
+            <img class="img-icon" src="/images/message.svg" />
+            <img class="img-icon" src="/images/line.svg" style="height: 29px;"  />
+            <img class="img-icon" src="/images/shopping.svg"  @click="setShoppingSection( !shoppingSection )"/>
             <div class="inventory-parent">
                 <div style="color: #404040;margin-left: 8px;">موجودی :</div> 
                 <div class="inventory">
@@ -30,12 +30,12 @@
             </div>
             <div class="icon-box">
                 <div class="hashtag">
-                    <img src="images/Hashtag-text.svg" />
-                    <img src="images/Hashtag-icon.svg" style="margin-top: 6px;" />
+                    <img src="/images/Hashtag-text.svg" />
+                    <img src="/images/Hashtag-icon.svg" style="margin-top: 6px;" />
                     
                 </div>
-                <img class="img-icon" src="images/line.svg" />
-                <img class="menu-icon" src="images/menu.svg" />
+                <img class="img-icon" src="/images/line.svg" />
+                <img class="menu-icon" src="/images/menu.svg" />
             </div>
         </div>
     </div>

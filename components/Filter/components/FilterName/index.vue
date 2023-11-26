@@ -5,7 +5,7 @@
         </div>
         <div class="filter-button">
             <span>ذخیره فیلتر</span>
-            <img src="images/filter-tick.svg" />
+            <img src="/images/filter-tick.svg" />
             
         </div>
     </div>

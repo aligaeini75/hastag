@@ -3,9 +3,9 @@
             <div class="title-section">
                 <div class="icons">
                     
-                    <img class="image" src="images/filter-remove.svg" />
+                    <img class="image" src="/images/filter-remove.svg" />
                     <span style="margin-top: 4px;">لغو فیلتر</span>
-                    <img class="image" style="margin-left: 8px;" src="images/filter-tick2.svg" />
+                    <img class="image" style="margin-left: 8px;" src="/images/filter-tick2.svg" />
                     
                 </div>
                 <div class="title">

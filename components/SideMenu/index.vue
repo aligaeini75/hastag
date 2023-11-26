@@ -1,10 +1,10 @@
 <template>
     <div class="side-menu-parent">
-        <img src="images/side/side-menu-1.svg" />
-        <img src="images/side/side-menu-2.svg" />
-        <img src="images/side/side-menu-3.svg" />
-        <img src="images/side/side-menu-4.svg" />
-        <img src="images/side/side-menu-5.svg" style="margin-top: 46px;" />
+        <img src="/images/side/side-menu-1.svg" />
+        <img src="/images/side/side-menu-2.svg" />
+        <img src="/images/side/side-menu-3.svg" />
+        <img src="/images/side/side-menu-4.svg" />
+        <img src="/images/side/side-menu-5.svg" style="margin-top: 46px;" />
     </div>
   </template>
   

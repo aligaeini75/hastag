@@ -4,7 +4,7 @@
             <div class="right">پیشنهاد تبلیغات</div>
             <div class="left">
                 <div class="left-button">
-                    <img src="images/order/eye-slash.svg" />
+                    <img src="/images/order/eye-slash.svg" />
                     <span>پنهان کردن پیشنهاد ها</span>
                 </div>
             </div>
