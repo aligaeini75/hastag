@@ -451,7 +451,7 @@ import Popper from 'vue-popperjs';
             showDetailParameters.value.push( value )
         }
         const hideDetail = ( value ) => {
-            showDetailParameters.value = showDetailParameters.value.filter( x => x != value )
+            // showDetailParameters.value = showDetailParameters.value.filter( x => x != value )
         }
         const removeCalenderDatePicker = () => {
             setCalenderPopupStatus( false )
