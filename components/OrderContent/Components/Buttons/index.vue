@@ -31,6 +31,7 @@
         width: 100%  ;
         height: 50px ;
         gap: 8px ;
+        margin-top: 16px;
         display: flex ;
         direction: rtl;
         flex-direction: row ;
@@ -63,16 +64,18 @@
                 letter-spacing: 0em;
                 text-align: right;
                 color: #000000;
+                margin-right: 12px;
 
             }
             img {
+                margin-left: 19px;
                 width: 16px ;
                 height: 16px;
             }
         }
         .button-section-parent-input {
             display: flex ;
-            border-radius: 8px ;
+            border-radius: 13px ;
             background-color: white;
             flex-direction: row ;
             align-items: center;
@@ -83,9 +86,11 @@
                 
                 all: unset ;
                 width: 97% !important;
+                padding-right: 20px;
             }
             .icon {
                 margin-top: 8px;
+                margin-left: 20px;
                 img {
                     width: 16px ;
                     height: 16px;

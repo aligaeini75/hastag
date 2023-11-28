@@ -1,8 +1,8 @@
 <template>
-    <div class="content-parent-desktop">
+    <div class="content-parent-desktop-order">
             <div class="channels-parent">
                 <div class="channels">
-            <div class="left">
+            <div class="leftff">
                     <img slot="reference" src="/images/content/more.svg" />
                     <img src="/images/content/heart.svg" />
                     <img src="/images/content/shopping-cart.svg" />
@@ -20,7 +20,7 @@
                         </div>
                         <div class="section3_1_2">
                             <span>تعداد تبلیغ:</span>
-                            <div style="display: flex ; flex-direction: row ;justify-content: space-between;align-items: center;background-color: #f5f5f5;border-radius: 7px;width: 73px;height: 35px;margin-bottom: 4px;">
+                            <div style="display: flex ; flex-direction: row ;justify-content: space-between;align-items: center;background-color: #f5f5f5;border-radius: 7px;width: 91.6px;height: 29.77px;margin-bottom: 4px;">
 					
                     <img src="/images/add-mobile.svg" style="width: 24px; height: 24px;" @click="count++"/>
 					<input style="-webkit-appearance: none; width: 10px;font-weight: bold;" :value="toFarsiNumber(count)" />
@@ -65,6 +65,7 @@
                     </div>
                     </div>
                 </div>
+                <img src="/images/order/sp-line.svg" style="margin-right: 27px;margin-left: 27px;height: 93.17px;align-self: center;" />
                 <div class="section1">
                     <div class="section1_1">
                         <div class="content">
@@ -140,7 +141,7 @@
     },
   })
   </script>
-  <style lang="scss">
+  <style lang="scss" scoped>
   .bold {
     font-weight: bold;
   }
@@ -149,7 +150,7 @@
     height: 2px ;
     background-color: #f5f5f5;
   }
-  .content-parent-desktop {
+  .content-parent-desktop-order {
     display: flex ;
     flex-direction: column ;
     width: 100% ;
@@ -223,7 +224,7 @@
                     align-items: center;
                     gap: 8px ;
                     .title3 {
-                        font-family: YekanBakh;
+                        font-family: YekanBakh-Regular-woff;
                         font-size: 14px;
                         font-weight: 300;
                         line-height: 15px;
@@ -455,7 +456,7 @@
             flex-direction: row ;
             flex-grow: 5;
             background-color: white;
-            border-radius: 8px;
+            border-radius: 13px;
             z-index: 2;
             .section1 {
                 display: flex ;
@@ -491,7 +492,7 @@
                             .button {
                                 width: 70px ;
                                 height: 30px ;
-                                border-radius: 8px ;
+                                border-radius: 25px ;
                                 font-size: 12px;
                                 background-color: #f5f5f5;
                                 display: flex;
@@ -506,7 +507,7 @@
                                 padding-right: 4px;
                                 height: 30px ;
                                 font-size: 12px;
-                                border-radius: 8px ;
+                                border-radius: 25px ;
                                 background-color: white;
                                 display: flex;
                                 flex-direction: row ;
@@ -622,26 +623,33 @@
                 flex-direction: row ;
                 justify-content: center ;
                 align-items: center;
-                padding-top: 16px;
-                padding-bottom: 24.32px;
+                
                 .section2 {
-                    width: 90% ;
-                    height: 90%;
+                    width: 100% ;
+                    height: 100%;
+                    width: 330.42px;
+                    height: 140.77px;
                     background-color: #f5f5f5 ;
                     border-radius: 13px;
                     display: flex ;
                     flex-direction: row;
                     padding: 8px;
                     direction: rtl;
+                    gap: 12px;
+                    padding: 20px;
                     .section2_1 {
                         display: flex ;
                         flex-direction: column ;
                         flex-grow: 1 ;
+                        gap: 20px;
+                        margin-top: 15px;
+                        margin-bottom: 15px;
                         justify-content: space-around;
                         .section2_1_1 {
+                            padding-top: 3px;
                             display: flex ;
                             flex-direction: column ;
-                            gap: 8px;
+                            gap: 2px;
                             color: #404040;
                             font-size: 14px;
                             .bold {
@@ -655,11 +663,12 @@
                         display: flex ;
                         flex-direction: column ;
                         flex-grow: 1 ;
+                        gap: 20px;
                         justify-content: space-around;
                         .section2_1_2 {
                             display: flex ;
                             flex-direction: column ;
-                            gap: 8px;
+                            gap: 2px;
                             color: #404040;
                             font-size: 14px;
                             .bold {
@@ -708,18 +717,21 @@
                 flex-direction: column ;
                 align-items: center;
                 padding-top: 10px;
+                gap: 24px;
                 padding-bottom: 24.32px;
+                margin-left: 20px;
                 flex-grow: 3 ;
                 .section3_1 {
                     display: flex ;
                     flex-direction: row ;
                     justify-content: space-between ;
+                    gap: 22px;
                     width: 100%;
                     padding: 16px;
                     .section3_1_2 {
                         .button-section-parent-select {
-                            width: 91px;
-                            height: 35px;
+                            width: 91.6px;
+                            height: 29.77px;
                             text-align: center;
                             background-color: #F5F5F5 ;
                             border-radius: 7px ;
@@ -773,400 +785,19 @@
                         }
             }
         }
-        .left {
+        .leftff {
             display: flex ;
-            padding-right: 8px;
+            padding-right: 18px;
             z-index: 1;
             flex-direction: column ;
             flex-grow: .7 ;
+            width: 76.71px !important;
             align-items : center;
             justify-content: space-around;
             background-color: #34AADF;
-            margin-right: -10px;
-            border-radius: 8px;
-        }
-    }
-    .detail-channels-parent {
-        display: flex ;
-        flex-direction: row ;
-        width: 100%;
-        flex-wrap: wrap;
-        gap: 16px;
-        justify-content: center;
-        padding-bottom: 16px;
-        background-color: white;
-        padding-top: 16px ;
-        padding-left: 8px ;
-        padding-right: 8px ;
-        padding-bottom: 8px;
-        margin-top: -10px;
-        .detail-channels {
-        width: 515px ;
-        height: 190px ;
-        display: flex ;
-        .right {
-            display: flex ;
-            flex-direction: row ;
-            flex-grow: 5;
-            align-items: center;
-            background-color: #f5f5f5;
-            border-radius: 8px;
-            z-index: 1000;
-            padding: 8px;
-            .section1 {
-                display: flex ;
-                flex-direction: column ;
-                flex-grow: 1;
-                gap: 4px ;
-                .section1_1 {
-                    display: flex ;
-                    flex-direction: row ;
-                    align-items: center;
-                    margin-top: 8px;
-                    .content {
-                        display: flex ;
-                        flex-direction: column; 
-                        justify-content: center;
-                        gap: 0px;
-                        flex-grow: 4;
-                        .titles {
-                            font-weight: 700 ;
-                            font-size: 16px;
-                            display: flex ;
-                            margin-top: 8px;
-                            flex-direction: row ;
-                            justify-content: flex-end;
-                        }
-                        .buttons {
-                            display: flex ;
-                            flex-direction: row ;
-                            align-items: flex-start;
-                            margin-top: 4px;
-                            justify-content: flex-end;
-                            gap: 4px;
-                            .button {
-                                width: 70px ;
-                                height: 30px ;
-                                border-radius: 8px ;
-                                font-size: 12px;
-                                background-color: #f5f5f5;
-                                display: flex;
-                                flex-direction: row ;
-                                justify-content: center; 
-                                align-items: center;
-                                color: black;
-                            }
-                            .button1 {
-                                width: fit-content ;
-                                padding-left: 4px;
-                                padding-right: 4px;
-                                height: 30px ;
-                                font-size: 12px;
-                                border-radius: 8px ;
-                                background-color: white;
-                                display: flex;
-                                flex-direction: row ;
-                                direction: rtl;
-                                justify-content: center; 
-                                align-items: center;
-                                border: 1px solid #e7e7e7;
-                                color: black;
-                            }
-                        }
-
-                    }
-                    .image {
-                        display: flex ;
-                        flex-direction: row ;
-                        justify-content: center ;
-                        align-items: center;
-                         flex-grow: 1;
-                         padding-top: 4px;
-                         img {
-                            width:  47px;
-                            height: 47px;
-                         }
-
-                    }
-
-                }
-                .section1_2 {
-                    display: flex ;
-                    flex-direction: row ;
-                    justify-content: flex-start;
-                    padding-right: 20px;
-                    padding-top: 8px;
-                    direction: rtl;
-                    span {
-                        font-size: 16px;
-                        font-weight: 300;
-                        line-height: 25px;
-                        letter-spacing: 0em;
-                        text-align: right;
-
-                    }
-
-                }
-                .section1_3 {
-                    display: flex ;
-                    flex-direction: row ;
-                    justify-content: space-between;
-                    margin-bottom: 8px;
-                    .section1_3_right {
-                        display: flex ;
-                        flex-direction: row ;
-                        gap: 8px ;
-                        color: #5E7DBE;
-                        align-items: center;
-                        font-size: 16px;
-                        font-weight: 500;
-                        .detail-button {
-                            width: fit-content ;
-                            height: 25px ;
-                            background-color: #34AADF ;
-                            color: white;
-                            border-radius: 7px;
-                            display: flex ;
-                            flex-direction: row ;
-                            align-items: center;
-                            gap: 8px;
-                            padding: 8px;
-                            justify-content: space-around ;
-                            span {
-                            font-size: 10px;
-                        }
-                        
-                        }
-                        .detail-button2 {
-                            width: fit-content ;
-                            height: 25px ;
-                            background-color: #D85240 ;
-                            color: white;
-                            border-radius: 7px;
-                            gap: 8px;
-                            padding: 8px;
-                            display: flex ;
-                            flex-direction: row ;
-                            align-items: center;
-                            justify-content: space-around ;
-                            span {
-                            font-size: 10px;
-                        }
-                        
-                        }
-                        
-                        img {
-                            width: 15px ;
-                            height: 15px;
-                        }
-                        span {
-                            font-size: 16px;
-                            font-weight: bold;
-                            padding-top: 2px;
-                        }
-
-                    }
-                    .section1_3_left {
-                        display: flex ;
-                        flex-direction: row ;
-                        gap: 4px ;
-                        padding-right: 8px;
-                        img {
-                            width:  45px ;
-                            height: 45px;
-                        }
-                        
-
-                    }
-
-                }
-            }
-            .section2-parent {
-                display: flex ;
-                flex-direction: row ;
-                width: 123px ;
-                height: 141px;
-                display: flex ;
-                flex-direction: row ;
-                justify-content: center ;
-                align-items: center;
-                .section2 {
-                    width: 90% ;
-                    height: 90%;
-                    background-color: white ;
-                    border-radius: 8px;
-                    display: flex ;
-                    flex-direction: row;
-                    padding: 8px;
-                    direction: rtl;
-                    .section2_1 {
-                        display: flex ;
-                        flex-direction: column ;
-                        flex-grow: 1 ;
-                        justify-content: space-around;
-                        .section2_1_1 {
-                            display: flex ;
-                            flex-direction: column ;
-                            gap: 8px;
-                            color: #404040;
-                            font-size: 14px;
-                            .bold {
-                                font-weight: bold ;
-                                color: #404040;
-                                font-size: 16px;
-                            }
-                        }
-                        }
-                    .section2_2 {
-                        display: flex ;
-                        flex-direction: column ;
-                        flex-grow: 1 ;
-                        justify-content: space-around;
-                        .section2_1_2 {
-                            display: flex ;
-                            flex-direction: column ;
-                            gap: 8px;
-                            color: #404040;
-                            font-size: 13px;
-                            font-weight: 300;
-                            text-align: center;
-                            .bold {
-                                color: #404040;
-                                font-size: 15px;
-                                font-weight: 700;
-                            }
-                        }
-                    }
-                    .section2_3 {
-                        box-shadow: 0px 4px 8px 0px #5E7DBE40;
-                        border: 0.53px solid #5E7DBE ;
-                        background-color: white;
-                        border-radius: 8px;
-                        display: flex ;
-                        width: 50px;
-                        height: 110px;
-                        align-self: center;
-                        flex-direction: column ;
-                        justify-content: space-around;
-                        flex-grow: 1 ;
-                        gap: 4px;
-                        padding: 8px;
-                        justify-content: center ;
-                        align-items: center;
-                        img {
-                            width: 46px ;
-                            height: 46px;
-                        }
-                    }
-                }
-            }
-            .section3 {
-                direction: rtl;
-                display: flex ;
-                flex-direction: column ;
-                justify-content: space-around;
-                align-items: center;
-                flex-grow: 3 ;
-                .section3_1 {
-                    display: flex ;
-                    flex-direction: row ;
-                    justify-content: space-between ;
-                    width: 100%;
-                    padding: 16px;
-                    .section3_1_2 {
-                        .button-section-parent-select {
-                            width: 91px;
-                            height: 29px;
-                            text-align: center;
-                            background-color: white ;
-                            border-radius: 13px ;
-                            display: flex ;
-                            flex-direction: row ;
-                            justify-content: space-between;
-                            align-items: center;
-                            direction: rtl;
-                            padding: 8px;
-                            span {
-                                font-size: 16px;
-                                font-weight: 500;
-                                line-height: 25px;
-                                letter-spacing: 0em;
-                                text-align: right;
-                                color: #000000;
-                            
-                            }
-                            img {
-                                width: 16px ;
-                                height: 16px;
-                            }
-                        }
-                            display: flex ;
-                            flex-direction: column ;
-                            gap: 8px;
-                            color: #404040;
-                            font-size: 14px;
-                            .bold {
-                                font-weight: bold ;
-                                color: #404040;
-                                font-size: 16px;
-                            }
-                        }
-                }
-                .section3_2 {
-                            width: 100%;
-                            display: flex ;
-                            flex-direction: column ;
-                            align-items: flex-start;
-                            padding: 16px;
-                            font-size: 14px;
-                            color: #404040;
-                            gap: 8px;
-                            .bold {
-                                font-weight: bold ;
-                                color: #404040;
-                                font-size: 24px;
-                            }
-                        }
-            }
-        }
-        .left {
-            display: flex ;
-            padding-right: 4px;
-            z-index: 1;
-            flex-direction: column ;
-            flex-grow: .7 ;
-            align-items : center;
-            justify-content: space-around;
-            background-color: #34AADF;
-            margin-right: -10px;
-            border-radius: 8px;
-        }
-        }
-        .summary {
-            width: 515px ;
-             height: 200px ;
-             display: flex ;
-             flex-direction: row ;
-             justify-content: center;
-             align-items: center;
-             gap: 32px;
-             direction: rtl;
-             .summary-item {
-                display: flex ;
-                flex-direction: column ;
-                gap: 8px;
-                .span1 {
-                    font-size: 16px;
-                    color: #404040;
-                    text-align: center ;
-                }
-                .span2 {
-                    color: #404040; 
-                    font-size: 22px ;
-                    font-weight: bold;
-                    text-align: center;
-                }
-             }
+            margin-right: -20px;
+            border-top-left-radius: 13px !important;
+            border-bottom-left-radius: 13px !important;
         }
     }
     }

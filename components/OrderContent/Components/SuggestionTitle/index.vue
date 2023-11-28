@@ -49,6 +49,8 @@
             height: 49px ;
             gap: 16px;
             border-radius: 13px;
+            padding-left: 12px ;
+            padding-right: 12px;
             display: flex ;
             flex-direction: row ;
             justify-content: center ;
@@ -59,7 +61,7 @@
                 height: 22px;
             }
             span {
-                font-size: 16px;
+                font-size: 14px;
                 font-weight: 500;
                 line-height: 25px;
                 letter-spacing: 0em;

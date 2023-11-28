@@ -438,7 +438,7 @@
                     align-items: center;
                     gap: 8px ;
                     .title3 {
-                        font-family: YekanBakh;
+                        font-family: YekanBakh-Regular-woff;
                         font-size: 14px;
                         font-weight: 300;
                         line-height: 15px;

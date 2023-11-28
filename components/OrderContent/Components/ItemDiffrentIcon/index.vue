@@ -26,8 +26,8 @@
                       align-items: center;
                       background-color: white;
                       border-radius: 7px;
-                      width: 73px;
-                      height: 35px;
+                      width: 91.6px;
+                      height: 29.77px;
                       margin-bottom: 4px;
                     "
                   >
@@ -265,7 +265,7 @@ export default defineComponent({
           align-items: center;
           gap: 8px;
           .title3 {
-            font-family: YekanBakh;
+            font-family: YekanBakh-Regular-woff;
             font-size: 14px;
             font-weight: 300;
             line-height: 15px;
@@ -491,7 +491,7 @@ export default defineComponent({
         flex-grow: 5;
         background-color: white;
         align-items: center;
-        border-radius: 8px;
+        border-radius: 13px;
         z-index: 2;
         .section1 {
           display: flex;
@@ -527,7 +527,7 @@ export default defineComponent({
                 .button {
                   width: 70px;
                   height: 30px;
-                  border-radius: 8px;
+                  border-radius: 25px;
                   font-size: 12px;
                   background-color: #f5f5f5;
                   display: flex;
@@ -542,7 +542,7 @@ export default defineComponent({
                   padding-right: 4px;
                   height: 30px;
                   font-size: 12px;
-                  border-radius: 8px;
+                  border-radius: 25px;
                   background-color: white;
                   display: flex;
                   flex-direction: row;
@@ -657,6 +657,7 @@ export default defineComponent({
             border-radius: 13px;
             display: flex;
             flex-direction: row;
+            gap: 42px;
             padding: 8px;
             direction: rtl;
             .section2_1 {
@@ -667,6 +668,7 @@ export default defineComponent({
               justify-content: space-around;
               .section2_1_1 {
                 display: flex;
+                padding-top: 4px;
                 flex-direction: column;
                 gap: 8px;
                 color: #404040;
@@ -745,8 +747,8 @@ export default defineComponent({
             background-color: white;
             border-radius: 8px;
             display: flex;
-            width: 90px;
-            height: 115px;
+            width: 70.96px;
+            height: 96.68px;
             align-self: center;
             flex-direction: column;
             justify-content: space-around;
@@ -758,6 +760,15 @@ export default defineComponent({
             img {
               width: 46px;
               height: 46px;
+            }
+            span {
+              font-size: 13px;
+              font-weight: 300;
+              line-height: 22px;
+              letter-spacing: 0em;
+              text-align: right;
+              color: #404040;
+
             }
           }
           .section3 {
@@ -780,7 +791,7 @@ export default defineComponent({
               .section3_1_2 {
                 .button-section-parent-select {
                   width: 91px;
-                  height: 35px;
+                  height: 29.77px;
                   text-align: center;
                   background-color: white;
                   border-radius: 7px;
@@ -805,7 +816,7 @@ export default defineComponent({
                 }
                 display: flex;
                 flex-direction: column;
-                gap: 8px;
+                gap: 3px;
                 color: #404040;
                 font-size: 14px;
                 .bold {
@@ -824,7 +835,7 @@ export default defineComponent({
               padding: 16px;
               font-size: 14px;
               color: #404040;
-              gap: 8px;
+              gap: 1px;
               .bold {
                 font-weight: bold;
                 color: #404040;
@@ -836,16 +847,17 @@ export default defineComponent({
       }
       .leftsd {
         display: flex;
-        padding-right: 8px;
+        padding-right: 18px;
         padding-top: 16px;
         z-index: 1;
         flex-direction: column;
         flex-grow: 0.7;
+        width: 76px;
         align-items: center;
         justify-content: flex-start;
         background-color: #34aadf;
-        margin-right: -10px;
-        border-radius: 8px;
+        margin-right: -20px;
+        border-radius: 13px;
       }
     }
   }

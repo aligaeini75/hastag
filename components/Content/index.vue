@@ -451,7 +451,8 @@ import Popper from 'vue-popperjs';
             showDetailParameters.value.push( value )
         }
         const hideDetail = ( value ) => {
-            // showDetailParameters.value = showDetailParameters.value.filter( x => x != value )
+            let test = showDetailParameters.value || [] 
+            showDetailParameters.value = test.filter( x => x != value )
         }
         const removeCalenderDatePicker = () => {
             setCalenderPopupStatus( false )
@@ -745,7 +746,7 @@ import Popper from 'vue-popperjs';
                     align-items: center;
                     gap: 8px ;
                     .title3 {
-                        font-family: YekanBakh;
+                        font-family: YekanBakh-Regular-woff;
                         font-size: 14px;
                         font-weight: 300;
                         line-height: 15px;

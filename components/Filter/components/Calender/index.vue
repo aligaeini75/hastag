@@ -37,7 +37,7 @@ setup( ) {
 }
 .vpd-container {
     color: grey;
-    font-family: YekanBakh;
+    font-family: YekanBakh-Regular-woff;
 }
 .vpd-content {
     border-radius: 13px !important;

@@ -21,10 +21,10 @@
             <img src="/images/order/order-detail-line.svg" />
             <div class="order-detail-item-with-checkbox">
                 <div class="order-detail-item-with-checkbox-key">کد تخفیف:</div>
-                <div class="order-detail-item-with-checkbox-value"><v-switch label=""></v-switch></div>
+                <div class="order-detail-item-with-checkbox-value"><v-switch style="direction: ltr;" label=""></v-switch></div>
             </div>
             <div class="order-detail-takhfif-input">
-                <input placeholder="کد تخفیف رو اینجا وارد کنین..." />
+                <input class="placeh" placeholder="کد تخفیف رو اینجا وارد کنین..." />
             </div>
             <img src="/images/order/order-detail-line.svg" />
             <div class="order-detail-item" >
@@ -82,7 +82,7 @@
     height:910px ; 
     border-radius: 8px ;
     background-color: white ;
-    margin-top: 16px;
+    margin-top: 12px;
     display: flex ;
     flex-direction: column ;
     gap: 24px ;
@@ -215,13 +215,19 @@
             align-items: center;
             font-size: 14px !important;
             font-weight: 700;
+            .placeh::placeholder {
+                    font-size: 16px;
+                    font-weight: 300;
+                    line-height: 25px;
+                    letter-spacing: 0em;
+                    text-align: right;
+                    color: #878787;
+                }
             input {
                 all: unset;
                 width: 100%;
                 padding-right: 16px;
-                ::placeholder {
-                    font-size: 10px;
-                }
+                
             }
 
         }

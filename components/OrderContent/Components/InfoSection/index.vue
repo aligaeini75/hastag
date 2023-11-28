@@ -28,7 +28,7 @@
         display: flex ;
         flex-direction: row;
         .icon-section {
-            width: 54.25px ; 
+            width: 80.25px !important; 
             height: 97.8px ; 
             border-top-right-radius: 13px ;
             border-bottom-right-radius: 13px; 

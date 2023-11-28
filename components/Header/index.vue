@@ -61,7 +61,7 @@
   </script>
   <style lang="scss">
 * {
-    font-family: YekanBakh;
+    font-family: YekanBakh-Regular-woff;
 }
 .theme--dark.v-text-field--solo > .v-input__control > .v-input__slot {
     background: #F5F5F5;

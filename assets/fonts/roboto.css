@@ -41,3 +41,33 @@
     font-weight: 400;
     src: url('Shabnam-Light.ttf');
   }
+  @font-face {
+    font-family: 'YekanBakh-Black';
+    font-style: normal;
+    font-weight: 400;
+    src: url('YekanBakh-Black.ttf');
+  }
+  @font-face {
+    font-family: 'YekanBakh-Light';
+    font-style: normal;
+    font-weight: 400;
+    src: url('YekanBakh-Light.ttf');
+  }
+  @font-face {
+    font-family: 'YekanBakh-Regular';
+    font-style: normal;
+    font-weight: 400;
+    src: url('YekanBakh-Regular.ttf');
+  }
+  @font-face {
+    font-family: 'YekanBakh-Thin';
+    font-style: normal;
+    font-weight: 400;
+    src: url('YekanBakh-Thin.ttf');
+  }
+  @font-face {
+    font-family: 'YekanBakh-Regular-woff';
+    font-style: normal;
+    font-weight: 400;
+    src: url('YekanBakh-Regular.woff');
+  }

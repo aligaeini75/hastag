@@ -179,7 +179,7 @@ export default {
 }
 input { outline: none; }
 body {
-  font-family: YekanBakh ;
+  font-family: YekanBakh-Regular-woff ;
 }
 html {
   /* overflow: hidden; */
