@@ -12,13 +12,13 @@
                             <div class="parent-red-close">
                                 <img src="/images/red-close.svg" />
                             </div>
-                            <div style="display: flex ; flex-direction: row ;justify-content: space-between;align-items: center;background-color: #f5f5f5;border-radius: 7px;width: 120px;height: 35px;margin-bottom: 4px;">
+                            <div style="display: flex ; flex-direction: row ;justify-content: space-between;align-items: center;background-color: transparent;border-radius: 7px;height: 35px;margin-bottom: 4px;">
 					
-                                <div style="width: 27px;height: 27px;border-radius: 7px;background-color: white;display: flex;flex-direction: row;justify-content: center;align-items: center;">
+                                <div style="z-index: 100;margin-right: -10px;width: 27px;height: 27px;border-radius: 7px;background-color: white;display: flex;flex-direction: row;justify-content: center;align-items: center;">
                                     <img src="/images/add-mobile.svg" style="width: 24px; height: 24px;" @click="count++"/>
                                 </div>
-					            <input style="-webkit-appearance: none; width: 10px;font-weight: bold;" :value="toFarsiNumber(count)" />
-                                <div style="width: 27px;height: 27px;border-radius: 7px;background-color: white;display: flex;flex-direction: row;justify-content: center;align-items: center;">
+					            <input style="-webkit-appearance: none;font-weight: bold;background-color: #E4E4E4;width: 70px;text-align: center;height: 27.58px;" :value="toFarsiNumber(count)" />
+                                <div style="margin-left: -10px;width: 27px;height: 27px;border-radius: 7px;background-color: white;display: flex;flex-direction: row;justify-content: center;align-items: center;">
                                     <img src="/images/minus.svg" style="width: 24px; height: 24px;" @click="count--" />
                                 </div>
                                 
