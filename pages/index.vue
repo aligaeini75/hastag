@@ -5,7 +5,7 @@
   <div v-else>
       <MobileMain />
   </div>
-  
+  <!--  -->
 </template>
 
 <script>
