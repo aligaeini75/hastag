@@ -790,8 +790,7 @@
             padding-right: 18px;
             z-index: 1;
             flex-direction: column ;
-            flex-grow: .7 ;
-            width: 76.71px !important;
+            width: 96px !important;
             align-items : center;
             justify-content: space-around;
             background-color: #34AADF;

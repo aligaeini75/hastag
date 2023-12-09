@@ -851,8 +851,7 @@ export default defineComponent({
         padding-top: 16px;
         z-index: 1;
         flex-direction: column;
-        flex-grow: 0.7;
-        width: 76px;
+        width: 96px;
         align-items: center;
         justify-content: flex-start;
         background-color: #34aadf;

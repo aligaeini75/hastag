@@ -1,8 +1,8 @@
 <template>
     <div class="header-parent"> 
         <div class="left-section">
-            <img src="/images/mobile/images/mobile-images-menu.svg" style="width: 30px;height: 30px;" @click="setNavigationDrawer()" />
-            <img src="/images/mobile/images/mobile-images-search.svg" style="width: 30px;height: 30px;" /> 
+            <img src="/images/mobileImages/mobile-images-menu.svg" style="width: 30px;height: 30px;" @click="setNavigationDrawer()" />
+            <img src="/images/mobileImages/mobile-images-search.svg" style="width: 30px;height: 30px;" /> 
             <div style="border-radius: 8px;width: 30px;height: 30px;display: flex;flex-direction: row;justify-content: center;align-items: center;background-color: #f5f5f5;">
                 <img src="/images/shopping.svg" style="width: 20px;height: 20px;" /> 
             </div>
