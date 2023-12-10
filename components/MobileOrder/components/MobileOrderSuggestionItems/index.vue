@@ -188,7 +188,7 @@
     },
   })
   </script>
-      <style scoped lang="scss">
+      <style lang="scss">
       .tt .v-label {
           font-size: 12px;
           margin-top: 2px;

@@ -1,11 +1,11 @@
 <template>
-    <div class="info-section-mobile-parent">
+    <div class="after-order-info-section-mobile-parent">
         <div class="icon-section">
             <img src="/images/order/info.svg" />
         </div>
         <div class="text-section">
-            <div class="text-section-title">پس از مرحله‌‌‌‌‌‌‌‌‌‌ پرداخت می‌توانید بنر خود را بارگذاری کنید و تاریخ مدنظرتان را برای اجرای تبلیغات، ثبت کنید.</div>
-            <div class="text-section-description">توجه: هرگونه تبلیغی که به هر نحوی مخالف قوانین کشور باشد، تبلیغات سیستم‌های مالی مبهم (سیستم‌های هرمی و زیرمجموعه‌گیری) و هرگونه تبلیغی که برای گروهی از مخاطبان مضر باشد (محتوایی و مادی)، اجرا نمی‌شود و مبلغ پرداختی برگشت داده می‌شود.</div>
+            <div class="text-section-title">توجه: در انتخاب تاریخ دقت کنید، ‌بعد از انتخاب تاریخ امکان ویرایش نیست. ساعت تبلیغات برای زمان تقریبی شروع تبلیغات است، ممکن است ادمین‌ها با کمی تاخیر منتشر کنند.</div>
+            <div class="text-section-description">جهت رزرو تبلیغات در اولین ساعت آزاد (فردا)، باید 24 ساعت قبل از ساعت مد نظر برای انتشار تبلیغ، اقدام به رزرو نمایید.</div>
         </div>
     </div>
 </template>
@@ -20,7 +20,7 @@
   })
   </script>
    <style scoped lang="scss">
-   .info-section-mobile-parent {
+   .after-order-info-section-mobile-parent {
         width: 370px ;
         height: 227px ; 
         border-radius: 13px ; 
@@ -28,7 +28,7 @@
         display: flex ;
         flex-direction: row;
         .icon-section {
-            width: 54px !important; 
+            width: 70px !important; 
             height: 227px ; 
             border-top-right-radius: 13px ;
             border-bottom-right-radius: 13px; 
@@ -55,8 +55,8 @@
                 font-size: 16px;
                 font-weight: 500;
                 line-height: 25px;
-                font-weight: bold;
                 letter-spacing: 0em;
+                font-weight: bold;
                 text-align: right;
                 color: #000000;
 
