@@ -85,6 +85,7 @@
     margin-top: 30px;
     display: flex ;
     flex-direction: column ;
+    align-self: center;
     gap: 24px ;
     padding: 29px ;
     .title-item {

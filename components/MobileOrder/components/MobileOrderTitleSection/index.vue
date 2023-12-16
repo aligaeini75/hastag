@@ -32,9 +32,10 @@
     flex-direction: row ;
     align-items: center;
     justify-content: space-between ;
+    align-self: center;
     direction: rtl;
     .order-content-title-section-right {
-        font-size: 22px;
+        font-size: 1.3em;
         font-weight: 700;
         line-height: 34px;
         letter-spacing: 0em;

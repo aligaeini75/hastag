@@ -27,6 +27,7 @@
         direction: rtl;
         display: flex ;
         flex-direction: row;
+        align-self : center ; 
         .icon-section {
             width: 54px !important; 
             height: 227px ; 
