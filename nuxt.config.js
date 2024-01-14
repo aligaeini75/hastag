@@ -19,8 +19,6 @@ export default {
   css: [
     '~/assets/fonts/roboto.css'
   ],
-  plugins: [
-  ],
   components: true,
   buildModules: [
     '@nuxtjs/vuetify',

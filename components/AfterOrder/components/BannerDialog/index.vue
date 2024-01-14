@@ -112,8 +112,7 @@
         const infoState = ref( false )
         const selectState = ref( false )
         watch( status , ( value) => {
-            console.log("status oomad")
-            test.value = value
+             test.value = value
 
         })
         const close = () => {

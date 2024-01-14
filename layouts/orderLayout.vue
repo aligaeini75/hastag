@@ -155,8 +155,7 @@
     } ,
     watch: {
       navigationDrawer: function (val) {
-       console.log("val : " , val)
-      }
+       }
     } , 
     data () {
       const drawer = ref( true )

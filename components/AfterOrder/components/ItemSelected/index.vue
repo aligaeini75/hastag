@@ -204,20 +204,16 @@
         }
         const showCalender = ( id ) => {
             calenderActive.value = !calenderActive.value
-            console.log( calenderActive.value )
-            topDistance.value = null
+             topDistance.value = null
             rightDistance.value = null
             let top = document.getElementById(`test${props.ids}${id}`).offsetTop
-            console.log( "top : " , top )
-            topDistance.value = ( top + 30)
+             topDistance.value = ( top + 30)
             rightDistance.value = (( document.body.clientWidth - document.getElementById(`test${props.ids}${id}`).getBoundingClientRect().right) + 70)
         }
         watch( date , ( value ) => {
-            console.log("value : " , value)
-        })
+         })
         const test = () => {
-            console.log("ok")
-        }
+         }
       return { setStatus1  , setStatus , closeActiveBox , test , bannerButtonState , showCalender , topDistance , rightDistance , date , calenderActive , hourItems , bannerButtonStateInner }
     },
   })

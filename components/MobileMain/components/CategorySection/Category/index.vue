@@ -100,8 +100,7 @@
         const panel =ref(0)
         const panel2 =ref([0, 1])
         watch( panel , ( value ) => { 
-          console.log("value : " , value )
-        },
+         },
         { immediate: true, deep: true })
       return { panel , panel2 }
     },
