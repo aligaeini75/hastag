@@ -3,6 +3,7 @@
     <div
       v-if="advertiseTypeBoxTop"
       class="advertise-box"
+      :id="`advertise${id}`"
       :style="{
         top: `${advertiseTypeBoxTop + 60}px`,
         left: `${advertiseTypeBoxLeft}px`,
@@ -694,6 +695,19 @@ export default defineComponent({
       setCalenderMedia(props.item);
     };
     onMounted(() => {
+      window.addEventListener("click", function (e) {
+        if (
+          document.getElementById(`advertise${props.id}`).contains(e.target) ||
+          document.getElementById(`mm${props.id}`).contains(e.target)
+        ) {
+          // Clicked in box
+          console.log("click in");
+        } else {
+          // Clicked outside the box
+          console.log("click out");
+          advertiseTypeBoxTop.value = null;
+        }
+      });
       setInterval(() => {
         if (
           shoppedItem.value.findIndex((x) => x.id == props.item.id) >= 0 &&
@@ -749,7 +763,7 @@ export default defineComponent({
 <style scoped lang="scss">
 .advertise-box {
   position: absolute;
-  width: 91.6px;
+  width: 120px;
   padding-top: 8px;
   padding-bottom: 8px;
   background-color: #f5f5f5;
