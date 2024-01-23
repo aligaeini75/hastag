@@ -107,7 +107,7 @@
             cursor: pointer;
           "
         >
-          <img src="images/forbidden.svg" @click="unblock()" />
+          <img src="~/static/images/forbidden.svg" @click="unblock()" />
         </div>
       </div>
       <div class="content-parent-desktop-order-11-right">

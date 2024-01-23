@@ -2,11 +2,11 @@
   <div class="filter-section-parent">
     <div class="filter-section-top">
       <div class="filter-section-top-right">
-        <img src="images/filter-tick2.svg" />
+        <img src="~/static/images/filter-tick2.svg" />
         <div>فیلتر های ذخیره شده</div>
       </div>
       <div class="filter-section-top-left" @click="open = !open">
-        <img src="images/filter-section-icon.svg" />
+        <img src="~/static/images/filter-section-icon.svg" />
       </div>
     </div>
     <div

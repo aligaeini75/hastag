@@ -15,7 +15,7 @@
 
 <script>
 import { defineComponent, ref, watch } from "@nuxtjs/composition-api";
-import VuePersianDatetimePicker from "../../../../node_modules/vue-persian-datetime-picker/src/VuePersianDatetimePicker.vue";
+import VuePersianDatetimePicker from "../../../../components/vue-persian-datetime-picker/VuePersianDatetimePicker.vue";
 import { getChannelItems } from "../../../../composition/Channels/index";
 import { categorySelected } from "../../../../composition/Category/index";
 import {
