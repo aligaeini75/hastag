@@ -1,18 +1,54 @@
 <template>
   <div class="content-parent-desktop">
     <div class="channels-parent">
+      <div
+        v-if="advertiseTypeBoxTop"
+        class="advertise-box"
+        :id="`advertise${id}`"
+        :style="{
+          top: `${advertiseTypeBoxTop + 60}px`,
+          left: `${advertiseTypeBoxLeft}px`,
+        }"
+      >
+        <div
+          class="advertise-box-item"
+          v-for="(x, index) in item.advertise_plan"
+          style="cursor: pointer"
+          @click="
+            () => {
+              advertseplanIndex = index;
+              selectedAdvertiseType = item.advertise_plan[index].title;
+              advertiseTypeBoxTop = null;
+            }
+          "
+        >
+          {{ x.title }}
+        </div>
+      </div>
       <div class="channels">
         <div class="leftsd">
-          <img src="/images/order/close.svg" />
+          <img
+            src="/images/order/close.svg"
+            @click="removeShoppedItem()"
+            style="cursor: pointer"
+          />
         </div>
         <div class="right">
           <div class="section3-parent">
             <div class="section3">
               <div class="section3_1">
-                <div class="section3_1_2">
+                <div
+                  class="section3_1_2"
+                  @click="openAdvertiseType(`mm${id}`)"
+                  :id="`mm${id}`"
+                >
                   <span>نوع تبلیغ:</span>
                   <div class="button-section-parent-select">
-                    <span> پلتفرم</span>
+                    <span>{{
+                      selectedAdvertiseType
+                        ? selectedAdvertiseType.replace("پکیج -", "")
+                        : item.advertise_plan[0].title.replace("پکیج -", "")
+                    }}</span>
                     <img src="/images/order/arrow-down.svg" />
                   </div>
                 </div>
@@ -47,7 +83,7 @@
                     <img
                       src="/images/minus.svg"
                       style="width: 24px; height: 24px"
-                      @click="count--"
+                      @click="count > 0 ? count-- : 0"
                     />
                   </div>
                 </div>
@@ -55,8 +91,16 @@
               <div class="section3_2">
                 <span>هزینه نهایی:</span>
                 <span class="bold" style="font-size: 1.2em">
-                  {{ toFarsiNumber(560) }} هزارتومان</span
-                >
+                  {{
+                    item.advertise_plan
+                      ? toFarsiNumber(
+                          item.advertise_plan[advertseplanIndex].price * count
+                        ) +
+                        "&nbsp;" +
+                        "تومان"
+                      : toFarsiNumber(0)
+                  }}
+                </span>
               </div>
             </div>
             <div class="section3-calender">
@@ -66,7 +110,6 @@
                 @click="setCalenderPopupStatus(true)"
               />
             </div>
-            
           </div>
           <div class="section2-parent">
             <div class="section2">
@@ -77,29 +120,61 @@
                 </div>
                 <div class="section2_1_1">
                   <span> تعداد کاربر: </span>
-                  <span class="bold">{{ toFarsiNumber(3000000) }}</span>
+                  <span class="bold">{{
+                    item.members
+                      ? Number(item.members) >= 1000000
+                        ? (Number(item.members) / 1000000).toFixed(0) + "M"
+                        : Number(item.members) >= 1000
+                        ? (Number(item.members) / 1000).toFixed(0) + "K"
+                        : item.members
+                      : "----"
+                  }}</span>
                 </div>
               </div>
               <div class="section2_2">
                 <div class="section2_1_2">
                   <span>حدود بازدید:</span>
-                  <span class="bold">{{ toFarsiNumber(40) }}k</span>
+                  <span class="bold">
+                    {{
+                      item.visit_num
+                        ? Number(item.visit_num) >= 1000000
+                          ? (Number(item.visit_num) / 1000000).toFixed(0) + "M"
+                          : Number(item.visit_num) >= 1000
+                          ? (Number(item.visit_num) / 1000).toFixed(0) + "K"
+                          : item.visit_num
+                        : "----"
+                    }}
+                  </span>
                 </div>
                 <div class="section2_1_2">
                   <span>طرح:</span>
-                  <span class="bold">تبلیغ ساعتی</span>
+                  <span>{{
+                    selectedAdvertiseType
+                      ? selectedAdvertiseType.replace("پکیج -", "")
+                      : item.advertise_plan[0].title.replace("پکیج -", "")
+                  }}</span>
                 </div>
               </div>
             </div>
           </div>
-          <img src="/images/order/sp-line.svg" style="margin-right: 27px;margin-left: 8px;" />
+          <img
+            src="/images/order/sp-line.svg"
+            style="margin-right: 27px; margin-left: 8px"
+          />
           <div class="section1">
             <div class="section1_1">
               <div class="content">
-                <div class="titles">simpsons کانال تلگرامی</div>
+                <div class="titles">
+                  {{
+                    item.media_channels && item.media_channels.length
+                      ? item.category_title
+                      : item.title
+                  }}
+                </div>
                 <div class="buttons">
-                  <div class="button">کامپیوتر</div>
-                  <div class="button">کامپیوتر</div>
+                  <div class="button">
+                    {{ item.category_title }}
+                  </div>
                   <div
                     class="button1"
                     style="
@@ -111,31 +186,40 @@
                     "
                   >
                     <img src="/images/tick-circle.svg" />
-                    <span style="margin-top: 4px">239 تبلیغ داده شده</span>
+                    <span style="margin-top: 4px"
+                      >{{ item.orders_num }} تبلیغ داده شده</span
+                    >
                   </div>
                 </div>
               </div>
               <div class="image">
-                <img src="/images/content/avatar.svg" />
+                <img
+                  :src="`https://beta.httb.ir/` + item.miniImageUrl"
+                  style="
+                    border-radius: 52px;
+                    margin-right: 16px;
+                    margin-left: 8px;
+                  "
+                />
               </div>
             </div>
-            <div class="section1_2">
-              <span
-                >این کانال برای طرفدارای سیمسون هاست که برنامه نویسم هستن
-                تازه...</span
-              >
-            </div>
+            <div class="section1_2"></div>
             <div class="section1_3">
               <div class="section1_3_right">
-                <div>
-                  <img src="/images/content/arrow.svg" />
-                  <span>simsion_programmers</span>
-                  <div></div>
+                <div
+                  v-if="item.media_channels && item.media_channels.length == 0"
+                >
+                  <img
+                    v-if="item.social == 'Telegram'"
+                    src="/images/content/arrow.svg"
+                  />
+                  <img v-else src="/images/afterOrder/instagram-blue.svg" />
+                  <span
+                    style="cursor: pointer"
+                    @click="openSocial(item.social_id)"
+                    >{{ item.social_id }}</span
+                  >
                 </div>
-              </div>
-              <div class="section1_3_left">
-                <img src="/images/marks/new.svg" />
-                <img src="/images/marks/takhfif.svg" />
               </div>
             </div>
           </div>
@@ -167,11 +251,197 @@
 </template>
 
 <script>
-import { defineComponent, ref } from "@nuxtjs/composition-api";
+import {
+  defineComponent,
+  ref,
+  onMounted,
+  nextTick,
+  watch,
+} from "@nuxtjs/composition-api";
+import VuePersianDatetimePicker from "../../../../node_modules/vue-persian-datetime-picker/src/VuePersianDatetimePicker.vue";
+import {
+  calenderPopupStatus,
+  setCalenderPopupStatus,
+} from "../../../../composition/content/calender/index";
+import {
+  channelsItem,
+  setAttributeForMedia,
+} from "../../../../composition/Channels/index";
+import {
+  shoppedItem,
+  setShoppedItem,
+  changeShopItem,
+  setchangeShopItem,
+  setApiItemShops,
+  apiShopItems,
+} from "../../../../composition/Basket/index";
+import { headerSearch } from "../../../../composition/content/Header/index";
+import {
+  calenderMedia,
+  setCalenderMedia,
+} from "../../../../composition/content/calender/index";
+import { uuid, setUuid } from "../../../../composition/Basket/index";
+import BasketDataService from "../../../../services/BasketDataService";
 export default defineComponent({
   components: {},
-  setup() {
-    const count = ref(2);
+  props: {
+    item: {
+      type: Object,
+      required: true,
+    },
+    id: {
+      type: Number,
+      required: true,
+    },
+  },
+  setup(props) {
+    const showDetailParameters = ref([]);
+    const show = ref(false);
+    const advertiseTypeBoxTop = ref(null);
+    const advertiseTypeBoxLeft = ref(null);
+    const DatePickerStatus = ref(false);
+    const count = ref(props.item.count);
+    const moreBoxTop = ref(null);
+    const moreBoxLeft = ref(null);
+    const likeTemplate = ref(false);
+    const shopping = ref(false);
+    const render = ref(true);
+    const selectedAdvertiseType = ref(null);
+    const advertseplanIndex = ref(0);
+    onMounted(() => {
+      console.log(props.item);
+      const tempIndex = props.item.advertise_plan.findIndex(
+        (x) => x.en_title == props.item.type
+      );
+      const temp = props.item.advertise_plan.find(
+        (x) => x.en_title == props.item.type
+      );
+      console.log("ok temp : ", temp);
+      selectedAdvertiseType.value = temp.title;
+      advertseplanIndex.value = tempIndex;
+    });
+    watch(advertseplanIndex, async (value) => {
+      console.log("advertseplanIndex : ", advertseplanIndex);
+      let id = apiShopItems.value.findIndex((x) => x.id == props.item.id);
+      if (id >= 0) {
+        let temp = null;
+        if (id >= 0) {
+          temp = apiShopItems.value;
+          temp[id].type =
+            props.item.advertise_plan[advertseplanIndex.value].en_title;
+        }
+        setShoppedItem(temp);
+        setchangeShopItem();
+        const { data } = await BasketDataService.updateItems(
+          localStorage.getItem("uuid"),
+          temp
+        );
+        setUuid(data.data.uuid);
+        localStorage.setItem("uuid", data.data.uuid);
+        if (data) {
+          const BasketItems = await BasketDataService.getItems(
+            localStorage.getItem("uuid")
+          );
+          setApiItemShops(BasketItems.data.data.basket);
+        }
+        console.log("api shoped items : ", apiShopItems.value);
+      }
+    });
+    watch(count, async (value) => {
+      let id = apiShopItems.value.findIndex((x) => x.id == props.item.id);
+      if (id >= 0) {
+        let temp = null;
+        if (id >= 0) {
+          temp = apiShopItems.value;
+          temp[id].count = value;
+        }
+        setShoppedItem(temp);
+        setchangeShopItem();
+        const { data } = await BasketDataService.updateItems(
+          localStorage.getItem("uuid"),
+          temp
+        );
+        setUuid(data.data.uuid);
+        localStorage.setItem("uuid", data.data.uuid);
+        if (data) {
+          const BasketItems = await BasketDataService.getItems(
+            localStorage.getItem("uuid")
+          );
+          setApiItemShops(BasketItems.data.data.basket);
+        }
+        console.log("api shoped items : ", apiShopItems.value);
+      }
+    });
+    watch(changeShopItem, (value) => {
+      let id = shoppedItem.value.findIndex((x) => x.id == props.item.id);
+
+      if (id >= 0) {
+        console.log(shoppedItem.value[id]);
+        count.value = shoppedItem.value[id].count;
+      }
+    });
+    const changeRender = () => {
+      render.value = false;
+      nextTick(() => {
+        render.value = true;
+      });
+    };
+    const addShoppedItem = async (value) => {
+      let temp = shoppedItem.value;
+      console.log("ineeeeeeee : ", props.item.advertise_plan[0].en_title);
+      temp.push({
+        ...value,
+        count: count.value,
+        type:
+          selectedAdvertiseType.value != null
+            ? selectedAdvertiseType.value.en_title
+            : props.item.advertise_plan[0].en_title,
+      });
+      setShoppedItem(temp);
+      setchangeShopItem();
+      const { data } = await BasketDataService.updateItems(uuid.value, temp);
+      setUuid(data.data.uuid);
+      localStorage.setItem("uuid", data.data.uuid);
+      if (data) {
+        const BasketItems = await BasketDataService.getItems(uuid.value);
+        setApiItemShops(BasketItems.data.data.basket);
+      }
+      console.log("api shoped items : ", apiShopItems.value);
+    };
+    const removeShoppedItem = async () => {
+      let temp = apiShopItems.value;
+      temp = temp.filter((x) => x.id != props.item.id);
+      const { data } = await BasketDataService.updateItems(
+        localStorage.getItem("uuid"),
+        temp
+      );
+      setUuid(data.data.uuid);
+      localStorage.setItem("uuid", data.data.uuid);
+      if (data) {
+        const BasketItems = await BasketDataService.getItems(uuid.value);
+        setApiItemShops(BasketItems.data.data.basket);
+      }
+      console.log("api shoped items : ", apiShopItems.value);
+    };
+    const block = (item) => {
+      setAttributeForMedia("block", item.id, item.social_type);
+      moreBoxTop.value = null;
+      props.item.attribute = "block";
+    };
+    const addToShopping = () => {
+      shopping.value = true;
+    };
+    const openAdvertiseType = (id) => {
+      if (advertiseTypeBoxTop.value == null) {
+        advertiseTypeBoxTop.value =
+          window.document.getElementById(id).offsetTop;
+        advertiseTypeBoxLeft.value =
+          window.document.getElementById(id).offsetLeft;
+      } else {
+        advertiseTypeBoxTop.value = null;
+        advertiseTypeBoxLeft.value = null;
+      }
+    };
     const toFarsiNumber = (n) => {
       const farsiDigits = ["۰", "۱", "۲", "۳", "۴", "۵", "۶", "۷", "۸", "۹"];
       return n
@@ -180,11 +450,108 @@ export default defineComponent({
         .map((x) => farsiDigits[x])
         .join("");
     };
-    return { count, toFarsiNumber };
+    const showDetail = (value) => {
+      showDetailParameters.value.push(value);
+    };
+    const hideDetail = (value) => {
+      let test = showDetailParameters.value || [];
+      showDetailParameters.value = test.filter((x) => x != value);
+    };
+    const closeMoreBox = () => {
+      moreBoxTop.value = null;
+    };
+    const favorite = (item) => {
+      setAttributeForMedia("favorite", item.id, item.social_type);
+      props.item.attribute = "favorite";
+    };
+    const openSocial = (id) => {
+      window.open(`https://t.me/${id.replace("@", "")}`);
+    };
+    const unLike = () => {
+      props.item.attribute = null;
+    };
+    const unblock = () => {
+      props.item.attribute = null;
+    };
+    const moreClick = (id) => {
+      moreBoxTop.value = document.getElementById(
+        `more${props.item.id}`
+      ).offsetTop;
+      moreBoxLeft.value = document.getElementById(
+        `more${props.item.id}`
+      ).offsetLeft;
+    };
+    const removeCalenderDatePicker = () => {
+      setCalenderPopupStatus(false);
+    };
+    const clickCalenderDays = () => {
+      setCalenderMedia(props.item);
+    };
+    return {
+      count,
+      channelsItem,
+      removeCalenderDatePicker,
+      calenderPopupStatus,
+      setCalenderPopupStatus,
+      DatePickerStatus,
+      toFarsiNumber,
+      showDetail,
+      hideDetail,
+      showDetailParameters,
+      show,
+      moreClick,
+      moreBoxTop,
+      moreBoxLeft,
+      closeMoreBox,
+      openSocial,
+      openAdvertiseType,
+      advertiseTypeBoxTop,
+      advertiseTypeBoxLeft,
+      block,
+      favorite,
+      likeTemplate,
+      unLike,
+      unblock,
+      addToShopping,
+      shopping,
+      addShoppedItem,
+      removeShoppedItem,
+      clickCalenderDays,
+      shoppedItem,
+      render,
+      selectedAdvertiseType,
+      advertseplanIndex,
+    };
   },
 });
 </script>
 <style lang="scss" scoped>
+.advertise-box {
+  position: absolute;
+  width: 120px;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  background-color: #f5f5f5;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  z-index: 100 !important;
+  .advertise-box-item {
+    width: 90%;
+    padding: 2px;
+    padding-right: 4px;
+    padding-left: 4px;
+    font-size: 12px;
+    background-color: white;
+    border-radius: 8px;
+    align-self: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    color: black;
+  }
+}
 .bold {
   font-weight: bold;
 }
@@ -496,8 +863,9 @@ export default defineComponent({
         .section1 {
           display: flex;
           flex-direction: column;
-          width: 400px;
-          gap: 4px;
+          height: 100%;
+          width: 350px;
+          gap: 16px;
           padding-top: 15px;
           padding-bottom: 18.79px;
           .section1_1 {
@@ -525,7 +893,9 @@ export default defineComponent({
                 justify-content: flex-end;
                 gap: 4px;
                 .button {
-                  width: 70px;
+                  width: fit-content;
+                  padding-right: 4px;
+                  padding-left: 4px;
                   height: 30px;
                   border-radius: 25px;
                   font-size: 12px;
@@ -651,7 +1021,10 @@ export default defineComponent({
           padding-top: 16px;
           padding-bottom: 24.32px;
           .section2 {
-            width: 90%;
+            width: 100%;
+            min-width: 150px;
+            margin-right: 8px;
+            margin-left: 8px;
             height: 90%;
             background-color: white;
             border-radius: 13px;
@@ -768,7 +1141,6 @@ export default defineComponent({
               letter-spacing: 0em;
               text-align: right;
               color: #404040;
-
             }
           }
           .section3 {
@@ -790,7 +1162,7 @@ export default defineComponent({
 
               .section3_1_2 {
                 .button-section-parent-select {
-                  width: 91px;
+                  width: 120px;
                   height: 29.77px;
                   text-align: center;
                   background-color: white;

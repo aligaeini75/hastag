@@ -44,6 +44,9 @@ dependencies:
   nuxt:
     specifier: ^2.15.8
     version: 2.17.1(consola@3.2.3)(typescript@4.9.5)(vue@2.7.14)
+  qs:
+    specifier: ^6.11.2
+    version: 6.11.2
   shamsi:
     specifier: ^1.1.6
     version: 1.1.6

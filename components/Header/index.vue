@@ -9,7 +9,7 @@
         class="img-icon"
         src="/images/shopping.svg"
         @click="
-          shoppedItem.length ? setShoppingSection(!shoppingSection) : null
+          apiShopItems.length ? setShoppingSection(!shoppingSection) : null
         "
       />
       <div class="inventory-parent">
@@ -71,7 +71,7 @@ import {
   endDate,
 } from "../../composition/Filter/index";
 import { getChannelItems } from "../../composition/Channels/index";
-import { shoppedItem } from "../../composition/Basket/index";
+import { shoppedItem, apiShopItems } from "../../composition/Basket/index";
 export default defineComponent({
   setup() {
     const name = ref("ali");
@@ -109,6 +109,7 @@ export default defineComponent({
       name,
       shoppedItem,
       search,
+      apiShopItems,
     };
   },
 });

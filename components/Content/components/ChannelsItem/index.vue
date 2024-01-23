@@ -551,12 +551,16 @@ import {
   setShoppedItem,
   changeShopItem,
   setchangeShopItem,
+  setApiItemShops,
+  apiShopItems,
 } from "../../../../composition/Basket/index";
 import { headerSearch } from "../../../../composition/content/Header/index";
 import {
   calenderMedia,
   setCalenderMedia,
 } from "../../../../composition/content/calender/index";
+import { uuid, setUuid } from "../../../../composition/Basket/index";
+import BasketDataService from "../../../../services/BasketDataService";
 export default defineComponent({
   components: { VuePersianDatetimePicker },
   props: {
@@ -613,22 +617,41 @@ export default defineComponent({
         render.value = true;
       });
     };
-    const addShoppedItem = (value) => {
-      console.log("shopped item value : ", value);
+    const addShoppedItem = async (value) => {
       let temp = shoppedItem.value;
-      temp.push({ ...value, count: count.value });
-      console.log("temppp : ", temp);
+      console.log("ineeeeeeee : ", props.item.advertise_plan[0].en_title);
+      temp.push({
+        ...value,
+        count: count.value,
+        type:
+          selectedAdvertiseType.value != null
+            ? selectedAdvertiseType.value.en_title
+            : props.item.advertise_plan[0].en_title,
+      });
       setShoppedItem(temp);
-      console.log("shopped item : ", temp);
       setchangeShopItem();
+      const { data } = await BasketDataService.updateItems(uuid.value, temp);
+      setUuid(data.data.uuid);
+      localStorage.setItem("uuid", data.data.uuid);
+      if (data) {
+        const BasketItems = await BasketDataService.getItems(uuid.value);
+        setApiItemShops(BasketItems.data.data.basket);
+      }
+      console.log("api shoped items : ", apiShopItems.value);
     };
-    const removeShoppedItem = (value) => {
-      console.log("shopped item value  : ", value);
+    const removeShoppedItem = async (value) => {
       let temp = shoppedItem.value;
       temp = temp.filter((x) => x.id != value.id);
       setShoppedItem(temp);
-      console.log("shopped item  : ", temp);
       setchangeShopItem();
+      const { data } = await BasketDataService.updateItems(uuid.value, temp);
+      setUuid(data.data.uuid);
+      localStorage.setItem("uuid", data.data.uuid);
+      if (data) {
+        const BasketItems = await BasketDataService.getItems(uuid.value);
+        setApiItemShops(BasketItems.data.data.basket);
+      }
+      console.log("api shoped items : ", apiShopItems.value);
     };
     const block = (item) => {
       setAttributeForMedia("block", item.id, item.social_type);
@@ -694,7 +717,7 @@ export default defineComponent({
     const clickCalenderDays = () => {
       setCalenderMedia(props.item);
     };
-    onMounted(() => {
+    onMounted(async () => {
       window.addEventListener("click", function (e) {
         if (
           document.getElementById(`advertise${props.id}`).contains(e.target) ||

@@ -1,5 +1,8 @@
 <template>
-  <div style="display: flex; flex-direction: column; align-items: center">
+  <div
+    id="category-section-parent"
+    style="display: flex; flex-direction: column; align-items: center"
+  >
     <!--  -->
     <div class="tab-wrap" style="width: 96vw !important">
       <input type="radio" id="tab4" name="tabGroup2" class="tab" checked />
@@ -47,7 +50,7 @@
       v-for="(i, index) in channelsItem"
       :item="i"
       :key="i.id"
-      :id="index"
+      :id="i.id"
       :header-color="
         i.attribute == 'block'
           ? '#404040'
@@ -57,6 +60,26 @@
       "
       style="margin-top: 8px"
     />
+    <div
+      style="
+        width: 150px;
+        height: 40px;
+        border-radius: 8px;
+        color: white;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        background-color: #34aadf;
+        margin-top: 16px;
+        margin-bottom: 16px;
+        align-self: center;
+        cursor: pointer;
+      "
+      @click="loadMoreData()"
+    >
+      مشاهده بیشتر
+    </div>
     <div style="padding-left: 8px; padding-right: 8px">
       <div class="box-title" style="margin-top: 8px" @click="changeBoxTitle()">
         <img
@@ -193,7 +216,26 @@ import {
   setCalenderPopupStatus,
 } from "../../../../composition/content/calender/index.js";
 import Buttons from "../../../Content/components/Buttons";
-import { channelsItem  , getChannelItems} from "../../../../composition/Channels/index";
+import {
+  channelsItem,
+  getChannelItems,
+  addChannelItems,
+} from "../../../../composition/Channels/index";
+import {
+  categorySelected,
+  changeCategoryLength,
+} from "../../../../composition/Category/index";
+import { sortField, sortType } from "../../../../composition/Sort/index";
+import {
+  finalPlatform,
+  price,
+  members,
+  visitNum,
+  attribute,
+  newFilter,
+  startDate,
+  endDate,
+} from "../../../../composition/Filter/index";
 //   import Tabs from './Tabs'
 export default defineComponent({
   components: {
@@ -215,6 +257,24 @@ export default defineComponent({
     onMounted(() => {
       getChannelItems(page.value, null, null);
     });
+    const loadMoreData = () => {
+      page.value = page.value + 1;
+      addChannelItems(
+        page.value,
+        categorySelected.value,
+        finalPlatform.value,
+        price.value,
+        members.value,
+        visitNum.value,
+        attribute.value,
+        newFilter.value,
+        sortField.value,
+        sortType.value,
+        startDate.value,
+        endDate.value
+      );
+      changeCategoryLength();
+    };
     const changeBoxTitle = () => {
       boxTitle.value = !boxTitle.value;
     };
@@ -249,6 +309,7 @@ export default defineComponent({
       tab,
       statement,
       channelsItem,
+      loadMoreData,
     };
   },
 });

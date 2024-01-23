@@ -4,7 +4,7 @@ import axiosInstance from 'axios'
   const Axios = axiosInstance.create({
     baseURL: "https://admindev.httb.ir/",
     headers: {
-      'Content-Type': 'multipart/form-data' 
+      'Content-Type': 'application/x-www-form-urlencoded' 
     },
     withCredentials: false,
     transformRequest: [

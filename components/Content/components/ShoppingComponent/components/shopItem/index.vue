@@ -54,7 +54,7 @@
           <img
             src="/images/minus.svg"
             style="width: 24px; height: 24px; cursor: pointer"
-            @click="count > 0 ? (count = count - 1) : 0"
+            @click="count > 1 ? (count = count - 1) : remove(i.id)"
           />
         </div>
       </div>
@@ -90,7 +90,11 @@ import {
   setShoppedItem,
   setchangeShopItem,
   changeShopItem,
+  apiShopItems,
+  setApiItemShops,
 } from "../../../../../../composition/Basket/index";
+import { uuid, setUuid } from "../../../../../../composition/Basket/index";
+import BasketDataService from "../../../../../../services/BasketDataService";
 export default defineComponent({
   components: {},
   props: {
@@ -107,21 +111,36 @@ export default defineComponent({
     watch(changeShopItem, (value) => {
       count.value = props.i.count;
     });
-    watch(count, (value) => {
+    watch(count, async (value) => {
       let index = shoppedItem.value.findIndex((x) => x.id == props.i.id);
       if (index >= 0) {
         let temp = shoppedItem.value;
         temp[index].count = value;
         setShoppedItem(temp);
         setchangeShopItem();
-        console.log("ok done");
+        const { data } = await BasketDataService.updateItems(uuid.value, temp);
+        setUuid(data.data.uuid);
+        localStorage.setItem("uuid" , data.data.uuid )
+        if (data) {
+          const BasketItems = await BasketDataService.getItems(uuid.value);
+          setApiItemShops(BasketItems.data.data.basket);
+        }
       }
+      console.log("api shopped items shopped : ", apiShopItems.value);
     });
-    const remove = (id) => {
+    const remove = async (id) => {
       console.log("id : ", id);
       let temp = shoppedItem.value;
       temp = temp.filter((x) => x.id != id);
       setShoppedItem(temp);
+      const { data } = await BasketDataService.updateItems(uuid.value, temp);
+      setUuid(data.data.uuid);
+      localStorage.setItem("uuid" , data.data.uuid )
+      if (data) {
+        const BasketItems = await BasketDataService.getItems(uuid.value);
+        setApiItemShops(BasketItems.data.data.basket);
+      }
+      console.log("api shopped items shopped : ", apiShopItems.value);
     };
     const toFarsiNumber = (n) => {
       const farsiDigits = ["۰", "۱", "۲", "۳", "۴", "۵", "۶", "۷", "۸", "۹"];

@@ -43,7 +43,7 @@
           justify-content: center;
           align-items: center;
           background-color: #34aadf;
-          margin-top: 16px;
+          margin-bottom: 16px;
           align-self: center;
           cursor: pointer;
         "
@@ -119,7 +119,6 @@ import {
   categoryChangeRequest,
 } from "../../composition/Category/index";
 import { sortField, sortType } from "../../composition/Sort/index";
-import "vue-popperjs/dist/vue-popper.css";
 import {
   finalPlatform,
   price,
@@ -131,7 +130,13 @@ import {
   endDate,
 } from "../../composition/Filter/index";
 import { headerSearch } from "../../composition/content/Header/index";
-
+import BasketDataService from "../../services/BasketDataService";
+import {
+  setApiItemShops,
+  apiShopItems,
+  setShoppedItem,
+  changeShopItem,
+} from "../../composition/Basket/index";
 export default defineComponent({
   components: {
     TopTitles,
@@ -226,8 +231,16 @@ export default defineComponent({
         sortType.value
       );
     });
-    onMounted(() => {
+    onMounted(async () => {
       getChannelItems(page.value, null, null);
+      if (localStorage.getItem("uuid")) {
+        const BasketItems = await BasketDataService.getItems(
+          localStorage.getItem("uuid")
+        );
+        setApiItemShops(BasketItems.data.data.basket);
+        setShoppedItem(BasketItems.data.data.basket);
+      }
+      console.log("api shop items : ", apiShopItems.value);
     });
     return {
       setShoppingSection,

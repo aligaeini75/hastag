@@ -101,7 +101,7 @@
                   float: right;
                   text-align: right;
                   width: fit-content;
-                  height: 20px;
+                  height: 30px;
                   display: flex;
                   padding: 8px;
                   gap: 8px;
@@ -408,6 +408,7 @@
             </div>
           </div>
           <div
+            ref="typeAdvertiseRef"
             class="content-parent-desktop-order-11-section3_1_2"
             @click="openAdvertiseType(`mmm${id}`)"
             :id="`mmm${id}`"
@@ -551,6 +552,7 @@ export default defineComponent({
     const shopping = ref(false);
     const render = ref(true);
     const selectedAdvertiseType = ref(null);
+    let typeAdvertiseRef = ref(null);
     const changeRender = () => {
       render.value = false;
       nextTick(() => {
@@ -581,16 +583,11 @@ export default defineComponent({
       shopping.value = true;
     };
     const openAdvertiseType = (id) => {
-      console.log("id : ", id);
-      console.log("open : ", document.getElementById("mmm6").offsetTop);
+      let temp = window.document.getElementById(id);
+      console.log("top : ", temp.getBoundingClientRect().top);
       if (advertiseTypeBoxTop.value == null) {
-        advertiseTypeBoxTop.value =
-          window.document.getElementById(id).offsetTop;
-
-        advertiseTypeBoxLeft.value =
-          window.document.getElementById(id).offsetLeft;
-        console.log("advertiseTypeBoxTop : ", advertiseTypeBoxTop.value);
-        console.log("advertiseTypeBoxLeft : ", advertiseTypeBoxLeft.value);
+        advertiseTypeBoxTop.value = (temp.getBoundingClientRect().top + 2300);
+        advertiseTypeBoxLeft.value = temp.getBoundingClientRect().left;
       } else {
         advertiseTypeBoxTop.value = null;
         advertiseTypeBoxLeft.value = null;
@@ -689,6 +686,7 @@ export default defineComponent({
       shoppedItem,
       render,
       selectedAdvertiseType,
+      typeAdvertiseRef,
     };
   },
 });

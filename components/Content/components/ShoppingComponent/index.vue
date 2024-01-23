@@ -9,11 +9,11 @@
       <!--  -->
     </div>
     <div class="shop-item-parent">
-      <ShopItem v-for="(i, index) in shoppedItem" :i="i" :key="index" />
+      <ShopItem v-for="(i, index) in apiShopItems" :i="i" :key="index" />
     </div>
-    <div class="shopping-result" v-if="shoppedItem.length">
+    <div class="shopping-result" v-if="apiShopItems && apiShopItems.length">
       <div class="right">
-        <div class="button">نهایی کردن تبلیغ</div>
+        <div class="button" @click="redirectToOrder()">نهایی کردن تبلیغ</div>
       </div>
       <div class="left">
         <div class="top">هزینه نهایی:</div>
@@ -29,10 +29,13 @@ import {
   ref,
   watch,
   onMounted,
+  useRouter,
+  useRoute,
 } from "@nuxtjs/composition-api";
 import {
   shoppedItem,
   changeShopItem,
+  apiShopItems,
 } from "../../../../composition/Basket/index";
 import ShopItem from "./components/shopItem/index.vue";
 import {
@@ -44,18 +47,24 @@ export default defineComponent({
   setup() {
     const sumPrice = ref(0);
     const final = ref(0);
+    const router = useRouter();
+    const redirectToOrder = () => {
+      router.push("order");
+    };
     const getSum = () => {
       sumPrice.value = 0;
-      console.log("shoppedItem.value.length : ", shoppedItem.value.length);
-      for (var x = 0; x < shoppedItem.value.length; x++) {
+      for (var x = 0; x < apiShopItems.value.length; x++) {
         sumPrice.value +=
-          shoppedItem.value[x].advertise_plan[0].price *
-          shoppedItem.value[x].count;
+          apiShopItems.value[x].advertise_plan[0].price *
+          apiShopItems.value[x].count;
       }
       return sumPrice.value;
     };
     watch(changeShopItem, (value) => {
       console.log("shopedItem changed  : ", value);
+      final.value = getSum();
+    });
+    watch(apiShopItems, (value) => {
       final.value = getSum();
     });
     const toFarsiNumber = (n) => {
@@ -73,6 +82,8 @@ export default defineComponent({
       shoppedItem,
       getSum,
       final,
+      apiShopItems,
+      redirectToOrder,
     };
   },
 });
