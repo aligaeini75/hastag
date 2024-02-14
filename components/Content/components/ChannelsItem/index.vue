@@ -597,7 +597,7 @@ export default defineComponent({
         let temp = null;
         if (id >= 0) {
           temp = shoppedItem.value;
-          temp[id].count = value;
+          temp[id].number = value;
         }
         setShoppedItem(temp);
         setchangeShopItem();
@@ -608,7 +608,7 @@ export default defineComponent({
 
       if (id >= 0) {
         console.log(shoppedItem.value[id]);
-        count.value = shoppedItem.value[id].count;
+        count.value = shoppedItem.value[id].number;
       }
     });
     const changeRender = () => {
@@ -619,14 +619,25 @@ export default defineComponent({
     };
     const addShoppedItem = async (value) => {
       let temp = shoppedItem.value;
-      console.log("ineeeeeeee : ", props.item.advertise_plan[0].en_title);
       temp.push({
-        ...value,
-        count: count.value,
+        id: props.item.id,
+        title: props.item.title,
+        members: props.item.members,
+        advertise_plan: props.item.advertise_plan,
+        price: count.value * props.item.advertise_plan[0].price,
+        imageUrl: props.item.imageUrl,
+        miniImageUrl: props.item.miniImageUrl,
+        link: "",
+        category_title: props.item.category_title,
+        story_visit_num: props.item.visit_num,
         type:
           selectedAdvertiseType.value != null
             ? selectedAdvertiseType.value.en_title
             : props.item.advertise_plan[0].en_title,
+        social: props.item.social,
+        social_type: props.item.social_type,
+        social_id: props.item.social_id ? props.item.social_id : "",
+        number: count.value,
       });
       setShoppedItem(temp);
       setchangeShopItem();

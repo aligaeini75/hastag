@@ -389,10 +389,10 @@ export default defineComponent({
     const router = useRouter();
     const ids = ref([]);
     const changeroute = (value) => {
-      router.replace("/dashboard");
-      setTimeout(() => {
-        router.replace(value);
-      }, 100);
+      // router.replace("/dashboard");
+      // setTimeout(() => {
+      //   router.replace(value);
+      // }, 100);
     };
     watch(telegram, () => {
       if (telegram.value == true && instagram.value == true) {

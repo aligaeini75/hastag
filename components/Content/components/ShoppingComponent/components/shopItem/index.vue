@@ -104,23 +104,23 @@ export default defineComponent({
     },
   },
   setup(props) {
-    const count = ref(props.i.count);
+    const count = ref(props.i.number);
     const test = () => {
       console.log("test");
     };
     watch(changeShopItem, (value) => {
-      count.value = props.i.count;
+      count.value = props.i.number;
     });
     watch(count, async (value) => {
       let index = shoppedItem.value.findIndex((x) => x.id == props.i.id);
       if (index >= 0) {
         let temp = shoppedItem.value;
-        temp[index].count = value;
+        temp[index].number = value;
         setShoppedItem(temp);
         setchangeShopItem();
         const { data } = await BasketDataService.updateItems(uuid.value, temp);
         setUuid(data.data.uuid);
-        localStorage.setItem("uuid" , data.data.uuid )
+        localStorage.setItem("uuid", data.data.uuid);
         if (data) {
           const BasketItems = await BasketDataService.getItems(uuid.value);
           setApiItemShops(BasketItems.data.data.basket);
@@ -135,7 +135,7 @@ export default defineComponent({
       setShoppedItem(temp);
       const { data } = await BasketDataService.updateItems(uuid.value, temp);
       setUuid(data.data.uuid);
-      localStorage.setItem("uuid" , data.data.uuid )
+      localStorage.setItem("uuid", data.data.uuid);
       if (data) {
         const BasketItems = await BasketDataService.getItems(uuid.value);
         setApiItemShops(BasketItems.data.data.basket);

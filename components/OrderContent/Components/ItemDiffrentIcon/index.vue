@@ -136,12 +136,15 @@
                   <span>حدود بازدید:</span>
                   <span class="bold">
                     {{
-                      item.visit_num
-                        ? Number(item.visit_num) >= 1000000
-                          ? (Number(item.visit_num) / 1000000).toFixed(0) + "M"
-                          : Number(item.visit_num) >= 1000
-                          ? (Number(item.visit_num) / 1000).toFixed(0) + "K"
-                          : item.visit_num
+                      item.story_visit_num
+                        ? Number(item.story_visit_num) >= 1000000
+                          ? (Number(item.story_visit_num) / 1000000).toFixed(
+                              0
+                            ) + "M"
+                          : Number(item.story_visit_num) >= 1000
+                          ? (Number(item.story_visit_num) / 1000).toFixed(0) +
+                            "K"
+                          : item.story_visit_num
                         : "----"
                     }}
                   </span>
@@ -241,9 +244,6 @@
           >
             <img src="/images/telegram-white.svg" />
           </div>
-          <!-- <div style="padding-top: 4px;margin-top: 16px;width: 40px;height: 23px;display: flex;flex-direction: row;justify-content: flex-end;padding-right: 8px;align-items: center;background-color: black;color: white;border-radius: 10px;font-size: 12px;">
-                    <span>32</span>
-                </div> -->
         </div>
       </div>
     </div>
@@ -255,18 +255,9 @@ import {
   defineComponent,
   ref,
   onMounted,
-  nextTick,
   watch,
 } from "@nuxtjs/composition-api";
-import VuePersianDatetimePicker from "../../../../node_modules/vue-persian-datetime-picker/src/VuePersianDatetimePicker.vue";
-import {
-  calenderPopupStatus,
-  setCalenderPopupStatus,
-} from "../../../../composition/content/calender/index";
-import {
-  channelsItem,
-  setAttributeForMedia,
-} from "../../../../composition/Channels/index";
+import { setCalenderPopupStatus } from "../../../../composition/content/calender/index";
 import {
   shoppedItem,
   setShoppedItem,
@@ -275,11 +266,7 @@ import {
   setApiItemShops,
   apiShopItems,
 } from "../../../../composition/Basket/index";
-import { headerSearch } from "../../../../composition/content/Header/index";
-import {
-  calenderMedia,
-  setCalenderMedia,
-} from "../../../../composition/content/calender/index";
+import { setCalenderMedia } from "../../../../composition/content/calender/index";
 import { uuid, setUuid } from "../../../../composition/Basket/index";
 import BasketDataService from "../../../../services/BasketDataService";
 export default defineComponent({
@@ -295,17 +282,9 @@ export default defineComponent({
     },
   },
   setup(props) {
-    const showDetailParameters = ref([]);
-    const show = ref(false);
     const advertiseTypeBoxTop = ref(null);
     const advertiseTypeBoxLeft = ref(null);
-    const DatePickerStatus = ref(false);
-    const count = ref(props.item.count);
-    const moreBoxTop = ref(null);
-    const moreBoxLeft = ref(null);
-    const likeTemplate = ref(false);
-    const shopping = ref(false);
-    const render = ref(true);
+    const count = ref(props.item.number);
     const selectedAdvertiseType = ref(null);
     const advertseplanIndex = ref(0);
     onMounted(() => {
@@ -353,7 +332,7 @@ export default defineComponent({
         let temp = null;
         if (id >= 0) {
           temp = apiShopItems.value;
-          temp[id].count = value;
+          temp[id].number = value;
         }
         setShoppedItem(temp);
         setchangeShopItem();
@@ -369,7 +348,6 @@ export default defineComponent({
           );
           setApiItemShops(BasketItems.data.data.basket);
         }
-        console.log("api shoped items : ", apiShopItems.value);
       }
     });
     watch(changeShopItem, (value) => {
@@ -377,37 +355,9 @@ export default defineComponent({
 
       if (id >= 0) {
         console.log(shoppedItem.value[id]);
-        count.value = shoppedItem.value[id].count;
+        count.value = shoppedItem.value[id].number;
       }
     });
-    const changeRender = () => {
-      render.value = false;
-      nextTick(() => {
-        render.value = true;
-      });
-    };
-    const addShoppedItem = async (value) => {
-      let temp = shoppedItem.value;
-      console.log("ineeeeeeee : ", props.item.advertise_plan[0].en_title);
-      temp.push({
-        ...value,
-        count: count.value,
-        type:
-          selectedAdvertiseType.value != null
-            ? selectedAdvertiseType.value.en_title
-            : props.item.advertise_plan[0].en_title,
-      });
-      setShoppedItem(temp);
-      setchangeShopItem();
-      const { data } = await BasketDataService.updateItems(uuid.value, temp);
-      setUuid(data.data.uuid);
-      localStorage.setItem("uuid", data.data.uuid);
-      if (data) {
-        const BasketItems = await BasketDataService.getItems(uuid.value);
-        setApiItemShops(BasketItems.data.data.basket);
-      }
-      console.log("api shoped items : ", apiShopItems.value);
-    };
     const removeShoppedItem = async () => {
       let temp = apiShopItems.value;
       temp = temp.filter((x) => x.id != props.item.id);
@@ -422,14 +372,6 @@ export default defineComponent({
         setApiItemShops(BasketItems.data.data.basket);
       }
       console.log("api shoped items : ", apiShopItems.value);
-    };
-    const block = (item) => {
-      setAttributeForMedia("block", item.id, item.social_type);
-      moreBoxTop.value = null;
-      props.item.attribute = "block";
-    };
-    const addToShopping = () => {
-      shopping.value = true;
     };
     const openAdvertiseType = (id) => {
       if (advertiseTypeBoxTop.value == null) {
@@ -450,75 +392,22 @@ export default defineComponent({
         .map((x) => farsiDigits[x])
         .join("");
     };
-    const showDetail = (value) => {
-      showDetailParameters.value.push(value);
-    };
-    const hideDetail = (value) => {
-      let test = showDetailParameters.value || [];
-      showDetailParameters.value = test.filter((x) => x != value);
-    };
-    const closeMoreBox = () => {
-      moreBoxTop.value = null;
-    };
-    const favorite = (item) => {
-      setAttributeForMedia("favorite", item.id, item.social_type);
-      props.item.attribute = "favorite";
-    };
     const openSocial = (id) => {
       window.open(`https://t.me/${id.replace("@", "")}`);
-    };
-    const unLike = () => {
-      props.item.attribute = null;
-    };
-    const unblock = () => {
-      props.item.attribute = null;
-    };
-    const moreClick = (id) => {
-      moreBoxTop.value = document.getElementById(
-        `more${props.item.id}`
-      ).offsetTop;
-      moreBoxLeft.value = document.getElementById(
-        `more${props.item.id}`
-      ).offsetLeft;
-    };
-    const removeCalenderDatePicker = () => {
-      setCalenderPopupStatus(false);
     };
     const clickCalenderDays = () => {
       setCalenderMedia(props.item);
     };
     return {
-      count,
-      channelsItem,
-      removeCalenderDatePicker,
-      calenderPopupStatus,
       setCalenderPopupStatus,
-      DatePickerStatus,
       toFarsiNumber,
-      showDetail,
-      hideDetail,
-      showDetailParameters,
-      show,
-      moreClick,
-      moreBoxTop,
-      moreBoxLeft,
-      closeMoreBox,
       openSocial,
       openAdvertiseType,
-      advertiseTypeBoxTop,
-      advertiseTypeBoxLeft,
-      block,
-      favorite,
-      likeTemplate,
-      unLike,
-      unblock,
-      addToShopping,
-      shopping,
-      addShoppedItem,
       removeShoppedItem,
       clickCalenderDays,
-      shoppedItem,
-      render,
+      advertiseTypeBoxTop,
+      advertiseTypeBoxLeft,
+      count,
       selectedAdvertiseType,
       advertseplanIndex,
     };

@@ -52,13 +52,15 @@ export default defineComponent({
       router.push("order");
     };
     const getSum = () => {
-      sumPrice.value = 0;
-      for (var x = 0; x < apiShopItems.value.length; x++) {
-        sumPrice.value +=
-          apiShopItems.value[x].advertise_plan[0].price *
-          apiShopItems.value[x].count;
+      if (apiShopItems.value) {
+        console.log("sssssssssss", apiShopItems.value);
+        sumPrice.value = 0;
+        for (var x = 0; x < apiShopItems.value.length; x++) {
+          sumPrice.value += apiShopItems.value[x].price;
+        }
+        console.log("sum prce : ", sumPrice.value);
+        return sumPrice.value;
       }
-      return sumPrice.value;
     };
     watch(changeShopItem, (value) => {
       console.log("shopedItem changed  : ", value);
@@ -166,6 +168,7 @@ export default defineComponent({
         align-items: center;
         text-align: right;
         color: white;
+        cursor: pointer;
       }
     }
     .left {

@@ -6,16 +6,16 @@
           <div class="calender-status-parent-top-right">
             <span style="font-weight: bold">تقویم</span>
             <div class="calender-status-parent-top-right-item">
-              <img src="images/calender-1.svg" />
+              <img src="~/static/images/calender-1.svg" />
               <span>رزرو شده</span>
             </div>
             <div class="calender-status-parent-top-right-item">
-              <img src="images/calender-2.svg" />
+              <img src="~/static/images/calender-2.svg" />
               <span>در حال رزرو شدن</span>
             </div>
           </div>
           <div class="calender-status-parent-top-left">
-            <img src="images/calender-close.svg" />
+            <img src="~/static/images/calender-close.svg" />
           </div>
         </div>
         <div class="calneder-status-section2">

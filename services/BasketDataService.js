@@ -4,6 +4,7 @@ import { basket } from '../apiRoute/index'
 import {convertParamsToURLSearchParams } from './convertParamsToURLSearchParams'
 class OrderDataService {
   updateItems ( _uuid = null , _basket = null  ) { 
+    console.log("_basket : " , _basket)
     if( _uuid != null ) {
       return axios.patch( basket , convertParamsToURLSearchParams( {
         uuid : _uuid , 

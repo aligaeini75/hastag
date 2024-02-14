@@ -72,12 +72,12 @@ export default defineComponent({
     const open = ref(false);
     const selectedItem = ref(-1);
     const search = ref("");
-    const filterSectionSelected = ref(null);
+    const filterSectionSelected = ref( null );
     const setFilterSectionSelected = (x) => {
       filterSectionSelected.value = x;
       console.log("filterSectionSearch : ", filterSectionSelected.value);
     };
-    watch(search, (value) => {
+    watch( search , (value) => {
       setFilterSectionSearch(value);
     });
     watch(cancleFilter, (value) => {
@@ -99,8 +99,8 @@ export default defineComponent({
       selectedItem,
       filterSectionSearch,
       search,
-      filterSectionSelected,
-      setFilterSectionSelected,
+      filterSectionSelected ,
+      setFilterSectionSelected ,
     };
   },
 });

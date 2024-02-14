@@ -3,7 +3,10 @@
     <div class="order-content-title-section-right">سفارشات تبلیغات</div>
     <div class="order-content-title-section-left">
       <div class="icon-parent" v-for="item in iconImages">
-        <img :src="item" />
+        <img
+          @click="item.includes('share') ? share() : archive()"
+          :src="item"
+        />
       </div>
       <div class="button" style="cursor: pointer" @click="changeroute()">
         <img src="/images/order/add.svg" />
@@ -16,9 +19,22 @@
 <script>
 import { ref } from "vue";
 import { defineComponent, useRouter } from "@nuxtjs/composition-api";
+import {
+  setOrderSaveSection,
+  orderSaveSection,
+  orderShopSection,
+  setOrderShopSection,
+} from "../../../../composition/Order/index";
 export default defineComponent({
   components: {},
   setup() {
+    const share = () => {
+      console.log("share");
+      setOrderShopSection(true);
+    };
+    const archive = () => {
+      setOrderSaveSection(true);
+    };
     const route = useRouter();
     const changeroute = () => {
       route.push("dashboard");
@@ -27,7 +43,7 @@ export default defineComponent({
       "/images/order/share.svg",
       "/images/order/archive-add.svg",
     ]);
-    return { iconImages, changeroute };
+    return { iconImages, changeroute, share, archive };
   },
 });
 </script>
@@ -66,6 +82,7 @@ export default defineComponent({
       img {
         width: 24px;
         height: 24px;
+        cursor: pointer;
       }
     }
     .button {

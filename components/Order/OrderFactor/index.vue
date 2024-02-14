@@ -153,17 +153,15 @@ export default defineComponent({
       console.log("value : ", value);
       titleItems.value[0].value = apiShopItems.value.length;
       for (var i = 0; i < value.length; i++) {
+        console.log("value : ", value[i]);
         members += Number(value[i].members);
-        visitNum += Number(value[i].visit_num);
-        price += value[i].count * value[i].advertise_plan[0].price;
+        visitNum += Number(value[i].story_visit_num);
+        price += value[i].price;
         if (value[i].social == "Telegram") {
           telegram += 1;
         }
         if (value[i].social == "Instagram") {
           instagram += 1;
-        }
-        if (value[i].media_channels.length > 0) {
-          pack += 1;
         }
       }
       titleItems.value[1].value = members;

@@ -1,5 +1,7 @@
 <template>
   <div class="column">
+    <Save />
+    <Share />
     <InfoSection />
     <TitleSection />
     <Buttons />
@@ -15,7 +17,8 @@
         ? apiShopItems.filter(
             (m) =>
               (m.title.includes(orderSearch) ||
-              m.category_title.includes(orderSearch)) && ( social == null || m.social == social)
+                m.category_title.includes(orderSearch)) &&
+              (social == null || m.social == social)
           )
         : apiShopItems"
       :key="index"
@@ -44,7 +47,9 @@ import Item from "./Components/Item/index.vue";
 import ItemDiffrentIcon from "./Components/ItemDiffrentIcon/index.vue";
 import SuggestionTitle from "./Components/SuggestionTitle/index.vue";
 import { apiShopItems } from "../../composition/Basket/index";
-import { orderSearch , social } from "../../composition/Order/index";
+import { orderSearch, social } from "../../composition/Order/index";
+import Save from "../../components/OrderContent/Components/Save/index.vue";
+import Share from "../../components/OrderContent/Components/Share/index.vue";
 export default defineComponent({
   components: {
     Shopping,
@@ -55,6 +60,8 @@ export default defineComponent({
     Item,
     SuggestionTitle,
     ItemDiffrentIcon,
+    Save,
+    Share,
   },
   setup() {
     const removeCalenderDatePicker = () => {
@@ -66,7 +73,7 @@ export default defineComponent({
       setCalenderPopupStatus,
       apiShopItems,
       orderSearch,
-      social
+      social,
     };
   },
 });

@@ -1,5 +1,5 @@
 import axios from '../modules/axios'
-import { getCategory , getChannelsItem , setAttributeForMedia , setFilter , getFilter, getDays , getHours  } from '../apiRoute/index'
+import { getCategory , getChannelsItem , setAttributeForMedia , setFilter , getFilter, getDays , getHours , savePackage  } from '../apiRoute/index'
 import { convertJsonToFormData } from './test'
 class OrderDataService {
   getCategory () { 
@@ -63,6 +63,12 @@ class OrderDataService {
   }
   getHourse( date , id , socialType ) {
     return axios.get( `${getHours}?date=${date}&id=${id}&social_type=${socialType}` )
+  }
+  savePackage(  _uuid , _title ) {
+    return axios.post( savePackage , convertJsonToFormData( {
+      uuid : _uuid , 
+      title : _title
+   }) )
   }
 }
 export default new OrderDataService();
