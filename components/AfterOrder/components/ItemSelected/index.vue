@@ -553,13 +553,15 @@ export default defineComponent({
   }
   .content {
     width: 1010px;
-    height: fit-content;
+    height: 200px;
     border: 0.1px solid #d9d9d9;
     background-color: white;
     border-radius: 13px;
     margin-top: -10px;
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    overflow: hidden;
     .row-titles {
       width: 983px;
       height: 34px;

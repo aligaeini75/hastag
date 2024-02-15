@@ -9,7 +9,7 @@
         class="img-icon"
         src="/images/shopping.svg"
         @click="
-          apiShopItems.length ? setShoppingSection(!shoppingSection) : null
+          apiShopItems && apiShopItems.length ? setShoppingSection(!shoppingSection) : null
         "
       />
       <div class="inventory-parent">

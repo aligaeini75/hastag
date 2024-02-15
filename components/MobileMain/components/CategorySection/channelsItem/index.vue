@@ -123,7 +123,7 @@
               </div>
             </div>
             <img
-              src="/images/content/avatar.svg"
+              :src="`https://beta.httb.ir/` + item.miniImageUrl"
               style="width: 47px; height: 47px"
             />
           </div>
@@ -517,12 +517,19 @@ import {
 import {
   shoppedItem,
   setShoppedItem,
+  changeShopItem,
+  setchangeShopItem,
+  setApiItemShops,
+  apiShopItems,
 } from "../../../../../composition/Basket/index";
 import { headerSearch } from "../../../../../composition/content/Header/index";
 import {
   calenderMedia,
   setCalenderMedia,
 } from "../../../../../composition/content/calender/index";
+import BasketDataService from "../../../../../services/BasketDataService";
+import { uuid, setUuid } from "../../../../../composition/Basket/index";
+
 export default defineComponent({
   components: {},
   props: {
@@ -559,13 +566,38 @@ export default defineComponent({
         render.value = true;
       });
     };
-    const addShoppedItem = (value) => {
-      console.log("shopped item value : ", value);
+    const addShoppedItem = async (value) => {
       let temp = shoppedItem.value;
-      temp.push({ ...value, count: 2 });
-      console.log("temppp : ", temp);
+      temp.push({
+        id: props.item.id,
+        title: props.item.title,
+        members: props.item.members,
+        advertise_plan: props.item.advertise_plan,
+        price: count.value * props.item.advertise_plan[0].price,
+        imageUrl: props.item.imageUrl,
+        miniImageUrl: props.item.miniImageUrl,
+        link: "",
+        category_title: props.item.category_title,
+        story_visit_num: props.item.visit_num,
+        type:
+          selectedAdvertiseType.value != null
+            ? selectedAdvertiseType.value.en_title
+            : props.item.advertise_plan[0].en_title,
+        social: props.item.social,
+        social_type: props.item.social_type,
+        social_id: props.item.social_id ? props.item.social_id : "",
+        number: count.value,
+      });
       setShoppedItem(temp);
-      console.log("shopped item : ", temp);
+      setchangeShopItem();
+      const { data } = await BasketDataService.updateItems(uuid.value, temp);
+      setUuid(data.data.uuid);
+      localStorage.setItem("uuid", data.data.uuid);
+      if (data) {
+        const BasketItems = await BasketDataService.getItems(uuid.value);
+        setApiItemShops(BasketItems.data.data.basket);
+      }
+      console.log("api shoped items : ", apiShopItems.value);
     };
     const removeShoppedItem = (value) => {
       console.log("shopped item value  : ", value);
@@ -586,7 +618,7 @@ export default defineComponent({
       let temp = window.document.getElementById(id);
       console.log("top : ", temp.getBoundingClientRect().top);
       if (advertiseTypeBoxTop.value == null) {
-        advertiseTypeBoxTop.value = (temp.getBoundingClientRect().top + 2300);
+        advertiseTypeBoxTop.value = temp.getBoundingClientRect().top + 2300;
         advertiseTypeBoxLeft.value = temp.getBoundingClientRect().left;
       } else {
         advertiseTypeBoxTop.value = null;

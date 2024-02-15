@@ -75,7 +75,7 @@ export default defineComponent({
     onMounted(() => {
       getCategoryItems();
     });
-    
+
     watch(panel, (value) => {}, { immediate: true, deep: true });
     watch(categoryLength, () => {
       categoryLengthLocal.value = categoryLengthLocal.value * 2;
@@ -193,7 +193,7 @@ export default defineComponent({
   -moz-user-select: none; /* Old versions of Firefox */
   -ms-user-select: none; /* Internet Explorer/Edge */
   user-select: none; /* Non-prefixed version, currently
-                                  supported by Chrome, Edge, Opera and Firefox */
+                            supported by Chrome, Edge, Opera and Firefox */
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -251,6 +251,24 @@ export default defineComponent({
   }
   .v-expansion-panel-header {
     font-weight: bold;
+  }
+}
+@media only screen and (max-width: 600px) {
+  .category-parent {
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+    -khtml-user-select: none; /* Konqueror HTML */
+    -moz-user-select: none; /* Old versions of Firefox */
+    -ms-user-select: none; /* Internet Explorer/Edge */
+    user-select: none; /* Non-prefixed version, currently
+                            supported by Chrome, Edge, Opera and Firefox */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    width: 100% !important;
+    height: 100%;
+    align-self: center;
   }
 }
 </style>
