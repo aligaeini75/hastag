@@ -8,4 +8,19 @@ const getHours = 'api/media/hours'
 const basket = 'api/basket'
 const savePackage = 'api/shop/basket'
 const banner = 'api/shop/banner'
-export { banner , getHours , getDays ,  setFilter, getCategory , getChannelsItem , setAttributeForMedia , getFilter , basket , savePackage  }
+const auth = {
+  login: 'api/login',
+}
+export {
+  banner,
+  getHours,
+  getDays,
+  setFilter,
+  getCategory,
+  getChannelsItem,
+  setAttributeForMedia,
+  getFilter,
+  basket,
+  savePackage,
+  auth
+}

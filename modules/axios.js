@@ -1,34 +1,36 @@
 
 
 import axiosInstance from 'axios'
-  const Axios = axiosInstance.create({
-    baseURL: "https://admindev.httb.ir/",
-    headers: {
-      'Content-Type': 'multipart/form-data' 
+import { Token } from './token';
+const Axios = axiosInstance.create({
+  baseURL: "https://admindev.httb.ir/",
+  headers: {
+    'Content-Type': 'multipart/form-data'
+  },
+  withCredentials: false,
+  transformRequest: [
+    (data) => {
+      return data
     },
-    withCredentials: false,
-    transformRequest: [
-      (data) => {
-          return data
-      },
-    ],
-  })
-  Axios.interceptors.request.use(
-    function (config) {
-      const token = "101|dxbbRap9rIkeUKL8vGqhL7MMwXh9chWKzjri7537"
-      if (token)
+  ],
+})
+Axios.interceptors.request.use(
+  function (config) {
+    // const token = "101|dxbbRap9rIkeUKL8vGqhL7MMwXh9chWKzjri7537"
+    const token = Token.getToken();
+    if (token)
       config.headers.Authorization = "Bearer " + token
-      return config
-    }
-  )
-  Axios.interceptors.response.use(
-    (response) => {
+    return config
+  }
+)
+Axios.interceptors.response.use(
+  (response) => {
 
-      return response;
-    },
-    (requestError) => {
-    }
-  );
+    return response;
+  },
+  (requestError) => {
+  }
+);
 
 export default Axios
 

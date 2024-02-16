@@ -1,5 +1,5 @@
 <template>
-  <div class="tw-bg-white tw-rounded-lg tw-border tw-border-zinc-600/20 mt-7 tw-p-5 tw-py-8">
+  <form @submit.prevent="login" class="tw-bg-white tw-rounded-lg tw-border tw-border-zinc-600/20 mt-7 tw-p-5 tw-py-8">
     <div class="tw-flex tw-justify-between tw-items-center">
       <span class="tw-text-xl tw-font-bold">
         ورود به پنل کاربری
@@ -11,12 +11,13 @@
     <div class="tw-space-y-4 my-6">
       <div>
         <label for="email">ایمیل*</label>
-        <input type="text" id="email"
-          class="tw-mt-2 tw-w-full tw-bg-zinc-100 tw-ring-1 tw-ring-zinc-600/20 tw-rounded-lg tw-p-3" placeholder="ایمیل">
+        <input type="email" id="email" v-model="email" dir="ltr" required
+          class="text-left tw-mt-2 tw-w-full tw-bg-zinc-100 tw-ring-1 tw-ring-zinc-600/20 tw-rounded-lg tw-p-3"
+          placeholder="ایمیل">
       </div>
       <div>
         <label for="password">رمز عبور*</label>
-        <input type="password" id="password"
+        <input type="password" id="password" required v-model="password" dir="ltr"
           class="tw-mt-2 tw-w-full tw-bg-zinc-100 tw-ring-1 tw-ring-zinc-600/20 tw-rounded-lg tw-p-3"
           placeholder="رمز عبور">
       </div>
@@ -35,14 +36,36 @@
         مرا به خاطر داشته باش.
       </label>
     </div>
-    <button
+    <button type="submit"
       class="tw-mt-4 tw-bg-sky-900 tw-w-full tw-rounded-lg tw-text-center tw-py-3 tw-text-white text-base font-medium">
       ورود
     </button>
-  </div>
+  </form>
 </template>
 
-<script>
+<script setup>
+import { ref } from 'vue';
+import AuthService from '../../../../../services/AuthService';
+import Token from '../../../../../modules/token'
+
+const email = ref();
+const password = ref();
+
+const login = async () => {
+  const res = await AuthService.login(
+    {
+      email: email.value,
+      password: password.value,
+      recaptcha: "JKSvY/BLYGXcf2IM//ffHTd7T4-/r3oCCH9pH3=tB4ETmJnGp4L-8wXZ4bP?-MGfAR1eiZ?1N-0mZGXgM?tWPhlrPsFwfhMUt=sQsUyiUJRI9O!ExNuOw4l0kVkxEuyWL765o6ykr8Qeo?SzYpgCB6oBB53!9Ox9w5VIJ4Hrei11QFQ5fBV4dEhvgDZ/TTgEQFTFAU=AgVz/YL/TCWHWgBW2TP!JV!n3=MuRJIaWxfGiDoWtSRHKqK8i9of1!yud"
+    }
+  );
+
+  if (res.data != undefined) {
+    const token = data.data.auth_user.token;
+    Token.setToken(token);
+  }
+}
+
 
 </script>
 
