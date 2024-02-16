@@ -3,6 +3,7 @@ import colors from 'vuetify/es5/util/colors'
 export default {
   ssr: false,
   target: 'static',
+
   head: {
     titleTemplate: '%s - Hashtag',
     title: 'Hashtag',
@@ -16,26 +17,35 @@ export default {
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
     ]
   },
+
   css: [
+    '~/assets/css/tailwind.css',
     '~/assets/fonts/roboto.css'
   ],
+
   components: true,
+
   buildModules: [
     '@nuxtjs/vuetify',
-    '@nuxtjs/composition-api/module' 
+    '@nuxtjs/composition-api/module',
+    '@nuxtjs/tailwindcss'
   ],
+
   modules: [
     '@nuxtjs/axios',
     '@nuxtjs/pwa'
   ],
+
   axios: {
     baseURL: '/',
   },
+
   pwa: {
     manifest: {
       lang: 'en'
     }
   },
+
   vuetify: {
     customVariables: ['~/assets/variables.scss'],
     theme: {
@@ -52,6 +62,11 @@ export default {
       }
     }
   },
+
   build: {
+  },
+
+  devtools: {
+    enabled: true
   }
-}
+};
