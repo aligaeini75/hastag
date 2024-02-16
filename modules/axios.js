@@ -16,8 +16,8 @@ const Axios = axiosInstance.create({
 })
 Axios.interceptors.request.use(
   function (config) {
-    // const token = "101|dxbbRap9rIkeUKL8vGqhL7MMwXh9chWKzjri7537"
-    const token = Token.getToken();
+    const token = "101|dxbbRap9rIkeUKL8vGqhL7MMwXh9chWKzjri7537"
+    // const token = Token.getToken();
     if (token)
       config.headers.Authorization = "Bearer " + token
     return config

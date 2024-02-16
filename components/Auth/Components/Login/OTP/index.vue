@@ -13,10 +13,10 @@
       </div>
     </div>
     <button
-      class="tw-mt-4 tw-bg-sky-900 tw-w-full tw-rounded-lg tw-text-center tw-py-3 tw-text-white text-base font-medium">
+      class="tw-mt-4 tw-bg-primary tw-w-full tw-rounded-lg tw-text-center tw-py-3 tw-text-white text-base font-medium">
       ورود
     </button>
-    <div class="tw-mt-4 tw-flex tw-justify-between tw-text-sky-900 tw-text-sm tw-font-medium">
+    <div class="tw-mt-4 tw-flex tw-justify-between tw-text-primary tw-text-sm tw-font-medium">
       <span>
         ورود با نام کاربری
       </span>

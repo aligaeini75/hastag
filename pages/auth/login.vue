@@ -6,7 +6,7 @@
       <UsernameLogin v-if="!otpLogin" />
       <div class="mt-6">
         <button @click="otpLogin = !otpLogin"
-          class="tw-bg-blue-400/60 tw-text-sky-900 tw-text-sm tw-font-medium tw-text-center tw-w-full py-4 rounded-lg">
+          class="tw-bg-blue-400/60 tw-text-primary tw-text-sm tw-font-medium tw-text-center tw-w-full py-4 rounded-lg">
           ورود با شماره تلفن
         </button>
       </div>

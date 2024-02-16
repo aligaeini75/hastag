@@ -56,7 +56,7 @@
           </span>
         </div>
         <button
-          class="mt-4 tw-bg-sky-900 tw-w-full tw-rounded-lg tw-text-center tw-py-3 tw-text-white text-base font-medium">
+          class="mt-4 tw-bg-primary tw-w-full tw-rounded-lg tw-text-center tw-py-3 tw-text-white text-base font-medium">
           ارسال کد تایید
         </button>
       </div>

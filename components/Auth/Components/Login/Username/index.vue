@@ -4,7 +4,7 @@
       <span class="tw-text-xl tw-font-bold">
         ورود به پنل کاربری
       </span>
-      <NuxtLink to="/auth/register" class="tw-text-sky-900 tw-text-xs font-weight-medium ">
+      <NuxtLink to="/auth/register" class="tw-text-primary tw-text-xs font-weight-medium ">
         اگر ثبت نام نکردید کلیک کنید.
       </NuxtLink>
     </div>
@@ -32,13 +32,15 @@
     </div>
     <div class="tw-flex tw-items-center tw-mt-4 tw-space-x-2 tw-space-x-reverse">
       <input type="checkbox" id="remember" class="tw-mr-2">
-      <label for="remember" class="tw-text-sky-900 tw-text-sm tw-font-medium">
+      <label for="remember" class="tw-text-primary tw-text-sm tw-font-medium">
         مرا به خاطر داشته باش.
       </label>
     </div>
     <button type="submit"
-      class="tw-mt-4 tw-bg-sky-900 tw-w-full tw-rounded-lg tw-text-center tw-py-3 tw-text-white text-base font-medium">
-      ورود
+      class="tw-mt-4 tw-bg-primary tw-w-full tw-rounded-lg tw-text-center tw-py-3 tw-text-white text-base font-medium">
+      <span class="tw-text-white">
+        ورود
+      </span>
     </button>
   </form>
 </template>
