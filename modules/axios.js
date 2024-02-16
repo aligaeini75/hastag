@@ -1,7 +1,7 @@
 
 
 import axiosInstance from 'axios'
-import { Token } from './token';
+import Token from './token';
 const Axios = axiosInstance.create({
   baseURL: "https://admindev.httb.ir/",
   headers: {
