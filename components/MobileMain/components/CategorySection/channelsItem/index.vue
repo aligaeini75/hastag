@@ -56,18 +56,41 @@
             justify-content: space-between;
           "
         >
-          <div
-            style="
-              display: flex;
-              flex-direction: row;
-              justify-content: left;
-              align-items: top;
-            "
-          >
-            <img
-              src="/images/more-mobile.svg"
-              style="width: 40px; height: 40px"
-            />
+          <div>
+            <div
+              style="
+                display: flex;
+                flex-direction: row;
+                justify-content: left;
+                align-items: top;
+              "
+            >
+              <img
+                src="/images/more-mobile.svg"
+                :id="`more${item.id}`"
+                style="width: 40px; height: 40px"
+                @click="moreClick(item.id)"
+              />
+            </div>
+            <div
+              class="more-box"
+              v-if="moreBoxTop"
+              :style="{ top: moreBoxTop, left: moreBoxLeft }"
+            >
+              <div class="more-box-top">
+                <img
+                  src="/images/content/more-black.svg"
+                  @click="closeMoreBox()"
+                />
+              </div>
+              <div
+                class="more-box-bottom"
+                style="cursor: pointer"
+                @click="block(item)"
+              >
+                <span>قرار دادن در بلک لیست</span>
+              </div>
+            </div>
           </div>
           <div style="display: flex; flex-direction: row">
             <div
@@ -735,6 +758,7 @@ export default defineComponent({
   flex-direction: column;
   gap: 8px;
   z-index: 100 !important;
+
   .advertise-box-item {
     width: 90%;
     padding: 2px;
@@ -750,6 +774,7 @@ export default defineComponent({
     color: black;
   }
 }
+
 .content-parent-desktop-order-11-section3_1_2 {
   .content-parent-desktop-order-11-button-section-parent-select {
     width: 91.6px;
@@ -763,6 +788,7 @@ export default defineComponent({
     align-items: center;
     direction: rtl;
     padding: 8px;
+
     span {
       font-size: 13px;
       font-weight: 500;
@@ -771,22 +797,26 @@ export default defineComponent({
       text-align: right;
       color: #000000;
     }
+
     img {
       width: 16px;
       height: 16px;
     }
   }
+
   display: flex;
   flex-direction: column;
   gap: 8px;
   color: #404040;
   font-size: 14px;
+
   .bold {
     font-weight: bold;
     color: #404040;
     font-size: 16px;
   }
 }
+
 @media screen and (max-width: 700px) {
   .calender-parent {
     border-radius: 8px;
@@ -801,9 +831,53 @@ export default defineComponent({
     padding: 8px;
     justify-content: center;
     align-items: center;
+
     img {
       width: 46px;
       height: 46px;
+    }
+  }
+}
+
+.more-box {
+  width: 161px;
+  height: 60px;
+  background: #f5f5f5;
+  box-shadow: 0px 4px 9px rgba(0, 0, 0, 0.25);
+  border-radius: 10px;
+  position: absolute;
+  z-index: 3 !important;
+  display: flex;
+  flex-direction: column;
+  .more-box-top {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    padding-left: 8px;
+  }
+  .more-box-bottom {
+    width: 147px;
+    height: 29px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    background-color: white;
+    border-radius: 7px;
+    align-self: center;
+    padding-left: 4px;
+    border-radius: 7px;
+    span {
+      font-style: normal;
+      font-weight: 300;
+      font-size: 14px;
+      line-height: 22px;
+      display: flex;
+      align-items: center;
+      text-align: right;
+      color: #404040;
     }
   }
 }
