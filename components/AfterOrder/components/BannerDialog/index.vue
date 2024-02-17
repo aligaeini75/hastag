@@ -546,6 +546,7 @@ input[type="file"] {
       }
     }
     .after-order-dialog-parent-content-left {
+      position: relative;
       display: flex;
       flex-grow: 1;
       flex-direction: row;
@@ -556,8 +557,8 @@ input[type="file"] {
         width: 159px;
         background-color: white;
         position: absolute;
-        bottom: 250px;
-        left: 525px;
+        bottom: 7.5rem;
+        left: 4rem;
         border-radius: 7px;
         display: flex;
         flex-direction: column;

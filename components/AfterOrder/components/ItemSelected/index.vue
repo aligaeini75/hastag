@@ -166,8 +166,8 @@
               <img src="/images/afterOrder/line2.svg" />
               <div
                 class="banner-select"
-                v-if="!bannerButtonStateInner"
-                @click="bannerButtonStateInner = true"
+                v-if="bannerButtonStateInner != item.id"
+                @click="bannerButtonStateInner = item.id"
               >
                 <span>انتخاب بنر</span>
                 <img src="/images/afterOrder/arrow-right.svg" />
@@ -175,7 +175,7 @@
               <div
                 class="banner-button-selected-inner"
                 v-else
-                @click="bannerButtonStateInner = false"
+                @click="bannerButtonStateInner = 0"
               >
                 <div class="ti">
                   <span>انتخاب بنر</span>
@@ -242,7 +242,7 @@ export default defineComponent({
     const date = ref(null);
     const activeId = ref(null);
     const calenderActive = ref(false);
-    const bannerButtonStateInner = ref(false);
+    const bannerButtonStateInner = ref(0);
     const hourItems = ref([
       { top: "13", bottom: "16 الی 18" },
       { top: "13", bottom: "16 الی 18" },
@@ -553,7 +553,7 @@ export default defineComponent({
   }
   .content {
     width: 1010px;
-    height: 200px;
+    // height: 200px;
     border: 0.1px solid #d9d9d9;
     background-color: white;
     border-radius: 13px;
@@ -612,6 +612,7 @@ export default defineComponent({
           img {
             width: 52px;
             height: 52px;
+            object-fit: cover;
           }
         }
         .left {
