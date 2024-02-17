@@ -44,30 +44,30 @@
     </div>
 
 </template>
-  
+
   <script>
   import { defineComponent , ref } from '@nuxtjs/composition-api'
   export default defineComponent({
-    components : { } , 
+    components : { } ,
     setup() {
         const titleItems = ref([
             { key : 'تعداد تبلیغ ها:' , value : '3' } ,
-            { key : 'دنبال کننده ها:' , value : '20.000'} , 
+            { key : 'دنبال کننده ها:' , value : '20.000'} ,
             { key : 'بازدید :' , value : '13.000'}
         ])
         const orderDetailItem = ref([
             { key : 'مبلغ سفارش:' , value : '90.000' } ,
-            { key : 'اعتبار:' , value : '90.000'} , 
-            { key : 'مالیات:' , value : '0%'}
+            { key : 'اعتبار:' , value : '90.000'} ,
+            // { key : 'مالیات:' , value : '0%'}
         ])
         const orderDetailCountItems = ref([
-            { icon : "/images/order/telegram.svg" , title : "5 کانال" } , 
-            { icon : "/images/order/instagram.svg" , title : "3 پیج" } , 
+            { icon : "/images/order/telegram.svg" , title : "5 کانال" } ,
+            { icon : "/images/order/instagram.svg" , title : "3 پیج" } ,
             { icon : "/images/order/package.svg" , title : "2 پکیج" }
         ])
         const checkboxes = ref([
-            { title : "برداشت از اعتبار" } , 
-            { title : "فاکتور رسمی میخواهم (+ 9 درصد مالیات)" } 
+            { title : "برداشت از اعتبار" } ,
+            { title : "فاکتور رسمی میخواهم (+ 9 درصد مالیات)" }
                 ])
       return { checkboxes , titleItems , orderDetailCountItems , orderDetailItem }
     },
@@ -79,7 +79,7 @@
   }
   .order-factor-mobile-parent {
     width: 370px ;
-    height:910px ; 
+    height:910px ;
     border-radius: 8px ;
     background-color: white ;
     margin-top: 30px;
@@ -115,9 +115,9 @@
         display: flex ;
         flex-direction: row ;
         justify-content: space-between ;
-        width: 278.01px ; 
-        height: 32.57px ; 
-        border-radius: 50px ; 
+        width: 278.01px ;
+        height: 32.57px ;
+        border-radius: 50px ;
         background-color: #F0F0F0;
         align-items: center;
         padding: 12px;
@@ -127,9 +127,9 @@
             flex-direction: row ;
             gap: 8px ;
             .order-detail-count-item-icon {
-                width: 23px ; 
-                height: 23px ; 
-                border-radius: 50px ; 
+                width: 23px ;
+                height: 23px ;
+                border-radius: 50px ;
             }
             .order-detail-count-item-title {
                 font-size: 17px;
@@ -147,9 +147,9 @@
         padding: 0 !important;
     }
     .order-detail {
-        width: 299.81px ; 
-        height: 357.46px ; 
-        border-radius: 13px ; 
+        width: 299.81px ;
+        height: 357.46px ;
+        border-radius: 13px ;
         background-color: #F0F0F0 ;
         align-self: center ;
         display: flex ;
@@ -200,14 +200,14 @@
 
             }
             .order-detail-item-with-checkbox-value {
-                
+
             }
 
         }
         .order-detail-takhfif-input {
-            width: 251.28px ; 
-            height: 56.26px ; 
-            border-radius: 10px ; 
+            width: 251.28px ;
+            height: 56.26px ;
+            border-radius: 10px ;
             background-color: white ;
             align-self: center;
             display: flex ;
@@ -228,7 +228,7 @@
                 all: unset;
                 width: 100%;
                 padding-right: 16px;
-                
+
             }
 
         }
@@ -249,9 +249,9 @@
             align-items: center;
             gap: 8px ;
             .checkbox-section-checkbox {
-                width: 25px ; 
-                height: 25px ; 
-                border-radius: 7px ; 
+                width: 25px ;
+                height: 25px ;
+                border-radius: 7px ;
                 background-color: #e4e4e4;
 
             }
@@ -267,9 +267,9 @@
         }
     }
     .submit-button {
-        width: 299.81px ; 
-        height: 55.34px !important; 
-        border-radius: 13px ; 
+        width: 299.81px ;
+        height: 55.34px !important;
+        border-radius: 13px ;
         align-self: center;
         background-color: #58A65C ;
         display: flex ;
@@ -298,5 +298,4 @@
 
   }
 </style>
-  
-  
+

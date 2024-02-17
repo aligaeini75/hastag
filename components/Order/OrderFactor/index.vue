@@ -56,7 +56,7 @@
         />
         <div class="checkbox-section-title">{{ checkboxes[0].title }}</div>
       </div>
-      <!--  -->
+      <!--
       <div class="checkbox-section">
         <div
           class="checkbox-section-checkbox"
@@ -71,6 +71,7 @@
         />
         <div class="checkbox-section-title">{{ checkboxes[1].title }}</div>
       </div>
+       -->
     </div>
     <div class="submit-button">پرداخت صورتحساب</div>
     <div class="description">
@@ -107,7 +108,7 @@ export default defineComponent({
     const orderDetailItem = ref([
       { key: "مبلغ سفارش:", value: "90.000" },
       { key: "اعتبار:", value: 1000 },
-      { key: "مالیات:", value: "0%" },
+      // { key: "مالیات:", value: "0%" },
     ]);
     const orderDetailCountItems = ref([
       { icon: "/images/order/telegram.svg", title: "5 کانال" },
