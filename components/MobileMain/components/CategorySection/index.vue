@@ -224,8 +224,10 @@ import {
 import {
   categorySelected,
   changeCategoryLength,
+  categoryChangeRequest,
 } from "../../../../composition/Category/index";
 import { sortField, sortType } from "../../../../composition/Sort/index";
+
 import {
   finalPlatform,
   price,
@@ -275,6 +277,21 @@ export default defineComponent({
       );
       changeCategoryLength();
     };
+
+    watch(categoryChangeRequest, (value) => {
+      getChannelItems(
+        page.value,
+        categorySelected.value,
+        finalPlatform.value,
+        price.value,
+        members.value,
+        visitNum.value,
+        attribute.value,
+        newFilter.value,
+        sortField.value,
+        sortType.value
+      );
+    });
     const changeBoxTitle = () => {
       boxTitle.value = !boxTitle.value;
     };
