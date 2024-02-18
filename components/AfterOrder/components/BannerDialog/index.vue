@@ -109,6 +109,20 @@
               />
             </div>
             <div class="after-order-dialog-parent-content-right-title">
+              <span>سایر توضیحات و بنر فورواردی</span>
+              <div class="question">
+                <img src="/images/afterOrder/question.svg" />
+              </div>
+            </div>
+            <div class="tw-mt-2">
+              <textarea
+                v-model="bannerDescription"
+                class="tw-w-full tw-bg-neutral-100 tw-border tw-border-zinc-500 tw-rounded-lg tw-p-2 tw-resize-none"
+                placeholder="اگر انتشار بنر توضیحی نیاز دارد که ما باید بدانیم، اینجا بنویسید.
+اگر می‌خواهید بنر از کانال شما فوروارد شود، لینک بنر را این‌جا قرار دهید."
+              ></textarea>
+            </div>
+            <div class="after-order-dialog-parent-content-right-title">
               <span>عنوان بنر</span>
               <div class="question">
                 <img src="/images/afterOrder/question.svg" />
@@ -174,12 +188,13 @@ export default defineComponent({
     const postImage = ref("/images/afterOrder/post.svg");
     const bannerLanding = ref("");
     const bannerTitle = ref("");
+    const bannerDescription = ref("");
     const submit = async () => {
       const { data } = await BannerDataService.store(
         bannerTitle.value,
         linkStatus.value,
         bannerLanding.value,
-        "description",
+        bannerDescription.value,
         contentHolder.value
       );
     };
@@ -258,6 +273,7 @@ export default defineComponent({
       postImage,
       bannerLanding,
       bannerTitle,
+      bannerDescription,
       linkStatus,
       submit,
     };
