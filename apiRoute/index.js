@@ -10,6 +10,7 @@ const savePackage = 'api/shop/basket'
 const banner = 'api/shop/banner'
 const auth = {
   login: 'api/login',
+  register: 'api/register/customer',
 }
 export {
   banner,
