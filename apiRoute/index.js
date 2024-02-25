@@ -12,6 +12,11 @@ const auth = {
   login: 'api/login',
   register: 'api/register/customer',
 }
+
+const profile = {
+  profile: 'api/customer/profile',
+  update: 'api/customer/profile',
+}
 export {
   banner,
   getHours,
@@ -23,5 +28,6 @@ export {
   getFilter,
   basket,
   savePackage,
-  auth
+  auth,
+  profile,
 }
